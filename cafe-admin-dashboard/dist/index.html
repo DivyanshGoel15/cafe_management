@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Brew &amp; Co — Commercial Cafe Admin Dashboard</title>
+  <meta name="description" content="Production-quality Cafe Admin &amp; Operations Management Dashboard for Brew &amp; Co.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+  <script type="module" crossorigin src="/assets/index-0edSg8DG.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/index-CYQNS5-7.css">
+</head>
+<body>
+
+  <!-- ══════════════════════════════════════════════════════════════
+       1. AUTHENTICATION OVERLAY / SCREEN
+       ══════════════════════════════════════════════════════════════ -->
+  <div class="auth-wrapper" id="auth-screen" style="display:none;">
+    <div class="auth-card">
+      <div class="auth-header">
+        <div class="auth-logo-badge">☕</div>
+        <div class="auth-title">Brew &amp; Co Cafe</div>
+        <div class="auth-subtitle">Manager &amp; Staff Operations Gateway</div>
+      </div>
+
+      <div class="auth-body">
+        <!-- Quick Demo Role Switcher -->
+        <div class="demo-role-selector">
+          <div class="demo-role-title">⚡ Instant Demo Switcher</div>
+          <div class="demo-buttons">
+            <button type="button" class="demo-btn" onclick="window.quickLoginAs('Owner')">👑 Owner</button>
+            <button type="button" class="demo-btn" onclick="window.quickLoginAs('Manager')">👔 Manager</button>
+            <button type="button" class="demo-btn" onclick="window.quickLoginAs('Staff')">☕ Staff</button>
+          </div>
+        </div>
+
+        <form id="auth-login-form" onsubmit="window.handleLoginSubmit(event)">
+          <div id="login-error-msg" style="display:none; background:var(--red-bg); color:var(--red); padding:8px 12px; border-radius:6px; font-size:12px; font-weight:600; margin-bottom:14px; border:1px solid var(--red-border);"></div>
+
+          <div class="form-group">
+            <label class="form-label">Email Address</label>
+            <input type="email" class="form-input" id="login-email" required value="owner@brewandco.com" placeholder="name@brewandco.com">
+          </div>
+
+          <div class="form-group">
+            <div style="display:flex; justify-content:space-between; align-items:center;">
+              <label class="form-label">Password</label>
+              <button type="button" style="font-size:11px; color:var(--accent); font-weight:600;" onclick="window.openForgotPasswordModal()">Forgot?</button>
+            </div>
+            <input type="password" class="form-input" id="login-password" required value="cafe123" placeholder="••••••••">
+          </div>
+
+          <div style="display:flex; align-items:center; justify-content:space-between; margin:14px 0 18px;">
+            <label style="display:flex; align-items:center; gap:8px; font-size:12.5px; cursor:pointer;">
+              <input type="checkbox" id="login-remember" checked>
+              <span>Remember session</span>
+            </label>
+            <span style="font-size:11px; color:var(--muted);">Demo pwd: <code>cafe123</code></span>
+          </div>
+
+          <button type="submit" class="btn btn-primary w-full" id="btn-login-submit" style="padding:10px; font-size:14px;">Sign In to Dashboard</button>
+
+          <!-- Security Policy Notice -->
+          <div style="margin-top:16px; padding:10px 12px; background:#FAFAF9; border:1px solid var(--border); border-radius:6px; font-size:11.5px; color:var(--muted); line-height:1.45; display:flex; align-items:flex-start; gap:8px;">
+            <span style="font-size:14px; color:var(--accent);">🔒</span>
+            <div>
+              <strong style="color:var(--text); font-weight:600;">Closed Operations Gateway:</strong> Public registration is disabled. Managing authority accounts (Manager &amp; Staff) can only be created by the Cafe Owner.
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════════════════════
+       MAIN DASHBOARD APPLICATION SHELL
+       ══════════════════════════════════════════════════════════════ -->
+  <div class="shell">
+
+    <!-- Mobile Drawer Backdrop -->
+    <div class="mobile-backdrop" id="mobile-sidebar-backdrop" onclick="window.closeMobileSidebar()"></div>
+
+    <!-- ── SIDEBAR NAVIGATION ── -->
+    <aside class="sidebar" id="app-sidebar">
+      <div class="sb-brand">
+        <div class="sb-brand-main">
+          <div class="sb-logo-mark">☕</div>
+          <div class="sb-brand-text">
+            <div class="sb-brand-name">Brew &amp; Co</div>
+            <div class="sb-brand-tag">Cafe Management</div>
+          </div>
+        </div>
+        <button class="sb-collapse-btn" onclick="window.toggleSidebarCollapse()" title="Toggle Sidebar Width">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 19l-7-7 7-7m8 14l-7-7 7-7"/></svg>
+        </button>
+      </div>
+
+      <nav class="sb-nav-wrap">
+        <!-- Overview -->
+        <div class="sb-section-label">Overview</div>
+        <a class="sb-item active" data-route="dashboard" onclick="window.router.navigate('dashboard')">
+          <div class="sb-item-left">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+            <span class="sb-item-label">Dashboard</span>
+          </div>
+        </a>
+
+        <!-- Operations -->
+        <div class="sb-section-label">Operations</div>
+        <a class="sb-item" data-route="orders" onclick="window.router.navigate('orders')">
+          <div class="sb-item-left">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+            <span class="sb-item-label">Orders</span>
+          </div>
+          <span class="sb-item-badge" id="sb-badge-orders" style="display:none;">0</span>
+        </a>
+        <a class="sb-item" data-route="bookings" onclick="window.router.navigate('bookings')">
+          <div class="sb-item-left">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            <span class="sb-item-label">Bookings</span>
+          </div>
+          <span class="sb-item-badge" id="sb-badge-bookings" style="display:none;">0</span>
+        </a>
+        <a class="sb-item" data-route="tables" onclick="window.router.navigate('tables')">
+          <div class="sb-item-left">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="4" width="16" height="16" rx="2"/><line x1="4" y1="10" x2="20" y2="10"/><line x1="10" y1="4" x2="10" y2="20"/></svg>
+            <span class="sb-item-label">Tables</span>
+          </div>
+        </a>
+        <a class="sb-item" data-route="menu" onclick="window.router.navigate('menu')">
+          <div class="sb-item-left">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 2h18M3 8h18M3 14h12M3 20h7"/></svg>
+            <span class="sb-item-label">Menu</span>
+          </div>
+        </a>
+
+        <!-- Customers & Growth -->
+        <div class="sb-section-label">Growth &amp; CRM</div>
+        <a class="sb-item" data-route="customers" onclick="window.router.navigate('customers')">
+          <div class="sb-item-left">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+            <span class="sb-item-label">Customers</span>
+          </div>
+        </a>
+        <a class="sb-item" data-route="staff" onclick="window.router.navigate('staff')">
+          <div class="sb-item-left">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><polyline points="16 11 18 13 22 9"/></svg>
+            <span class="sb-item-label">Staff &amp; Roles</span>
+          </div>
+        </a>
+        <a class="sb-item" data-route="analytics" onclick="window.router.navigate('analytics')">
+          <div class="sb-item-left">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+            <span class="sb-item-label">Analytics</span>
+          </div>
+        </a>
+        <a class="sb-item" data-route="offers" onclick="window.router.navigate('offers')">
+          <div class="sb-item-left">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="8" width="18" height="12" rx="2"/><path d="M12 8v12"/><path d="M19 12l-7 7-7-7"/><path d="M12 3a3 3 0 0 0-3 3v2h6V6a3 3 0 0 0-3-3z"/></svg>
+            <span class="sb-item-label">Offers</span>
+          </div>
+        </a>
+        <a class="sb-item" data-route="reviews" onclick="window.router.navigate('reviews')">
+          <div class="sb-item-left">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <span class="sb-item-label">Reviews</span>
+          </div>
+        </a>
+
+        <!-- Intelligence & Systems -->
+        <div class="sb-section-label">Automation &amp; AI</div>
+        <a class="sb-item" data-route="whatsapp" onclick="window.router.navigate('whatsapp')">
+          <div class="sb-item-left">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+            <span class="sb-item-label">WhatsApp</span>
+          </div>
+          <span class="sb-item-badge badge-dot" title="Live Webhook Active"></span>
+        </a>
+        <a class="sb-item" data-route="ai-calling" onclick="window.router.navigate('ai-calling')">
+          <div class="sb-item-left">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013 12.58a19.79 19.79 0 01-3.07-8.67A2 2 0 011.92 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+            <span class="sb-item-label">AI Calling</span>
+          </div>
+          <span class="sb-item-badge badge-dot" style="background:#7C3AED;" title="Voice Agent Active"></span>
+        </a>
+        <a class="sb-item" data-route="qr-system" onclick="window.router.navigate('qr-system')">
+          <div class="sb-item-left">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+            <span class="sb-item-label">Table QR Orders</span>
+          </div>
+        </a>
+
+        <!-- System -->
+        <div class="sb-section-label">System</div>
+        <a class="sb-item" data-route="notifications" onclick="window.router.navigate('notifications')">
+          <div class="sb-item-left">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 01-3.46 0"/></svg>
+            <span class="sb-item-label">Notifications</span>
+          </div>
+        </a>
+        <a class="sb-item" data-route="settings" onclick="window.router.navigate('settings')">
+          <div class="sb-item-left">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-2 2 2 2 0 01-2-2v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83 0 2 2 0 010-2.83l.06-.06a1.65 1.65 0 00.33-1.82 1.65 1.65 0 00-1.51-1H3a2 2 0 01-2-2 2 2 0 012-2h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 010-2.83 2 2 0 012.83 0l.06.06a1.65 1.65 0 001.82.33H9a1.65 1.65 0 001-1.51V3a2 2 0 012-2 2 2 0 012 2v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 0 2 2 0 010 2.83l-.06.06a1.65 1.65 0 00-.33 1.82V9a1.65 1.65 0 001.51 1H21a2 2 0 012 2 2 2 0 01-2 2h-.09a1.65 1.65 0 00-1.51 1z"/></svg>
+            <span class="sb-item-label">Settings</span>
+          </div>
+        </a>
+
+        <!-- Hub Command Center Link -->
+        <div class="sb-section-label">Hub</div>
+        <a class="sb-item" href="http://localhost:4000" target="_blank" style="color: #A78BFA;">
+          <div class="sb-item-left">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
+            <span class="sb-item-label">Command Center</span>
+          </div>
+          <span class="sb-item-badge badge-dot" style="background:#A78BFA;" title="Hub Control Panel"></span>
+        </a>
+      </nav>
+
+      <!-- Sidebar Footer (User Account & Logout) -->
+      <div class="sb-footer">
+        <div class="sb-user-card">
+          <div class="sb-user-info">
+            <div class="sb-ava-circle" id="sb-user-avatar">AS</div>
+            <div class="sb-user-text">
+              <div class="sb-ava-name" id="sb-user-name">Aditya Singhal</div>
+              <div class="sb-ava-role" id="sb-user-role">Owner Account</div>
+            </div>
+          </div>
+          <button class="sb-logout-btn" onclick="window.handleLogout()" title="Sign Out">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+          </button>
+        </div>
+      </div>
+    </aside>
+
+    <!-- ── MAIN WRAPPER ── -->
+    <div class="main">
+
+      <!-- ── TOPBAR ── -->
+      <header class="topbar">
+        <div class="topbar-left">
+          <!-- Mobile Hamburger Toggle -->
+          <button class="topbar-mobile-toggle" onclick="window.openMobileSidebar()" title="Open Navigation">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+          </button>
+          <div class="page-title" id="topbar-page-title">Dashboard</div>
+        </div>
+
+        <div class="topbar-right">
+          <!-- Quick Role Switcher -->
+          <div class="topbar-role-selector" style="display:flex; align-items:center; gap:6px; background:#F4F3F0; border:1px solid var(--border); border-radius:20px; padding:3px 10px;">
+            <span style="font-size:11px; font-weight:600; color:var(--muted); text-transform:uppercase;">Role:</span>
+            <select id="topbar-role-select" onchange="window.quickLoginAs(this.value)" style="background:transparent; border:none; font-size:12px; font-weight:600; color:var(--accent); outline:none; cursor:pointer;">
+              <option value="Owner">👑 Owner (Full)</option>
+              <option value="Manager">👔 Manager</option>
+              <option value="Staff">☕ Staff</option>
+            </select>
+          </div>
+          <span class="topbar-time" id="topbar-clock"></span>
+
+          <!-- Notification Bell -->
+          <button class="notif-bell-btn" onclick="window.router.navigate('notifications')" title="Notifications">
+            <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 01-3.46 0"/></svg>
+            <span class="notif-badge-pill" id="notif-badge-counter" style="display:none;">0</span>
+          </button>
+
+          <!-- Quick Action -->
+          <button class="btn btn-primary btn-sm" onclick="window.openNewOrderModal()">
+            <span>+ New Order</span>
+          </button>
+        </div>
+      </header>
+
+      <!-- ── CONTENT VIEW CONTAINER ── -->
+      <main class="content" id="main-content">
+        <!-- 15 Modular View Mountpoints -->
+        <div id="view-dashboard" class="page-view active"></div>
+        <div id="view-orders" class="page-view"></div>
+        <div id="view-bookings" class="page-view"></div>
+        <div id="view-tables" class="page-view"></div>
+        <div id="view-menu" class="page-view"></div>
+        <div id="view-customers" class="page-view"></div>
+        <div id="view-staff" class="page-view"></div>
+        <div id="view-analytics" class="page-view"></div>
+        <div id="view-offers" class="page-view"></div>
+        <div id="view-reviews" class="page-view"></div>
+        <div id="view-whatsapp" class="page-view"></div>
+        <div id="view-ai-calling" class="page-view"></div>
+        <div id="view-qr-system" class="page-view"></div>
+        <div id="view-notifications" class="page-view"></div>
+        <div id="view-settings" class="page-view"></div>
+      </main>
+
+    </div><!-- /main -->
+  </div><!-- /shell -->
+
+  <!-- Drawer Backdrop -->
+  <div class="drawer-backdrop" id="drawer-backdrop"></div>
+
+  <!-- Bootstrapper Module -->
+</body>
+</html>

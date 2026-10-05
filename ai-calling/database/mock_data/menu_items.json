@@ -1,0 +1,134 @@
+[
+  {
+    "id": "menu-01",
+    "name": "Truffle Mushroom Fettuccine",
+    "category": "Mains / Pasta",
+    "price": 22.50,
+    "description": "Handmade fettuccine pasta tossed in wild porcini mushroom ragu, black truffle oil, and aged Parmigiano Reggiano.",
+    "is_vegetarian": true,
+    "is_vegan": false,
+    "is_gluten_free": false,
+    "popular": true
+  },
+  {
+    "id": "menu-02",
+    "name": "Grilled Rosemary Lamb Chops",
+    "category": "Mains",
+    "price": 31.00,
+    "description": "Grass-fed lamb chops with roasted garlic fingerling potatoes and mint pomegranate reduction.",
+    "is_vegetarian": false,
+    "is_vegan": false,
+    "is_gluten_free": true,
+    "popular": true
+  },
+  {
+    "id": "menu-03",
+    "name": "Margherita D.O.C. Pizza",
+    "category": "Wood-Fired Pizza",
+    "price": 18.00,
+    "description": "San Marzano tomato sauce, fresh buffalo mozzarella, fresh basil, and extra virgin olive oil.",
+    "is_vegetarian": true,
+    "is_vegan": false,
+    "is_gluten_free": false,
+    "popular": true
+  },
+  {
+    "id": "menu-04",
+    "name": "Spicy Diavola Pizza",
+    "category": "Wood-Fired Pizza",
+    "price": 21.00,
+    "description": "Artisan spicy soppressata salami, Calabrian chili oil, fior di latte, and organic honey drizzle.",
+    "is_vegetarian": false,
+    "is_vegan": false,
+    "is_gluten_free": false,
+    "popular": false
+  },
+  {
+    "id": "menu-05",
+    "name": "Roasted Mediterranean Burrata",
+    "category": "Starters",
+    "price": 16.50,
+    "description": "Creamy Puglia burrata served with blistered heirloom cherry tomatoes, basil pesto, and grilled sourdough.",
+    "is_vegetarian": true,
+    "is_vegan": false,
+    "is_gluten_free": false,
+    "popular": true
+  },
+  {
+    "id": "menu-06",
+    "name": "Crispy Calamari Fritti",
+    "category": "Starters",
+    "price": 17.00,
+    "description": "Lightly dusted wild-caught squid with lemon herb aioli and spicy marinara dip.",
+    "is_vegetarian": false,
+    "is_vegan": false,
+    "is_gluten_free": true,
+    "popular": false
+  },
+  {
+    "id": "menu-07",
+    "name": "Avocado & Quinoa Power Bowl",
+    "category": "Salads & Bowls",
+    "price": 16.00,
+    "description": "Organic red quinoa, Hass avocado, massaged kale, roasted chickpeas, cucumber ribbons, and creamy tahini lemon dressing.",
+    "is_vegetarian": true,
+    "is_vegan": true,
+    "is_gluten_free": true,
+    "popular": true
+  },
+  {
+    "id": "menu-08",
+    "name": "Pan-Seared Chilean Sea Bass",
+    "category": "Mains",
+    "price": 34.00,
+    "description": "Wild-caught sea bass served over saffron risotto and asparagus spears.",
+    "is_vegetarian": false,
+    "is_vegan": false,
+    "is_gluten_free": true,
+    "popular": true
+  },
+  {
+    "id": "menu-09",
+    "name": "Classic Tiramisu",
+    "category": "Desserts",
+    "price": 9.50,
+    "description": "Espresso-soaked ladyfingers, mascarpone cream, dark Valrhona cocoa powder.",
+    "is_vegetarian": true,
+    "is_vegan": false,
+    "is_gluten_free": false,
+    "popular": true
+  },
+  {
+    "id": "menu-10",
+    "name": "Vegan Mango Passionfruit Panna Cotta",
+    "category": "Desserts",
+    "price": 10.00,
+    "description": "Silky coconut cream panna cotta infused with vanilla bean and topped with fresh passionfruit coulis.",
+    "is_vegetarian": true,
+    "is_vegan": true,
+    "is_gluten_free": true,
+    "popular": false
+  },
+  {
+    "id": "menu-11",
+    "name": "Specialty Ethiopian Yirgacheffe Pour-Over",
+    "category": "Beverages / Coffee",
+    "price": 6.50,
+    "description": "Single-origin pour-over with notes of bergamot, jasmine, and citrus blossom.",
+    "is_vegetarian": true,
+    "is_vegan": true,
+    "is_gluten_free": true,
+    "popular": true
+  },
+  {
+    "id": "menu-12",
+    "name": "Oat Milk Lavender Honey Latte",
+    "category": "Beverages / Coffee",
+    "price": 6.75,
+    "description": "Double espresso, organic culinary lavender syrup, wildflower honey, and steamed Minor Figures oat milk.",
+    "is_vegetarian": true,
+    "is_vegan": false,
+    "is_gluten_free": true,
+    "popular": true
+  }
+]

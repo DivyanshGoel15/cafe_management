@@ -1,0 +1,71 @@
+{
+  "cafeName": "Brew & Co — Cafe Management Platform",
+  "version": "1.0.0",
+  "description": "Toggle modules ON/OFF. Set 'enabled' to true or false to show/hide each module across the entire platform.",
+  "modules": {
+    "cafe-admin-dashboard": {
+      "enabled": true,
+      "name": "Admin Dashboard",
+      "description": "Full CRM, Orders, Bookings, Tables, Menu, Staff, Analytics & Settings",
+      "icon": "📊",
+      "type": "frontend",
+      "port": 5173,
+      "path": "./cafe-admin-dashboard",
+      "startCommand": "npm run dev",
+      "color": "#6366F1"
+    },
+    "customer-website": {
+      "enabled": true,
+      "name": "Customer Website",
+      "description": "Public-facing cafe website with menu, reservations, gallery & offers",
+      "icon": "🌐",
+      "type": "frontend",
+      "port": 5174,
+      "path": "./customer-website",
+      "startCommand": "npm run dev",
+      "color": "#B87333"
+    },
+    "qr-system": {
+      "enabled": true,
+      "name": "QR Dine-In Ordering",
+      "description": "Table QR code scanning, dine-in ordering, kitchen display & payments",
+      "icon": "📱",
+      "type": "backend",
+      "port": 8000,
+      "path": "./qr-system",
+      "startCommand": "python run.py",
+      "color": "#10B981"
+    },
+    "ai-calling": {
+      "enabled": true,
+      "name": "AI Voice Calling",
+      "description": "Voice concierge with STT, LLM & TTS — handles phone reservations & inquiries",
+      "icon": "🎙️",
+      "type": "backend",
+      "port": 8001,
+      "path": "./ai-calling",
+      "startCommand": "python -m backend.main",
+      "color": "#7C3AED"
+    },
+    "whatsapp-automation": {
+      "enabled": true,
+      "name": "WhatsApp Automation",
+      "description": "WhatsApp Cloud API messaging, campaigns, templates & chatbot workflows",
+      "icon": "💬",
+      "type": "backend",
+      "port": 8002,
+      "path": "./whatsapp-automation",
+      "startCommand": "python run.py",
+      "color": "#25D366"
+    }
+  },
+  "integrations": {
+    "dashboard_shows_whatsapp": true,
+    "dashboard_shows_ai_calling": true,
+    "dashboard_shows_qr_system": true,
+    "customer_website_links_to_qr": true,
+    "whatsapp_notifies_dashboard": true,
+    "ai_calling_updates_bookings": true,
+    "qr_orders_appear_in_dashboard": true
+  }
+}

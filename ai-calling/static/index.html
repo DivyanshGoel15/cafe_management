@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cafe Voice AI — Host & Calling Console</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <div class="app-container">
+    <!-- Top Header -->
+    <header class="navbar">
+      <div class="brand">
+        <div class="brand-icon">☕</div>
+        <div class="brand-text">
+          <span class="brand-title">Bella Vista Bistro</span>
+          <span class="brand-sub">AI Calling & Voice Reservation Service</span>
+        </div>
+      </div>
+      <div class="header-badges">
+        <div class="badge badge-mock" id="mockBadge">
+          <span class="dot pulse"></span> MOCK MODE: ACTIVE
+        </div>
+        <div class="provider-tags">
+          <span class="tag">Tel: <b id="tagTel">Mock</b></span>
+          <span class="tag">STT: <b id="tagStt">Mock</b></span>
+          <span class="tag">LLM: <b id="tagLlm">Mock</b></span>
+          <span class="tag">TTS: <b id="tagTts">Mock</b></span>
+        </div>
+      </div>
+    </header>
+
+    <!-- Navigation Tabs -->
+    <nav class="nav-tabs">
+      <button class="tab-btn active" data-tab="tabSimulator">
+        <span class="tab-icon">📞</span> Live Call Simulator
+      </button>
+      <button class="tab-btn" data-tab="tabCalls">
+        <span class="tab-icon">📋</span> Call History & Transcripts
+      </button>
+      <button class="tab-btn" data-tab="tabAnalytics">
+        <span class="tab-icon">📊</span> Call Analytics
+      </button>
+      <button class="tab-btn" data-tab="tabAgent">
+        <span class="tab-icon">🤖</span> AI Agent Configuration
+      </button>
+    </nav>
+
+    <!-- Main Content Area -->
+    <main class="content-viewport">
+
+      <!-- TAB 1: LIVE CALL SIMULATOR -->
+      <section id="tabSimulator" class="tab-pane active">
+        <div class="simulator-layout">
+          <!-- Left Column: Controls & Presets -->
+          <div class="panel control-panel">
+            <h2 class="panel-title">Call Controller</h2>
+            <div class="form-group">
+              <label for="callerPhone">Caller Phone Number</label>
+              <input type="text" id="callerPhone" value="+15551234567" placeholder="+15551234567">
+            </div>
+            <div class="form-group">
+              <label for="callerName">Customer Name</label>
+              <input type="text" id="callerName" value="Sarah Connor" placeholder="Sarah Connor">
+            </div>
+
+            <div class="button-group">
+              <button class="btn btn-primary" id="btnInboundCall">
+                <span>📲</span> Simulate Inbound Call
+              </button>
+              <button class="btn btn-secondary" id="btnOutboundCall">
+                <span>📞</span> Simulate Outbound Call
+              </button>
+              <button class="btn btn-danger" id="btnHangup" disabled>
+                <span>⏹️</span> End Call
+              </button>
+            </div>
+
+            <hr class="divider">
+
+            <h3 class="section-subtitle">1-Click Demo Scenarios</h3>
+            <div class="scenario-buttons">
+              <button class="scenario-btn" onclick="runScenario('booking')">
+                <span class="scen-icon">📅</span>
+                <div>
+                  <strong>Book a Table</strong>
+                  <small>Checks availability, confirms date/time</small>
+                </div>
+              </button>
+              <button class="scenario-btn" onclick="runScenario('faq')">
+                <span class="scen-icon">❓</span>
+                <div>
+                  <strong>Ask FAQs & Menu</strong>
+                  <small>Opening hours, dietary options, parking</small>
+                </div>
+              </button>
+              <button class="scenario-btn" onclick="runScenario('cancellation')">
+                <span class="scen-icon">❌</span>
+                <div>
+                  <strong>Cancel Reservation</strong>
+                  <small>Cancels BKG-9901 per policy</small>
+                </div>
+              </button>
+              <button class="scenario-btn" onclick="runScenario('escalation')">
+                <span class="scen-icon">🚨</span>
+                <div>
+                  <strong>Human Escalation</strong>
+                  <small>Customer requests manager</small>
+                </div>
+              </button>
+            </div>
+          </div>
+
+          <!-- Middle Column: Call Stage & Live Transcript -->
+          <div class="panel stage-panel">
+            <div class="call-banner" id="callBanner">
+              <div class="call-meta">
+                <div class="status-indicator">
+                  <span class="call-dot" id="callStatusDot"></span>
+                  <span id="callStatusText">No Active Call</span>
+                </div>
+                <div class="timer" id="callTimer">00:00</div>
+              </div>
+              <div class="voice-visualizer" id="visualizer">
+                <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+                <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+                <span class="bar"></span><span class="bar"></span>
+              </div>
+            </div>
+
+            <!-- Dialogue Transcript Stream -->
+            <div class="transcript-feed" id="transcriptFeed">
+              <div class="empty-state" id="emptyFeedMessage">
+                <div class="empty-icon">🎧</div>
+                <p>Start an inbound or outbound call to begin conversation.</p>
+              </div>
+            </div>
+
+            <!-- Speech / Customer Input Bar -->
+            <div class="utterance-composer">
+              <div class="quick-prompts">
+                <span class="quick-chip" onclick="quickFill('I would like to book a table for tomorrow evening.')">Book table tomorrow</span>
+                <span class="quick-chip" onclick="quickFill('Do you have vegetarian or vegan pasta options?')">Vegetarian options?</span>
+                <span class="quick-chip" onclick="quickFill('What are your opening hours on Friday?')">Friday hours?</span>
+                <span class="quick-chip" onclick="quickFill('I need to speak to a human manager.')">Speak to manager</span>
+              </div>
+              <form class="input-form" id="utteranceForm" onsubmit="sendCustomerTurn(event)">
+                <input type="text" id="customerInput" placeholder="Speak or type customer response..." autocomplete="off" disabled>
+                <button type="submit" class="btn btn-send" id="btnSend" disabled>
+                  <span>Send</span> ➔
+                </button>
+              </form>
+            </div>
+          </div>
+
+          <!-- Right Column: Inspector -->
+          <div class="panel inspector-panel">
+            <h2 class="panel-title">Call Details & Tools</h2>
+            <div class="info-card">
+              <div class="info-row">
+                <span class="info-label">Call ID</span>
+                <span class="info-val" id="activeCallId">—</span>
+              </div>
+              <div class="info-row">
+                <span class="info-label">Direction</span>
+                <span class="info-val" id="activeDirection">—</span>
+              </div>
+              <div class="info-row">
+                <span class="info-label">Status</span>
+                <span class="info-val" id="activeStatusPill">—</span>
+              </div>
+              <div class="info-row">
+                <span class="info-label">Booking ID</span>
+                <span class="info-val badge-success" id="activeBookingId">—</span>
+              </div>
+              <div class="info-row">
+                <span class="info-label">Escalation</span>
+                <span class="info-val" id="activeEscalation">—</span>
+              </div>
+            </div>
+
+            <h3 class="section-subtitle">Executed Tools</h3>
+            <div class="tool-calls-feed" id="toolCallsFeed">
+              <p class="placeholder-text">No tools executed yet.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- TAB 2: CALL HISTORY -->
+      <section id="tabCalls" class="tab-pane">
+        <div class="panel">
+          <div class="table-header-row">
+            <h2 class="panel-title">Call Records</h2>
+            <button class="btn btn-secondary" onclick="loadCalls()">🔄 Refresh</button>
+          </div>
+          <div class="table-container">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Call ID</th>
+                  <th>Caller Phone</th>
+                  <th>Direction</th>
+                  <th>Status</th>
+                  <th>Duration</th>
+                  <th>Outcome</th>
+                  <th>Booking ID</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody id="callsTableBody">
+                <tr><td colspan="8" class="text-center">Loading calls...</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- TAB 3: CALL ANALYTICS -->
+      <section id="tabAnalytics" class="tab-pane">
+        <div class="stats-grid" id="statsGrid">
+          <div class="stat-card">
+            <div class="stat-icon">📞</div>
+            <div class="stat-title">Total Calls</div>
+            <div class="stat-number" id="statTotal">—</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon">✅</div>
+            <div class="stat-title">Completion Rate</div>
+            <div class="stat-number" id="statCompletion">—</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon">🚨</div>
+            <div class="stat-title">Escalation Rate</div>
+            <div class="stat-number" id="statEscalation">—</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon">⏱️</div>
+            <div class="stat-title">Average Duration</div>
+            <div class="stat-number" id="statDuration">—</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon">🍽️</div>
+            <div class="stat-title">Bookings Created</div>
+            <div class="stat-number" id="statBookings">—</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- TAB 4: AGENT CONFIGURATION -->
+      <section id="tabAgent" class="tab-pane">
+        <div class="panel config-panel">
+          <h2 class="panel-title">AI Agent Settings</h2>
+          <div class="form-group">
+            <label for="agentName">Agent Name</label>
+            <input type="text" id="agentName" value="Bella - AI Host">
+          </div>
+          <div class="form-group">
+            <label for="agentRole">Role</label>
+            <input type="text" id="agentRole" value="Senior Host & Reservation Specialist">
+          </div>
+          <div class="form-group">
+            <label for="agentTone">Tone / Style</label>
+            <input type="text" id="agentTone" value="natural, professional, friendly, concise">
+          </div>
+          <div class="form-group">
+            <label for="agentPrompt">System Prompt</label>
+            <textarea id="agentPrompt" rows="10"></textarea>
+          </div>
+          <button class="btn btn-primary" onclick="saveAgentSettings()">💾 Save Agent Settings</button>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <!-- Transcript Modal -->
+  <div class="modal-backdrop" id="transcriptModal" style="display: none;">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3 id="modalTitle">Call Transcript</h3>
+        <button class="modal-close" onclick="closeModal()">✕</button>
+      </div>
+      <div class="modal-summary" id="modalSummary"></div>
+      <div class="modal-transcript" id="modalTranscriptBody"></div>
+    </div>
+  </div>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>

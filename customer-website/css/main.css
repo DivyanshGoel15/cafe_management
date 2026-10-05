@@ -1,0 +1,342 @@
+/* ==========================================================================
+   CAFE AROMA — CORE DESIGN SYSTEM & DESIGN TOKENS
+   Visual Source of Truth aligned with Cafe Management Ecosystem
+   Deep Forest Green (#0B2018) + Artisanal Copper (#B87333) + Warm Stone (#F2F1EE)
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;1,500;1,600&display=swap');
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  /* Brand Luxury Palette */
+  --forest: #0B2018;             /* Signature deep forest green */
+  --forest-light: #143327;       /* Mid forest tone */
+  --forest-dark: #06130E;        /* Ultra dark obsidian green */
+  --forest-glass: rgba(11, 32, 24, 0.88);
+
+  --copper: #B87333;             /* Warm artisanal burnished copper */
+  --copper-hover: #9E5F26;       /* Deep roasted copper */
+  --copper-light: #D4944A;       /* Amber gold highlight */
+  --copper-dim: rgba(184, 115, 51, 0.12);
+  --copper-focus: rgba(184, 115, 51, 0.28);
+  --copper-glow: 0 0 25px rgba(184, 115, 51, 0.35);
+
+  /* Backgrounds & Surfaces */
+  --bg: #F7F6F2;                 /* Organic warm stone / cafe paper */
+  --bg-alt: #EFECE6;             /* Slightly deeper warm neutral */
+  --card: #FFFFFF;               /* Crisp card surface */
+  --card-glass: rgba(255, 255, 255, 0.85);
+  --card-dark: #12241C;          /* Deep card for dark sections */
+  
+  /* Borders */
+  --border: #E5E1D8;             /* Warm subtle border */
+  --border-strong: #D1CBC0;      /* Contrast border */
+  --border-copper: rgba(184, 115, 51, 0.35);
+
+  /* Typography Colors */
+  --text: #191B18;               /* Rich charcoal */
+  --text-secondary: #484E47;     /* Soft charcoal */
+  --text-muted: #6E746D;         /* Muted guidance text */
+  --text-light: #FFFFFF;         /* Inverted text */
+  --text-light-muted: rgba(255, 255, 255, 0.75);
+
+  /* Operational & Dietary Tokens */
+  --veg-green: #2E7D55;
+  --veg-green-bg: rgba(46, 125, 85, 0.12);
+  --veg-green-border: rgba(46, 125, 85, 0.3);
+
+  --nonveg-red: #C0392B;
+  --nonveg-red-bg: rgba(192, 57, 43, 0.12);
+  --nonveg-red-border: rgba(192, 57, 43, 0.3);
+
+  --gold: #D4AF37;
+  --gold-bg: rgba(212, 175, 55, 0.14);
+
+  --status-blue: #2563EB;
+  --status-blue-bg: rgba(37, 99, 235, 0.1);
+
+  /* Font Stacks */
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-serif: 'Playfair Display', Georgia, 'Times New Roman', serif;
+
+  /* Elevation Shadows */
+  --shadow-xs: 0 1px 3px rgba(11, 32, 24, 0.05);
+  --shadow-sm: 0 2px 8px rgba(11, 32, 24, 0.06);
+  --shadow-md: 0 8px 24px rgba(11, 32, 24, 0.08), 0 2px 6px rgba(11, 32, 24, 0.04);
+  --shadow-lg: 0 16px 40px rgba(11, 32, 24, 0.12), 0 4px 12px rgba(11, 32, 24, 0.06);
+  --shadow-xl: 0 25px 60px rgba(11, 32, 24, 0.18);
+  --shadow-drawer: -10px 0 40px rgba(11, 32, 24, 0.28);
+
+  /* Radii */
+  --radius-xs: 4px;
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 22px;
+  --radius-full: 9999px;
+
+  /* Transitions */
+  --transition-fast: 0.15s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-normal: 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-slow: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+
+  /* Layout Consts */
+  --header-height: 76px;
+  --container-max: 1240px;
+}
+
+/* Base Document */
+html {
+  font-size: 15px;
+  scroll-behavior: smooth;
+  height: 100%;
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--text);
+  background-color: var(--bg);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+}
+
+/* Accessible focus ring */
+:focus-visible {
+  outline: 2px solid var(--copper);
+  outline-offset: 3px;
+}
+
+/* Typography Helpers */
+h1, h2, h3, h4, .font-serif {
+  font-family: var(--font-serif);
+  font-weight: 600;
+  color: var(--forest);
+  line-height: 1.25;
+}
+
+h1 {
+  font-size: clamp(2.2rem, 4.5vw, 3.8rem);
+  letter-spacing: -0.02em;
+}
+
+h2 {
+  font-size: clamp(1.8rem, 3.2vw, 2.75rem);
+  letter-spacing: -0.015em;
+}
+
+h3 {
+  font-size: clamp(1.3rem, 2vw, 1.85rem);
+}
+
+h4 {
+  font-size: 1.15rem;
+}
+
+p {
+  color: var(--text-secondary);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+button, input, select, textarea {
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+  border: none;
+  background: none;
+}
+
+/* Utility Containers */
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
+.section {
+  padding-top: clamp(60px, 8vw, 110px);
+  padding-bottom: clamp(60px, 8vw, 110px);
+}
+
+.section-tight {
+  padding-top: clamp(40px, 5vw, 70px);
+  padding-bottom: clamp(40px, 5vw, 70px);
+}
+
+.section-dark {
+  background-color: var(--forest);
+  color: var(--text-light);
+}
+
+.section-dark h1,
+.section-dark h2,
+.section-dark h3,
+.section-dark h4 {
+  color: var(--text-light);
+}
+
+.section-dark p {
+  color: var(--text-light-muted);
+}
+
+.section-alt {
+  background-color: var(--bg-alt);
+}
+
+/* Section Header Motif */
+.section-header {
+  text-align: center;
+  max-width: 680px;
+  margin: 0 auto 48px;
+}
+
+.section-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--copper);
+  margin-bottom: 12px;
+}
+
+.section-tag::before,
+.section-tag::after {
+  content: "";
+  display: inline-block;
+  width: 24px;
+  height: 1px;
+  background-color: var(--copper);
+}
+
+.section-title {
+  margin-bottom: 14px;
+}
+
+.section-subtitle {
+  font-size: 1.05rem;
+  color: var(--text-muted);
+}
+
+.text-copper {
+  color: var(--copper) !important;
+}
+
+.text-center {
+  text-align: center;
+}
+
+/* Subtle micro-animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulseSubtle {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.spinner {
+  width: 20px;
+  height: 20px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top-color: #FFFFFF;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+  display: inline-block;
+}
+
+.spinner-copper {
+  border-color: var(--copper-dim);
+  border-top-color: var(--copper);
+}
+
+/* Dietary Badge Icon Indicators */
+.veg-indicator, .nonveg-indicator {
+  width: 16px;
+  height: 16px;
+  border-radius: 3px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.veg-indicator {
+  border: 1.5px solid var(--veg-green);
+}
+
+.veg-indicator::after {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--veg-green);
+}
+
+.nonveg-indicator {
+  border: 1.5px solid var(--nonveg-red);
+}
+
+.nonveg-indicator::after {
+  content: "";
+  width: 0;
+  height: 0;
+  border-left: 4.5px solid transparent;
+  border-right: 4.5px solid transparent;
+  border-bottom: 8px solid var(--nonveg-red);
+}
+
+/* Live Operational Status Pulse */
+.status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  display: inline-block;
+  margin-right: 6px;
+}
+
+.status-dot.open {
+  background-color: var(--veg-green);
+  box-shadow: 0 0 0 3px rgba(46, 125, 85, 0.2);
+  animation: pulseSubtle 2s infinite;
+}
+
+.status-dot.closed {
+  background-color: var(--nonveg-red);
+  box-shadow: 0 0 0 3px rgba(192, 57, 43, 0.2);
+}

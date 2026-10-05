@@ -1,0 +1,1251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Brew & Co — Cafe Management Command Center</title>
+  <meta name="description" content="Unified command center to manage all Brew & Co cafe modules — toggle services on/off and navigate seamlessly.">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='80' font-size='80'>☕</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+  <style>
+    /* ═══════════════════════════════════════════
+       CSS CUSTOM PROPERTIES & RESET
+       ═══════════════════════════════════════════ */
+    :root {
+      --bg: #0B0E14;
+      --bg-card: #13161F;
+      --bg-card-hover: #191D28;
+      --bg-glass: rgba(19, 22, 31, 0.72);
+      --border: rgba(255,255,255,0.06);
+      --border-hover: rgba(255,255,255,0.12);
+      --text: #E8E9ED;
+      --text-dim: #8B8F9A;
+      --text-muted: #5C6070;
+      --accent: #A78BFA;
+      --accent-glow: rgba(167, 139, 250, 0.25);
+      --green: #34D399;
+      --green-bg: rgba(52, 211, 153, 0.12);
+      --red: #F87171;
+      --red-bg: rgba(248, 113, 113, 0.12);
+      --amber: #FBBF24;
+      --amber-bg: rgba(251, 191, 36, 0.12);
+      --radius: 16px;
+      --radius-sm: 10px;
+      --radius-xl: 24px;
+      --shadow: 0 4px 24px rgba(0,0,0,0.35);
+      --shadow-glow: 0 0 40px rgba(167, 139, 250, 0.08);
+      --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ═══════════════════════════════════════════
+       ANIMATED BACKGROUND
+       ═══════════════════════════════════════════ */
+    .bg-grid {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      background-image:
+        radial-gradient(ellipse 600px 400px at 20% 10%, rgba(167, 139, 250, 0.06) 0%, transparent 70%),
+        radial-gradient(ellipse 500px 350px at 80% 70%, rgba(52, 211, 153, 0.04) 0%, transparent 70%),
+        radial-gradient(ellipse 400px 300px at 60% 30%, rgba(251, 191, 36, 0.03) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .bg-grid::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.015) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.015) 1px, transparent 1px);
+      background-size: 60px 60px;
+      mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 30%, transparent 100%);
+    }
+
+    /* ═══════════════════════════════════════════
+       CONTAINER & LAYOUT
+       ═══════════════════════════════════════════ */
+    .hub-container {
+      position: relative;
+      z-index: 1;
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 24px 24px 60px;
+    }
+
+    /* ═══════════════════════════════════════════
+       HEADER / HERO
+       ═══════════════════════════════════════════ */
+    .hub-hero {
+      text-align: center;
+      padding: 48px 0 36px;
+    }
+
+    .hub-logo-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      margin-bottom: 16px;
+    }
+
+    .hub-logo-icon {
+      width: 56px;
+      height: 56px;
+      border-radius: 16px;
+      background: linear-gradient(135deg, #A78BFA, #7C3AED);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+      box-shadow: 0 4px 20px rgba(124, 58, 237, 0.35);
+      animation: logoPulse 3s ease-in-out infinite;
+    }
+
+    @keyframes logoPulse {
+      0%, 100% { box-shadow: 0 4px 20px rgba(124, 58, 237, 0.35); transform: scale(1); }
+      50% { box-shadow: 0 4px 30px rgba(124, 58, 237, 0.5); transform: scale(1.03); }
+    }
+
+    .hub-brand-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 32px;
+      font-weight: 800;
+      background: linear-gradient(135deg, #E8E9ED 30%, #A78BFA);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      letter-spacing: -0.5px;
+    }
+
+    .hub-tagline {
+      font-size: 15px;
+      color: var(--text-dim);
+      font-weight: 400;
+      margin-bottom: 8px;
+      max-width: 560px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.6;
+    }
+
+    .hub-status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 5px 14px;
+      background: var(--green-bg);
+      color: var(--green);
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.3px;
+      margin-top: 8px;
+      border: 1px solid rgba(52, 211, 153, 0.15);
+    }
+
+    .hub-status-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--green);
+      animation: dotBlink 2s ease-in-out infinite;
+    }
+
+    @keyframes dotBlink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.3; }
+    }
+
+    /* ═══════════════════════════════════════════
+       STATS ROW
+       ═══════════════════════════════════════════ */
+    .stats-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 14px;
+      margin-bottom: 32px;
+    }
+
+    .stat-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 20px 22px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      transition: var(--transition);
+    }
+
+    .stat-card:hover {
+      border-color: var(--border-hover);
+      background: var(--bg-card-hover);
+      transform: translateY(-2px);
+    }
+
+    .stat-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      flex-shrink: 0;
+    }
+
+    .stat-value {
+      font-size: 24px;
+      font-weight: 800;
+      line-height: 1;
+      color: var(--text);
+      letter-spacing: -0.5px;
+    }
+
+    .stat-label {
+      font-size: 12px;
+      color: var(--text-dim);
+      font-weight: 500;
+      margin-top: 4px;
+    }
+
+    /* ═══════════════════════════════════════════
+       SECTION HEADERS
+       ═══════════════════════════════════════════ */
+    .section-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .section-title {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .section-desc {
+      font-size: 13px;
+      color: var(--text-dim);
+    }
+
+    /* Toggle All buttons */
+    .bulk-actions {
+      display: flex;
+      gap: 8px;
+    }
+
+    .bulk-btn {
+      padding: 6px 16px;
+      border-radius: 8px;
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      border: 1px solid var(--border);
+      background: var(--bg-card);
+      color: var(--text-dim);
+      transition: var(--transition);
+    }
+
+    .bulk-btn:hover {
+      background: var(--bg-card-hover);
+      color: var(--text);
+      border-color: var(--border-hover);
+    }
+
+    .bulk-btn.enable-all {
+      border-color: rgba(52, 211, 153, 0.2);
+      color: var(--green);
+    }
+
+    .bulk-btn.enable-all:hover {
+      background: var(--green-bg);
+    }
+
+    .bulk-btn.disable-all {
+      border-color: rgba(248, 113, 113, 0.2);
+      color: var(--red);
+    }
+
+    .bulk-btn.disable-all:hover {
+      background: var(--red-bg);
+    }
+
+    /* ═══════════════════════════════════════════
+       MODULE CARDS GRID
+       ═══════════════════════════════════════════ */
+    .modules-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+      gap: 18px;
+      margin-bottom: 40px;
+    }
+
+    .module-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      transition: var(--transition);
+      position: relative;
+    }
+
+    .module-card:hover {
+      border-color: var(--border-hover);
+      background: var(--bg-card-hover);
+      transform: translateY(-3px);
+      box-shadow: var(--shadow);
+    }
+
+    .module-card.disabled {
+      opacity: 0.45;
+    }
+
+    .module-card.disabled:hover {
+      opacity: 0.65;
+    }
+
+    /* Gradient accent strip at top */
+    .module-accent-strip {
+      height: 3px;
+      width: 100%;
+      transition: var(--transition);
+    }
+
+    .module-card.disabled .module-accent-strip {
+      background: var(--text-muted) !important;
+      opacity: 0.3;
+    }
+
+    .module-body {
+      padding: 22px 24px 18px;
+    }
+
+    .module-top-row {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 14px;
+      margin-bottom: 12px;
+    }
+
+    .module-info {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      flex: 1;
+      min-width: 0;
+    }
+
+    .module-icon-wrap {
+      width: 48px;
+      height: 48px;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      flex-shrink: 0;
+      transition: var(--transition);
+    }
+
+    .module-card.disabled .module-icon-wrap {
+      filter: grayscale(1);
+      opacity: 0.6;
+    }
+
+    .module-name {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--text);
+      line-height: 1.2;
+    }
+
+    .module-type-badge {
+      font-size: 10px;
+      font-weight: 600;
+      padding: 2px 8px;
+      border-radius: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-top: 4px;
+      display: inline-block;
+    }
+
+    .module-type-badge.frontend {
+      background: rgba(99, 102, 241, 0.12);
+      color: #818CF8;
+    }
+
+    .module-type-badge.backend {
+      background: rgba(251, 191, 36, 0.12);
+      color: #FBBF24;
+    }
+
+    .module-type-badge.config {
+      background: rgba(248, 113, 113, 0.12);
+      color: #F87171;
+    }
+
+    .module-description {
+      font-size: 13px;
+      color: var(--text-dim);
+      line-height: 1.55;
+      margin-bottom: 16px;
+    }
+
+    .module-meta-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      padding-top: 14px;
+      border-top: 1px solid var(--border);
+    }
+
+    .module-port {
+      font-size: 11.5px;
+      color: var(--text-muted);
+      font-family: 'SF Mono', 'Fira Code', monospace;
+      font-weight: 500;
+    }
+
+    .module-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .module-launch-btn {
+      padding: 6px 16px;
+      border-radius: 8px;
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      border: 1px solid var(--border);
+      background: transparent;
+      color: var(--text-dim);
+      transition: var(--transition);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .module-launch-btn:hover {
+      background: var(--bg-card-hover);
+      color: var(--text);
+      border-color: var(--border-hover);
+    }
+
+    .module-launch-btn.primary {
+      background: linear-gradient(135deg, rgba(167, 139, 250, 0.12), rgba(124, 58, 237, 0.12));
+      border-color: rgba(167, 139, 250, 0.2);
+      color: var(--accent);
+    }
+
+    .module-launch-btn.primary:hover {
+      background: linear-gradient(135deg, rgba(167, 139, 250, 0.22), rgba(124, 58, 237, 0.22));
+      box-shadow: 0 0 20px rgba(167, 139, 250, 0.15);
+    }
+
+    .module-card.disabled .module-launch-btn.primary {
+      pointer-events: none;
+      opacity: 0.35;
+    }
+
+    .module-status-pill {
+      font-size: 10px;
+      font-weight: 600;
+      padding: 2px 7px;
+      border-radius: 12px;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      letter-spacing: 0.2px;
+    }
+
+    .module-status-pill.running {
+      background: var(--green-bg);
+      color: var(--green);
+      border: 1px solid rgba(52, 211, 153, 0.25);
+    }
+
+    .module-status-pill.stopped {
+      background: rgba(139, 143, 154, 0.12);
+      color: var(--text-dim);
+      border: 1px solid rgba(139, 143, 154, 0.2);
+    }
+
+    .module-status-pill.missing {
+      background: var(--amber-bg);
+      color: var(--amber);
+      border: 1px solid rgba(251, 191, 36, 0.25);
+    }
+
+    .module-status-pill.error {
+      background: var(--red-bg);
+      color: var(--red);
+      border: 1px solid rgba(248, 113, 113, 0.25);
+    }
+
+    .module-mini-btn {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      color: var(--text-dim);
+      font-size: 11px;
+      padding: 6px 9px;
+      cursor: pointer;
+      transition: var(--transition);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .module-mini-btn:hover {
+      background: rgba(255, 255, 255, 0.12);
+      color: var(--text);
+      border-color: var(--border-hover);
+    }
+
+    /* ═══════════════════════════════════════════
+       TOGGLE SWITCH (Premium Design)
+       ═══════════════════════════════════════════ */
+    .toggle-switch {
+      position: relative;
+      width: 48px;
+      height: 26px;
+      flex-shrink: 0;
+    }
+
+    .toggle-switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+      position: absolute;
+    }
+
+    .toggle-slider {
+      position: absolute;
+      inset: 0;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 26px;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .toggle-slider::before {
+      content: '';
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      top: 2px;
+      left: 3px;
+      background: var(--text-muted);
+      transition: var(--transition);
+      box-shadow: 0 1px 4px rgba(0,0,0,0.3);
+    }
+
+    .toggle-switch input:checked + .toggle-slider {
+      background: linear-gradient(135deg, #34D399, #10B981);
+      border-color: rgba(52, 211, 153, 0.3);
+      box-shadow: 0 0 12px rgba(52, 211, 153, 0.2);
+    }
+
+    .toggle-switch input:checked + .toggle-slider::before {
+      transform: translateX(21px);
+      background: #fff;
+    }
+
+    /* ═══════════════════════════════════════════
+       INTEGRATIONS SECTION
+       ═══════════════════════════════════════════ */
+    .integrations-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 12px;
+      margin-bottom: 40px;
+    }
+
+    .integration-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 14px 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      transition: var(--transition);
+    }
+
+    .integration-card:hover {
+      border-color: var(--border-hover);
+      background: var(--bg-card-hover);
+    }
+
+    .integration-label {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .integration-arrow {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    /* ═══════════════════════════════════════════
+       ARCHITECTURE DIAGRAM
+       ═══════════════════════════════════════════ */
+    .arch-section {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px;
+      margin-bottom: 40px;
+    }
+
+    .arch-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .arch-diagram {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      align-items: center;
+    }
+
+    .arch-layer {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      justify-content: center;
+      width: 100%;
+    }
+
+    .arch-node {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 12px 20px;
+      text-align: center;
+      min-width: 140px;
+      transition: var(--transition);
+    }
+
+    .arch-node:hover {
+      border-color: var(--accent);
+      background: rgba(167, 139, 250, 0.06);
+    }
+
+    .arch-node-icon {
+      font-size: 22px;
+      margin-bottom: 6px;
+    }
+
+    .arch-node-label {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    .arch-node-sub {
+      font-size: 10px;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
+
+    .arch-connector {
+      width: 2px;
+      height: 24px;
+      background: linear-gradient(to bottom, var(--accent), transparent);
+      margin: 0 auto;
+    }
+
+    .arch-connector-row {
+      display: flex;
+      justify-content: center;
+      gap: 80px;
+    }
+
+    /* ═══════════════════════════════════════════
+       FOOTER
+       ═══════════════════════════════════════════ */
+    .hub-footer {
+      text-align: center;
+      padding: 28px 0 16px;
+      border-top: 1px solid var(--border);
+      margin-top: 20px;
+    }
+
+    .hub-footer-text {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    .hub-footer-text a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    /* ═══════════════════════════════════════════
+       TOAST NOTIFICATIONS
+       ═══════════════════════════════════════════ */
+    .hub-toast {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 14px 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+      z-index: 9999;
+      animation: toastSlide 0.35s ease-out;
+      max-width: 400px;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text);
+      transform-origin: bottom right;
+    }
+
+    .hub-toast.success { border-left: 3px solid var(--green); }
+    .hub-toast.error { border-left: 3px solid var(--red); }
+    .hub-toast.info { border-left: 3px solid var(--accent); }
+
+    .hub-toast.hide {
+      animation: toastFade 0.3s ease-in forwards;
+    }
+
+    @keyframes toastSlide {
+      from { transform: translateX(120%); opacity: 0; }
+      to { transform: translateX(0); opacity: 1; }
+    }
+
+    @keyframes toastFade {
+      to { transform: translateX(120%); opacity: 0; }
+    }
+
+    /* ═══════════════════════════════════════════
+       RESPONSIVE
+       ═══════════════════════════════════════════ */
+    @media (max-width: 768px) {
+      .hub-container { padding: 16px 14px 40px; }
+      .hub-hero { padding: 32px 0 24px; }
+      .hub-brand-name { font-size: 24px; }
+      .hub-tagline { font-size: 13px; }
+      .modules-grid { grid-template-columns: 1fr; }
+      .stats-row { grid-template-columns: repeat(2, 1fr); }
+      .integrations-grid { grid-template-columns: 1fr; }
+      .arch-connector-row { gap: 20px; }
+      .section-header { flex-direction: column; align-items: flex-start; }
+    }
+
+    /* ═══════════════════════════════════════════
+       LOADING SKELETON
+       ═══════════════════════════════════════════ */
+    .skeleton {
+      background: linear-gradient(90deg, var(--bg-card) 25%, var(--bg-card-hover) 50%, var(--bg-card) 75%);
+      background-size: 200% 100%;
+      animation: shimmer 1.5s infinite;
+      border-radius: var(--radius);
+      height: 200px;
+    }
+
+    @keyframes shimmer {
+      0% { background-position: 200% 0; }
+      100% { background-position: -200% 0; }
+    }
+
+    /* Save indicator */
+    .save-indicator {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 11px;
+      color: var(--green);
+      font-weight: 600;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .save-indicator.visible {
+      opacity: 1;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Animated Background -->
+  <div class="bg-grid"></div>
+
+  <!-- Main Container -->
+  <div class="hub-container" id="hub-root">
+
+    <!-- HERO / HEADER -->
+    <header class="hub-hero">
+      <div class="hub-logo-row">
+        <div class="hub-logo-icon">☕</div>
+        <div class="hub-brand-name">Brew & Co</div>
+      </div>
+      <p class="hub-tagline">
+        Unified Command Center — Toggle modules on or off, monitor integrations, and launch any service from a single control panel.
+      </p>
+      <div class="hub-status-badge">
+        <span class="hub-status-dot"></span>
+        <span id="status-text">Loading...</span>
+      </div>
+    </header>
+
+    <!-- STATS ROW -->
+    <div class="stats-row" id="stats-row">
+      <div class="skeleton" style="height: 84px;"></div>
+      <div class="skeleton" style="height: 84px;"></div>
+      <div class="skeleton" style="height: 84px;"></div>
+      <div class="skeleton" style="height: 84px;"></div>
+    </div>
+
+    <!-- MODULE CARDS SECTION -->
+    <div class="section-header">
+      <div>
+        <div class="section-title">
+          <span>🧩</span> Module Control Panel
+          <span class="save-indicator" id="save-indicator">✓ Saved</span>
+        </div>
+        <div class="section-desc">Toggle each service module on or off. Changes are persisted to <code>modules.config.json</code> instantly.</div>
+      </div>
+      <div class="bulk-actions">
+        <button class="bulk-btn" style="border-color: rgba(52,211,153,0.3); color: var(--green);" onclick="controlAll('start-all')">▶ Start All</button>
+        <button class="bulk-btn" style="border-color: rgba(248,113,113,0.3); color: var(--red);" onclick="controlAll('stop-all')">⏹ Stop All</button>
+        <button class="bulk-btn enable-all" onclick="toggleAll(true)">✓ Enable All</button>
+        <button class="bulk-btn disable-all" onclick="toggleAll(false)">✕ Disable All</button>
+      </div>
+    </div>
+
+    <div class="modules-grid" id="modules-grid">
+      <div class="skeleton"></div>
+      <div class="skeleton"></div>
+      <div class="skeleton"></div>
+    </div>
+
+    <!-- INTEGRATIONS SECTION -->
+    <div class="section-header">
+      <div>
+        <div class="section-title"><span>🔗</span> Cross-Module Integrations</div>
+        <div class="section-desc">Data flows between modules — these are active when both connected modules are enabled.</div>
+      </div>
+    </div>
+
+    <div class="integrations-grid" id="integrations-grid">
+      <div class="skeleton" style="height: 54px;"></div>
+      <div class="skeleton" style="height: 54px;"></div>
+    </div>
+
+    <!-- ARCHITECTURE DIAGRAM -->
+    <div class="arch-section" id="arch-section">
+      <div class="arch-title">🏗️ System Architecture</div>
+      <div class="arch-diagram">
+        <div class="arch-layer">
+          <div class="arch-node">
+            <div class="arch-node-icon">🌐</div>
+            <div class="arch-node-label">Customer Website</div>
+            <div class="arch-node-sub">Vite · Port 5174</div>
+          </div>
+          <div class="arch-node">
+            <div class="arch-node-icon">📊</div>
+            <div class="arch-node-label">Admin Dashboard</div>
+            <div class="arch-node-sub">Vite · Port 5173</div>
+          </div>
+        </div>
+
+        <div class="arch-connector-row">
+          <div class="arch-connector"></div>
+          <div class="arch-connector"></div>
+        </div>
+
+        <div class="arch-layer">
+          <div class="arch-node">
+            <div class="arch-node-icon">📱</div>
+            <div class="arch-node-label">QR Ordering</div>
+            <div class="arch-node-sub">FastAPI · Port 8000</div>
+          </div>
+          <div class="arch-node">
+            <div class="arch-node-icon">🎙️</div>
+            <div class="arch-node-label">AI Voice Calling</div>
+            <div class="arch-node-sub">FastAPI · Port 8001</div>
+          </div>
+          <div class="arch-node">
+            <div class="arch-node-icon">💬</div>
+            <div class="arch-node-label">WhatsApp Bot</div>
+            <div class="arch-node-sub">FastAPI · Port 8002</div>
+          </div>
+          <div class="arch-node">
+            <div class="arch-node-icon">🔄</div>
+            <div class="arch-node-label">Central State Sync</div>
+            <div class="arch-node-sub">SSE & REST · Port 4000</div>
+          </div>
+        </div>
+
+        <div class="arch-connector-row">
+          <div class="arch-connector"></div>
+        </div>
+
+        <div class="arch-layer">
+          <div class="arch-node" style="border-color: rgba(167, 139, 250, 0.2); background: rgba(167, 139, 250, 0.04);">
+            <div class="arch-node-icon">☕</div>
+            <div class="arch-node-label" style="color: var(--accent);">Hub Command Center</div>
+            <div class="arch-node-sub">Node.js · Port 4000 (You are here)</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="hub-footer">
+      <div class="hub-footer-text">
+        Brew & Co Cafe Management Platform · Powered by ☕ · Config file: <code>modules.config.json</code>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    /* ═══════════════════════════════════════════
+       APPLICATION STATE & LOGIC
+       ═══════════════════════════════════════════ */
+    let appConfig = null;
+    const API_BASE = '';
+
+    // ── Toast System ──
+    function showToast(message, type = 'success') {
+      const existing = document.querySelectorAll('.hub-toast');
+      existing.forEach(t => { t.classList.add('hide'); setTimeout(() => t.remove(), 300); });
+
+      const icons = { success: '✅', error: '❌', info: 'ℹ️' };
+      const toast = document.createElement('div');
+      toast.className = `hub-toast ${type}`;
+      toast.innerHTML = `<span>${icons[type] || ''}</span><span>${message}</span>`;
+      document.body.appendChild(toast);
+      setTimeout(() => { toast.classList.add('hide'); setTimeout(() => toast.remove(), 350); }, 3500);
+    }
+
+    // ── Show save indicator ──
+    function flashSaveIndicator() {
+      const el = document.getElementById('save-indicator');
+      if (!el) return;
+      el.classList.add('visible');
+      setTimeout(() => el.classList.remove('visible'), 2000);
+    }
+
+    // ── Fetch Config ──
+    async function loadConfig() {
+      try {
+        const [cfgRes, modRes] = await Promise.all([
+          fetch(`${API_BASE}/api/config`),
+          fetch(`${API_BASE}/api/modules`).catch(() => null)
+        ]);
+        appConfig = await cfgRes.json();
+        if (modRes && modRes.ok) {
+          const modStatuses = await modRes.json();
+          for (const [id, info] of Object.entries(modStatuses)) {
+            if (appConfig.modules[id]) {
+              appConfig.modules[id].processStatus = info.processStatus;
+              appConfig.modules[id].portOpen = info.portOpen;
+            }
+          }
+        }
+        renderAll();
+      } catch (err) {
+        console.error('Failed to load config:', err);
+        showToast('Failed to load configuration', 'error');
+      }
+    }
+
+    // ── Module Process Control (Start/Stop/Restart) ──
+    async function controlModule(id, action) {
+      try {
+        showToast(`${action.toUpperCase()}ing ${id}...`, 'info');
+        const res = await fetch(`${API_BASE}/api/modules/${id}/${action}`, { method: 'POST' });
+        const data = await res.json();
+        if (data.success) {
+          showToast(`Module ${id}: ${data.message || 'success'}`);
+          await loadConfig();
+        } else {
+          showToast(`Module ${id}: ${data.error || 'action failed'}`, 'error');
+        }
+      } catch (err) {
+        showToast(`Failed to ${action} module ${id}`, 'error');
+      }
+    }
+
+    async function controlAll(action) {
+      try {
+        showToast(`${action === 'start-all' ? 'Starting' : 'Stopping'} all modules...`, 'info');
+        const res = await fetch(`${API_BASE}/api/modules/${action}`, { method: 'POST' });
+        const data = await res.json();
+        if (data.success) {
+          showToast(action === 'start-all' ? 'All modules started' : 'All modules stopped');
+          await loadConfig();
+        } else {
+          showToast(`Failed: ${data.error || 'error'}`, 'error');
+        }
+      } catch (err) {
+        showToast('Failed to execute command on all modules', 'error');
+      }
+    }
+
+    // ── Toggle Module ──
+    async function toggleModule(moduleId, enabled) {
+      try {
+        const res = await fetch(`${API_BASE}/api/toggle`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ moduleId, enabled })
+        });
+        const data = await res.json();
+        if (data.success) {
+          appConfig.modules[moduleId].enabled = data.enabled;
+          renderAll();
+          flashSaveIndicator();
+          showToast(data.message);
+        }
+      } catch (err) {
+        showToast('Failed to toggle module', 'error');
+      }
+    }
+
+    // ── Toggle All ──
+    async function toggleAll(enabled) {
+      try {
+        const updates = {};
+        for (const key of Object.keys(appConfig.modules)) {
+          updates[key] = { enabled };
+        }
+        const res = await fetch(`${API_BASE}/api/config`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ modules: updates })
+        });
+        const data = await res.json();
+        if (data.success) {
+          appConfig = data.config;
+          renderAll();
+          flashSaveIndicator();
+          showToast(enabled ? 'All modules enabled' : 'All modules disabled');
+        }
+      } catch (err) {
+        showToast('Failed to update modules', 'error');
+      }
+    }
+
+    // ── Render Everything ──
+    function renderAll() {
+      if (!appConfig) return;
+      renderStats();
+      renderModules();
+      renderIntegrations();
+      updateStatus();
+    }
+
+    // ── Render Stats ──
+    function renderStats() {
+      const modules = appConfig.modules;
+      const total = Object.keys(modules).length;
+      const active = Object.values(modules).filter(m => m.enabled).length;
+      const frontends = Object.values(modules).filter(m => m.type === 'frontend' && m.enabled).length;
+      const backends = Object.values(modules).filter(m => (m.type === 'backend' || m.type === 'config') && m.enabled).length;
+
+      document.getElementById('stats-row').innerHTML = `
+        <div class="stat-card">
+          <div class="stat-icon" style="background: rgba(167, 139, 250, 0.12); color: #A78BFA;">🧩</div>
+          <div>
+            <div class="stat-value">${total}</div>
+            <div class="stat-label">Total Modules</div>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon" style="background: var(--green-bg); color: var(--green);">⚡</div>
+          <div>
+            <div class="stat-value">${active}</div>
+            <div class="stat-label">Active / Enabled</div>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon" style="background: rgba(99, 102, 241, 0.12); color: #818CF8;">🌐</div>
+          <div>
+            <div class="stat-value">${frontends}</div>
+            <div class="stat-label">Frontend Apps</div>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon" style="background: var(--amber-bg); color: var(--amber);">🔧</div>
+          <div>
+            <div class="stat-value">${backends}</div>
+            <div class="stat-label">Backend Services</div>
+          </div>
+        </div>
+      `;
+    }
+
+    // ── Render Module Cards ──
+    function renderModules() {
+      const grid = document.getElementById('modules-grid');
+      let html = '';
+
+      for (const [id, mod] of Object.entries(appConfig.modules)) {
+        const isEnabled = mod.enabled;
+        const launchUrl = `http://localhost:${mod.port}`;
+        const procStatus = mod.processStatus || (mod.portOpen ? 'running' : 'stopped');
+        const statusLabel = mod.portOpen ? '● Online' : (procStatus === 'running' ? '● Starting' : (procStatus === 'missing' ? '⚠ Missing' : (procStatus === 'error' ? '✖ Error' : '○ Offline')));
+        const pillClass = mod.portOpen ? 'running' : (procStatus === 'missing' ? 'missing' : (procStatus === 'error' ? 'error' : 'stopped'));
+
+        html += `
+          <div class="module-card ${isEnabled ? '' : 'disabled'}" id="card-${id}">
+            <div class="module-accent-strip" style="background: linear-gradient(90deg, ${mod.color}, ${mod.color}88);"></div>
+            <div class="module-body">
+              <div class="module-top-row">
+                <div class="module-info">
+                  <div class="module-icon-wrap" style="background: ${mod.color}18; border: 1px solid ${mod.color}25;">
+                    ${mod.icon}
+                  </div>
+                  <div>
+                    <div class="module-name">${mod.name}</div>
+                    <div style="display:flex; gap:6px; align-items:center; margin-top:4px;">
+                      <span class="module-type-badge ${mod.type}">${mod.type}</span>
+                      <span class="module-status-pill ${pillClass}">${statusLabel}</span>
+                    </div>
+                  </div>
+                </div>
+                <label class="toggle-switch" title="${isEnabled ? 'Click to disable' : 'Click to enable'}">
+                  <input type="checkbox" ${isEnabled ? 'checked' : ''} onchange="toggleModule('${id}', this.checked)">
+                  <span class="toggle-slider"></span>
+                </label>
+              </div>
+              <div class="module-description">${mod.description}</div>
+              <div class="module-meta-row">
+                <span class="module-port">localhost:${mod.port} · ${mod.startCommand}</span>
+                <div class="module-actions">
+                  <button class="module-mini-btn" onclick="controlModule('${id}', 'start')" title="Start Process">▶</button>
+                  <button class="module-mini-btn" onclick="controlModule('${id}', 'stop')" title="Stop Process">⏹</button>
+                  <button class="module-mini-btn" onclick="controlModule('${id}', 'restart')" title="Restart Process">🔄</button>
+                  <a href="${launchUrl}" target="_blank" class="module-launch-btn primary" ${!isEnabled ? 'tabindex="-1"' : ''}>
+                    🚀 Launch
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        `;
+      }
+
+      grid.innerHTML = html;
+    }
+
+    // ── Render Integrations ──
+    function renderIntegrations() {
+      const grid = document.getElementById('integrations-grid');
+      if (!appConfig.integrations) { grid.innerHTML = ''; return; }
+
+      const integrationLabels = {
+        dashboard_shows_whatsapp: { from: '📊 Dashboard', to: '💬 WhatsApp', label: 'Dashboard shows WhatsApp hub' },
+        dashboard_shows_ai_calling: { from: '📊 Dashboard', to: '🎙️ AI Calling', label: 'Dashboard shows AI voice calls' },
+        dashboard_shows_qr_system: { from: '📊 Dashboard', to: '📱 QR System', label: 'Dashboard shows QR ordering' },
+        customer_website_links_to_qr: { from: '🌐 Website', to: '📱 QR System', label: 'Website links to QR ordering' },
+        whatsapp_notifies_dashboard: { from: '💬 WhatsApp', to: '📊 Dashboard', label: 'WhatsApp sends real-time alerts' },
+        ai_calling_updates_bookings: { from: '🎙️ AI Calling', to: '📊 Dashboard', label: 'Voice calls create bookings' },
+        qr_orders_appear_in_dashboard: { from: '📱 QR System', to: '📊 Dashboard', label: 'QR orders sync to dashboard' }
+      };
+
+      let html = '';
+      for (const [key, enabled] of Object.entries(appConfig.integrations)) {
+        const info = integrationLabels[key] || { from: '?', to: '?', label: key };
+        html += `
+          <div class="integration-card">
+            <div class="integration-label">
+              <span>${info.from}</span>
+              <span class="integration-arrow">→</span>
+              <span>${info.to}</span>
+              <span style="margin-left: 6px; font-size: 12px; color: var(--text-dim);">— ${info.label}</span>
+            </div>
+            <label class="toggle-switch" style="transform: scale(0.85);">
+              <input type="checkbox" ${enabled ? 'checked' : ''} onchange="toggleIntegration('${key}', this.checked)">
+              <span class="toggle-slider"></span>
+            </label>
+          </div>
+        `;
+      }
+      grid.innerHTML = html;
+    }
+
+    // ── Toggle Integration ──
+    async function toggleIntegration(key, enabled) {
+      try {
+        const res = await fetch(`${API_BASE}/api/config`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ integrations: { [key]: enabled } })
+        });
+        const data = await res.json();
+        if (data.success) {
+          appConfig.integrations[key] = enabled;
+          flashSaveIndicator();
+          showToast(`Integration ${enabled ? 'enabled' : 'disabled'}`);
+        }
+      } catch (err) {
+        showToast('Failed to update integration', 'error');
+      }
+    }
+
+    // ── Update Status Badge ──
+    function updateStatus() {
+      const active = Object.values(appConfig.modules).filter(m => m.enabled).length;
+      const total = Object.keys(appConfig.modules).length;
+      const el = document.getElementById('status-text');
+      if (el) {
+        el.textContent = `${active}/${total} Modules Active`;
+      }
+    }
+
+    // ── Init ──
+    document.addEventListener('DOMContentLoaded', loadConfig);
+  </script>
+</body>
+</html>

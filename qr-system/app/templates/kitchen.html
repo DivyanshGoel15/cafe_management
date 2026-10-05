@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kitchen Display System (KDS) | Cafe Aroma</title>
+  <meta name="description" content="Kitchen Order Management and Dynamic Menu Availability Control for Cafe Aroma">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="/static/css/kitchen.css">
+</head>
+<body class="kds-body">
+  <div class="kds-wrapper">
+    
+    <!-- Top Header Bar -->
+    <header class="kds-header">
+      <div class="kds-header-left">
+        <div class="kds-logo">🍳</div>
+        <div>
+          <h1 class="kds-title">Kitchen Order Display</h1>
+          <span class="kds-subtitle">Cafe Aroma • Live Dine-In Stream</span>
+        </div>
+      </div>
+      
+      <!-- Top Navigation Tabs -->
+      <nav class="kds-tabs">
+        <button id="tabOrders" class="kds-tab active" data-tab="orders">
+          <span>Active Orders</span>
+          <span id="badgeActiveOrders" class="kds-count-badge">0</span>
+        </button>
+        <button id="tabRequests" class="kds-tab" data-tab="requests">
+          <span>Table Assistance</span>
+          <span id="badgeRequests" class="kds-count-badge">0</span>
+        </button>
+        <button id="tabAvailability" class="kds-tab" data-tab="availability">
+          <span>Menu Availability</span>
+        </button>
+      </nav>
+
+      <div class="kds-header-right">
+        <div class="live-pulse-indicator">
+          <span class="pulse-ring"></span>
+          <span class="live-text">Live Sync</span>
+        </div>
+        <button id="btnRefreshKds" class="btn-icon" title="Refresh Now">🔄</button>
+        <a href="/admin/qr" class="btn-admin-link" title="QR Management">Tables & QR ↗</a>
+      </div>
+    </header>
+
+    <!-- Main Views Area -->
+    <main class="kds-main">
+      
+      <!-- VIEW 1: ACTIVE ORDERS -->
+      <section id="viewOrders" class="kds-view active">
+        <!-- Filter Controls -->
+        <div class="order-filters-bar">
+          <div class="filter-pills">
+            <button class="filter-pill active" data-filter="all">All Active (<span id="filterCountAll">0</span>)</button>
+            <button class="filter-pill" data-filter="Confirmed">New Confirmed (<span id="filterCountConfirmed">0</span>)</button>
+            <button class="filter-pill" data-filter="Preparing">Preparing (<span id="filterCountPreparing">0</span>)</button>
+            <button class="filter-pill" data-filter="Ready">Ready to Serve (<span id="filterCountReady">0</span>)</button>
+          </div>
+          <div class="sound-toggle">
+            <label>
+              <input type="checkbox" id="chkAudioAlert" checked>
+              <span>🔔 New Order Alert Sound</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Orders Grid Container -->
+        <div id="ordersGrid" class="orders-grid">
+          <div class="kds-empty-state">
+            <div class="empty-icon">🍽️</div>
+            <h3>No active kitchen orders</h3>
+            <p>New paid orders placed by table customers will appear here automatically.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- VIEW 2: TABLE ASSISTANCE & BILL REQUESTS -->
+      <section id="viewRequests" class="kds-view" style="display: none;">
+        <div class="requests-split-container">
+          <!-- Left Column: Waiter & Assistance Calls -->
+          <div class="requests-column">
+            <div class="column-header">
+              <h3>Table Assistance Calls</h3>
+              <span class="col-count" id="countTableRequests">0 pending</span>
+            </div>
+            <div id="tableRequestsList" class="requests-list">
+              <!-- Injected via JS -->
+            </div>
+          </div>
+
+          <!-- Right Column: Bill Requests -->
+          <div class="requests-column">
+            <div class="column-header">
+              <h3>Bill Requests</h3>
+              <span class="col-count" id="countBillRequests">0 pending</span>
+            </div>
+            <div id="billRequestsList" class="requests-list">
+              <!-- Injected via JS -->
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- VIEW 3: MENU AVAILABILITY SWITCHBOARD -->
+      <section id="viewAvailability" class="kds-view" style="display: none;">
+        <div class="availability-header-bar">
+          <div>
+            <h2>Menu Item Availability Switchboard</h2>
+            <p>Toggle items ON or OFF in real-time. Unavailable items are instantly disabled on all customer menus.</p>
+          </div>
+          <div class="availability-search">
+            <input type="text" id="menuSearchInput" placeholder="Filter dishes by name...">
+          </div>
+        </div>
+
+        <div id="menuAvailabilityList" class="availability-grid">
+          <!-- Injected via JS -->
+        </div>
+      </section>
+
+    </main>
+
+  </div>
+
+  <!-- Toast Notification Container -->
+  <div id="kdsToastContainer" class="kds-toast-container"></div>
+
+  <!-- Kitchen JS -->
+  <script src="/static/js/kitchen.js"></script>
+</body>
+</html>

@@ -1,0 +1,13 @@
+{
+  "name": "cafe-management-hub",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Brew & Co — Unified Cafe Management Platform Hub",
+  "type": "module",
+  "scripts": {
+    "hub": "node hub-server.js",
+    "dashboard": "cd cafe-admin-dashboard && npm run dev",
+    "website": "cd customer-website && npm run dev",
+    "start": "node hub-server.js"
+  }
+}

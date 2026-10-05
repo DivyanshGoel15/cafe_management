@@ -1,0 +1,14 @@
+[
+  {"id": "T-01", "name": "Window 2-Top (A)", "capacity": 2, "location": "window", "is_active": true},
+  {"id": "T-02", "name": "Window 2-Top (B)", "capacity": 2, "location": "window", "is_active": true},
+  {"id": "T-03", "name": "Indoor 2-Top (C)", "capacity": 2, "location": "indoor", "is_active": true},
+  {"id": "T-04", "name": "Patio 2-Top (D)", "capacity": 2, "location": "patio", "is_active": true},
+  {"id": "T-05", "name": "Main Dining 4-Top (A)", "capacity": 4, "location": "indoor", "is_active": true},
+  {"id": "T-06", "name": "Main Dining 4-Top (B)", "capacity": 4, "location": "indoor", "is_active": true},
+  {"id": "T-07", "name": "Window 4-Top (C)", "capacity": 4, "location": "window", "is_active": true},
+  {"id": "T-08", "name": "Patio 4-Top (D)", "capacity": 4, "location": "patio", "is_active": true},
+  {"id": "T-09", "name": "Garden 6-Top (A)", "capacity": 6, "location": "patio", "is_active": true},
+  {"id": "T-10", "name": "Main Dining 6-Top (B)", "capacity": 6, "location": "indoor", "is_active": true},
+  {"id": "T-11", "name": "Private Dining 8-Top (A)", "capacity": 8, "location": "private", "is_active": true},
+  {"id": "T-12", "name": "Banquet 10-Top (A)", "capacity": 10, "location": "private", "is_active": true}
+]

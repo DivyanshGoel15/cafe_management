@@ -1,0 +1,95 @@
+/* ══════════════════════════════════════════════════════════════
+   BREW & CO — RESPONSIVE ADAPTATIONS
+   ══════════════════════════════════════════════════════════════ */
+
+/* Laptop / Medium Screens (<= 1200px) */
+@media (max-width: 1200px) {
+  .stats-row {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .charts-grid {
+    grid-template-columns: 1fr;
+  }
+  .wa-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Tablet Screens (<= 992px) */
+@media (max-width: 992px) {
+  :root {
+    --sidebar-w: 200px;
+  }
+  .content {
+    padding: 18px;
+  }
+  .form-row-3 {
+    grid-template-columns: 1fr;
+  }
+  .rating-breakdown-card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+/* Mobile Screens (<= 768px) */
+@media (max-width: 768px) {
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: -280px;
+    bottom: 0;
+    width: 260px !important;
+    z-index: 100;
+    transition: left var(--transition-normal);
+    box-shadow: 4px 0 24px rgba(0, 0, 0, 0.3);
+  }
+  .sidebar.mobile-open {
+    left: 0;
+  }
+  .topbar-mobile-toggle {
+    display: inline-flex;
+  }
+  .topbar {
+    padding: 0 16px;
+  }
+  .content {
+    padding: 14px;
+  }
+  .stats-row {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+  .table-grid, .menu-grid, .offers-grid, .qr-grid {
+    grid-template-columns: 1fr;
+  }
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+  .drawer-panel {
+    width: 100vw;
+  }
+  .topbar-time, .topbar-badge {
+    display: none;
+  }
+  .section-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .filter-tabs {
+    width: 100%;
+  }
+}
+
+/* Small Mobile (<= 480px) */
+@media (max-width: 480px) {
+  .stat-value {
+    font-size: 22px;
+  }
+  .modal-box {
+    margin: 10px;
+  }
+  .auth-body {
+    padding: 20px 18px;
+  }
+}

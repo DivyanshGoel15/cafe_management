@@ -1,0 +1,48 @@
+{
+  "id": "cafe-bella-vista",
+  "name": "Bella Vista Bistro",
+  "tagline": "Artisanal Coffee & Contemporary Mediterranean Kitchen",
+  "description": "Bella Vista Bistro is an award-winning neighborhood cafe offering specialty single-origin coffees, handcrafted Italian pastas, wood-fired artisanal pizzas, and Mediterranean plates prepared with locally sourced organic ingredients.",
+  "address": {
+    "street": "123 Artisan Lane, Suite 400",
+    "neighborhood": "Downtown Arts District",
+    "city": "Metropolis",
+    "postal_code": "90210",
+    "country": "USA"
+  },
+  "phone": "+15550001111",
+  "email": "contact@bellavista.cafe",
+  "website": "https://www.bellavista.cafe",
+  "business_hours": {
+    "monday": "08:00 - 22:00",
+    "tuesday": "08:00 - 22:00",
+    "wednesday": "08:00 - 22:00",
+    "thursday": "08:00 - 22:00",
+    "friday": "08:00 - 23:00",
+    "saturday": "09:00 - 23:00",
+    "sunday": "09:00 - 21:00"
+  },
+  "parking_info": "Complimentary 2-hour parking available in the attached subterranean garage on 4th Street. Valet service available on Friday and Saturday evenings from 6:00 PM.",
+  "booking_rules": {
+    "max_party_size_online": 10,
+    "min_advance_hours": 1,
+    "max_advance_days": 30,
+    "reservation_hold_duration_minutes": 15,
+    "table_sitting_duration_minutes": 90
+  },
+  "cancellation_policy": "Reservations can be cancelled or modified free of charge up to 2 hours prior to reservation time. For parties larger than 6 guests, we appreciate 4 hours notice.",
+  "available_services": [
+    "Dine-in table reservations",
+    "Outdoor patio seating with heaters",
+    "Private dining room (up to 16 guests)",
+    "Complimentary high-speed Wi-Fi",
+    "Pet-friendly garden terrace",
+    "Full espresso and cocktail bar"
+  ],
+  "escalation_rules": {
+    "human_agent_phone": "+15551234567",
+    "escalate_on_sentiment": ["angry", "frustrated", "hostile"],
+    "escalate_on_topics": ["large private events (>10 guests)", "billing disputes", "severe allergy emergencies", "management complaints"],
+    "max_misunderstandings": 3
+  }
+}

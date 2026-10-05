@@ -1,0 +1,3486 @@
+{
+  "cafe": {
+    "id": "cafe_central_01",
+    "name": "Brew & Co",
+    "tagline": "Artisanal Roastery & Kitchen",
+    "subTagline": "Single-origin roasts, 36-hour sourdough, and warm hospitality.",
+    "phone": "+91 80 4455 6677",
+    "email": "indiranagar@brewandco.cafe",
+    "address": "100 Feet Road, Indiranagar, Bengaluru, 560038",
+    "openingHours": "07:30 AM - 12:00 AM (Mon - Sun)",
+    "fssaiLicense": "11223344556677",
+    "currency": "₹",
+    "currencyCode": "INR",
+    "taxRate": 0.05,
+    "serviceChargeRate": 0.05,
+    "gstPercentage": 5,
+    "serviceChargePercentage": 5,
+    "instagram": "@brewandcocafe",
+    "googleMapsUrl": "https://maps.google.com/?cid=brewandco",
+    "hours": [
+      {
+        "day": "Monday",
+        "open": "08:00",
+        "close": "23:30",
+        "display": "8:00 AM – 11:30 PM"
+      },
+      {
+        "day": "Tuesday",
+        "open": "08:00",
+        "close": "23:30",
+        "display": "8:00 AM – 11:30 PM"
+      },
+      {
+        "day": "Wednesday",
+        "open": "08:00",
+        "close": "23:30",
+        "display": "8:00 AM – 11:30 PM"
+      },
+      {
+        "day": "Thursday",
+        "open": "08:00",
+        "close": "23:30",
+        "display": "8:00 AM – 11:30 PM"
+      },
+      {
+        "day": "Friday",
+        "open": "08:00",
+        "close": "23:30",
+        "display": "8:00 AM – 11:30 PM"
+      },
+      {
+        "day": "Saturday",
+        "open": "07:30",
+        "close": "23:30",
+        "display": "7:30 AM – 11:30 PM"
+      },
+      {
+        "day": "Sunday",
+        "open": "07:30",
+        "close": "23:30",
+        "display": "7:30 AM – 11:30 PM"
+      }
+    ]
+  },
+  "menuCategories": [
+    {
+      "id": "all",
+      "name": "All Creations",
+      "shortName": "All",
+      "icon": "sparkles"
+    },
+    {
+      "id": "Coffee",
+      "name": "Specialty Coffee",
+      "shortName": "Coffee",
+      "icon": "mug-hot"
+    },
+    {
+      "id": "Starters",
+      "name": "Starters & Small Bites",
+      "shortName": "Starters",
+      "icon": "utensils"
+    },
+    {
+      "id": "Main Course",
+      "name": "Main Course & Bowls",
+      "shortName": "Mains",
+      "icon": "bowl-food"
+    },
+    {
+      "id": "Desserts",
+      "name": "Artisanal Desserts",
+      "shortName": "Desserts",
+      "icon": "cake"
+    },
+    {
+      "id": "Beverages",
+      "name": "Botanical Beverages & Teas",
+      "shortName": "Beverages",
+      "icon": "glass-water"
+    }
+  ],
+  "menuItems": [
+    {
+      "id": "MNU-01",
+      "name": "Cappuccino",
+      "category": "Coffee",
+      "categoryId": "Coffee",
+      "price": 180,
+      "cost": 45,
+      "isVeg": true,
+      "prepTime": "6 mins",
+      "isPopular": true,
+      "available": true,
+      "isAvailable": true,
+      "description": "Velvety espresso with steamed milk foam and organic cocoa dust.",
+      "imageUrl": "https://images.unsplash.com/photo-1572442388796-11668ba67e53?auto=format&fit=crop&w=600&q=80",
+      "tags": [
+        "Bestseller",
+        "Artisanal Coffee"
+      ],
+      "addons": [
+        {
+          "id": "ao-1",
+          "name": "Oat Milk Substitute",
+          "price": 35
+        },
+        {
+          "id": "ao-2",
+          "name": "Hazelnut Shot",
+          "price": 25
+        }
+      ]
+    },
+    {
+      "id": "MNU-02",
+      "name": "Cold Coffee",
+      "category": "Coffee",
+      "categoryId": "Coffee",
+      "price": 160,
+      "cost": 40,
+      "isVeg": true,
+      "prepTime": "5 mins",
+      "isPopular": true,
+      "available": true,
+      "isAvailable": true,
+      "description": "Creamy blended iced brew with vanilla bean gelato scoop.",
+      "imageUrl": "https://images.unsplash.com/photo-1517701550927-30cf4ba1dba5?auto=format&fit=crop&w=600&q=80",
+      "tags": [
+        "Bestseller",
+        "Iced Brew"
+      ],
+      "addons": [
+        {
+          "id": "ao-3",
+          "name": "Extra Gelato Scoop",
+          "price": 50
+        }
+      ]
+    },
+    {
+      "id": "MNU-03",
+      "name": "Espresso Single / Double",
+      "category": "Coffee",
+      "categoryId": "Coffee",
+      "price": 120,
+      "cost": 25,
+      "isVeg": true,
+      "prepTime": "3 mins",
+      "isPopular": false,
+      "available": true,
+      "isAvailable": true,
+      "description": "Single origin Arabica bean extract with thick golden crema.",
+      "imageUrl": "https://images.unsplash.com/photo-1510591509098-f4fdc6d0ff04?auto=format&fit=crop&w=600&q=80",
+      "tags": [
+        "Single Origin"
+      ],
+      "addons": []
+    },
+    {
+      "id": "MNU-04",
+      "name": "Cold Brew Reserve",
+      "category": "Coffee",
+      "categoryId": "Coffee",
+      "price": 200,
+      "cost": 50,
+      "isVeg": true,
+      "prepTime": "2 mins",
+      "isPopular": true,
+      "available": true,
+      "isAvailable": true,
+      "description": "Steeped for 18 hours in cold filtered spring water. Smooth and low acidity.",
+      "imageUrl": "https://images.unsplash.com/photo-1461023058943-07fcbe16d735?auto=format&fit=crop&w=600&q=80",
+      "tags": [
+        "Cold Brewed"
+      ],
+      "addons": []
+    },
+    {
+      "id": "MNU-05",
+      "name": "Spanish Latte",
+      "category": "Coffee",
+      "categoryId": "Coffee",
+      "price": 190,
+      "cost": 55,
+      "isVeg": true,
+      "prepTime": "7 mins",
+      "isPopular": true,
+      "available": true,
+      "isAvailable": true,
+      "description": "Espresso balanced with condensed milk and steamed whole milk.",
+      "imageUrl": "https://images.unsplash.com/photo-1534778101976-62847782c213?auto=format&fit=crop&w=600&q=80",
+      "tags": [
+        "Signature"
+      ],
+      "addons": []
+    },
+    {
+      "id": "MNU-06",
+      "name": "Paneer Tikka Sandwich",
+      "category": "Starters",
+      "categoryId": "Starters",
+      "price": 220,
+      "cost": 75,
+      "isVeg": true,
+      "prepTime": "12 mins",
+      "isPopular": true,
+      "available": true,
+      "isAvailable": true,
+      "description": "Char-grilled cottage cheese in sourdough bread with mint chutney.",
+      "imageUrl": "https://images.unsplash.com/photo-1528735602780-2552fd46c7af?auto=format&fit=crop&w=600&q=80",
+      "tags": [
+        "Chef's Special",
+        "Sourdough"
+      ],
+      "addons": [
+        {
+          "id": "ao-4",
+          "name": "Extra Melted Cheese",
+          "price": 40
+        }
+      ]
+    },
+    {
+      "id": "MNU-07",
+      "name": "Artisan Margherita Pizza",
+      "category": "Main Course",
+      "categoryId": "Main Course",
+      "price": 350,
+      "cost": 110,
+      "isVeg": true,
+      "prepTime": "15 mins",
+      "isPopular": true,
+      "available": true,
+      "isAvailable": true,
+      "description": "Hand-stretched sourdough crust, San Marzano tomatoes, fresh mozzarella.",
+      "imageUrl": "https://images.unsplash.com/photo-1574071318508-1cdbab80d002?auto=format&fit=crop&w=600&q=80",
+      "tags": [
+        "Sourdough Pizza",
+        "Bestseller"
+      ],
+      "addons": [
+        {
+          "id": "ao-4",
+          "name": "Extra Mozzarella",
+          "price": 50
+        }
+      ]
+    },
+    {
+      "id": "MNU-08",
+      "name": "Grilled Herb Sandwich",
+      "category": "Starters",
+      "categoryId": "Starters",
+      "price": 210,
+      "cost": 70,
+      "isVeg": true,
+      "prepTime": "10 mins",
+      "isPopular": false,
+      "available": false,
+      "isAvailable": false,
+      "description": "Zucchini, bell peppers, melted cheddar and herb butter on multigrain.",
+      "imageUrl": "https://images.unsplash.com/photo-1509722747041-616f39b57569?auto=format&fit=crop&w=600&q=80",
+      "tags": [
+        "Multigrain"
+      ],
+      "addons": []
+    },
+    {
+      "id": "MNU-09",
+      "name": "Falafel Veggie Wrap",
+      "category": "Main Course",
+      "categoryId": "Main Course",
+      "price": 195,
+      "cost": 60,
+      "isVeg": true,
+      "prepTime": "10 mins",
+      "isPopular": true,
+      "available": true,
+      "isAvailable": true,
+      "description": "Crispy herb falafels, pickled cucumbers, hummus and tahini garlic dressing.",
+      "imageUrl": "https://images.unsplash.com/photo-1626777552726-4a6b54c97e46?auto=format&fit=crop&w=600&q=80",
+      "tags": [
+        "Mediterranean"
+      ],
+      "addons": []
+    },
+    {
+      "id": "MNU-10",
+      "name": "Belgian Chocolate Cake",
+      "category": "Desserts",
+      "categoryId": "Desserts",
+      "price": 240,
+      "cost": 80,
+      "isVeg": true,
+      "prepTime": "2 mins",
+      "isPopular": true,
+      "available": true,
+      "isAvailable": true,
+      "description": "Rich 70% dark chocolate mousse layers with sea salt ganache.",
+      "imageUrl": "https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=600&q=80",
+      "tags": [
+        "70% Dark Chocolate",
+        "Dessert"
+      ],
+      "addons": []
+    },
+    {
+      "id": "MNU-11",
+      "name": "New York Cheesecake",
+      "category": "Desserts",
+      "categoryId": "Desserts",
+      "price": 260,
+      "cost": 90,
+      "isVeg": true,
+      "prepTime": "2 mins",
+      "isPopular": true,
+      "available": true,
+      "isAvailable": true,
+      "description": "Classic baked cream cheese slice over crunchy graham cracker base.",
+      "imageUrl": "https://images.unsplash.com/photo-1533134242443-d4fd215305ad?auto=format&fit=crop&w=600&q=80",
+      "tags": [
+        "Classic Dessert"
+      ],
+      "addons": []
+    },
+    {
+      "id": "MNU-12",
+      "name": "Blueberry Crumble Muffin",
+      "category": "Desserts",
+      "categoryId": "Desserts",
+      "price": 130,
+      "cost": 38,
+      "isVeg": true,
+      "prepTime": "2 mins",
+      "isPopular": false,
+      "available": true,
+      "isAvailable": true,
+      "description": "Fresh wild blueberries baked into fluffy buttermilk muffin crown.",
+      "imageUrl": "https://images.unsplash.com/photo-1586985289688-ca3cf47d3e6e?auto=format&fit=crop&w=600&q=80",
+      "tags": [
+        "Fresh Baked"
+      ],
+      "addons": []
+    },
+    {
+      "id": "MNU-13",
+      "name": "Kolkata Masala Chai",
+      "category": "Beverages",
+      "categoryId": "Beverages",
+      "price": 60,
+      "cost": 15,
+      "isVeg": true,
+      "prepTime": "5 mins",
+      "isPopular": true,
+      "available": true,
+      "isAvailable": true,
+      "description": "Slow-simmered Assam CTC tea leaves with fresh ginger, cardamom & clove.",
+      "imageUrl": "https://images.unsplash.com/photo-1576092768241-dec231879fc3?auto=format&fit=crop&w=600&q=80",
+      "tags": [
+        "Authentic Spiced Chai"
+      ],
+      "addons": []
+    },
+    {
+      "id": "MNU-14",
+      "name": "Organic Jasmine Green Tea",
+      "category": "Beverages",
+      "categoryId": "Beverages",
+      "price": 80,
+      "cost": 20,
+      "isVeg": true,
+      "prepTime": "4 mins",
+      "isPopular": false,
+      "available": true,
+      "isAvailable": true,
+      "description": "Delicate whole-leaf green tea scented with pure night-blooming jasmine flowers.",
+      "imageUrl": "https://images.unsplash.com/photo-1564890369478-c89ca6d9cde9?auto=format&fit=crop&w=600&q=80",
+      "tags": [
+        "Organic Tea"
+      ],
+      "addons": []
+    },
+    {
+      "id": "MNU-15",
+      "name": "Fresh Mint Lime Soda",
+      "category": "Beverages",
+      "categoryId": "Beverages",
+      "price": 90,
+      "cost": 18,
+      "isVeg": true,
+      "prepTime": "4 mins",
+      "isPopular": false,
+      "available": true,
+      "isAvailable": true,
+      "description": "Fresh squeezed Persian limes with crushed garden mint and sparkling soda.",
+      "imageUrl": "https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?auto=format&fit=crop&w=600&q=80",
+      "tags": [
+        "Botanical Refresher"
+      ],
+      "addons": []
+    },
+    {
+      "id": "MNU-07B",
+      "name": "Classic Veg Burger",
+      "category": "Main Course",
+      "categoryId": "Main Course",
+      "price": 180,
+      "cost": 50,
+      "isVeg": true,
+      "prepTime": "10 mins",
+      "isPopular": true,
+      "available": true,
+      "isAvailable": true,
+      "description": "Crisp spiced potato patty with house sauce, lettuce and brioche bun.",
+      "imageUrl": "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=600&q=80",
+      "tags": [
+        "Bestseller",
+        "Burger"
+      ],
+      "addons": [
+        {
+          "id": "ao-4",
+          "name": "Extra Cheese",
+          "price": 40
+        }
+      ]
+    }
+  ],
+  "tables": [
+    {
+      "id": "T-01",
+      "number": 1,
+      "zone": "Main Dining",
+      "capacity": 2,
+      "status": "Occupied",
+      "currentCustomer": "Priya Sharma",
+      "orderId": "ORD-5521",
+      "billAmount": 580,
+      "seatedMinutes": 45,
+      "qr_identifier": "qr_table_1",
+      "qr_url": "http://localhost:5174/#/table/1",
+      "isActive": true
+    },
+    {
+      "id": "T-02",
+      "number": 2,
+      "zone": "Main Dining",
+      "capacity": 4,
+      "status": "Occupied",
+      "currentCustomer": "Arjun Mehta",
+      "orderId": "ORD-5520",
+      "billAmount": 510,
+      "seatedMinutes": 28,
+      "qr_identifier": "qr_table_2",
+      "qr_url": "http://localhost:5174/#/table/2",
+      "isActive": true
+    },
+    {
+      "id": "T-03",
+      "number": 3,
+      "zone": "Main Dining",
+      "capacity": 4,
+      "status": "Reserved",
+      "currentCustomer": "Rahul Verma (7:00 PM)",
+      "orderId": null,
+      "billAmount": 0,
+      "seatedMinutes": 0,
+      "qr_identifier": "qr_table_3",
+      "qr_url": "http://localhost:5174/#/table/3",
+      "isActive": true
+    },
+    {
+      "id": "T-04",
+      "number": 4,
+      "zone": "Main Dining",
+      "capacity": 6,
+      "status": "Reserved",
+      "currentCustomer": "No WhatsApp Guest (6:00 PM)",
+      "orderId": null,
+      "billAmount": 0,
+      "seatedMinutes": 0,
+      "qr_identifier": "qr_table_4",
+      "qr_url": "http://localhost:5174/#/table/4",
+      "isActive": true
+    },
+    {
+      "id": "T-05",
+      "number": 5,
+      "zone": "Patio & Garden",
+      "capacity": 2,
+      "status": "Available",
+      "currentCustomer": null,
+      "orderId": null,
+      "billAmount": 0,
+      "seatedMinutes": 0,
+      "qr_identifier": "qr_table_5",
+      "qr_url": "http://localhost:5174/#/table/5",
+      "isActive": true
+    },
+    {
+      "id": "T-06",
+      "number": 6,
+      "zone": "Patio & Garden",
+      "capacity": 4,
+      "status": "Cleaning",
+      "currentCustomer": null,
+      "orderId": null,
+      "billAmount": 0,
+      "seatedMinutes": 10,
+      "qr_identifier": "qr_table_6",
+      "qr_url": "http://localhost:5174/#/table/6",
+      "isActive": true
+    },
+    {
+      "id": "T-07",
+      "number": 7,
+      "zone": "Patio & Garden",
+      "capacity": 4,
+      "status": "Occupied",
+      "currentCustomer": "Double Clicker",
+      "orderId": "ORD-6207",
+      "billAmount": 9118,
+      "seatedMinutes": 52,
+      "qr_identifier": "qr_table_7",
+      "qr_url": "http://localhost:5174/#/table/7",
+      "isActive": true
+    },
+    {
+      "id": "T-08",
+      "number": 8,
+      "zone": "Lounge Area",
+      "capacity": 6,
+      "status": "Reserved",
+      "currentCustomer": "Vikram Malhotra (20:00)",
+      "orderId": null,
+      "billAmount": 0,
+      "seatedMinutes": 0,
+      "qr_identifier": "qr_table_8",
+      "qr_url": "http://localhost:5174/#/table/8",
+      "isActive": true
+    },
+    {
+      "id": "T-09",
+      "number": 9,
+      "zone": "Lounge Area",
+      "capacity": 8,
+      "status": "Reserved",
+      "currentCustomer": "Sonal Gupta (7:30 PM)",
+      "orderId": null,
+      "billAmount": 0,
+      "seatedMinutes": 0,
+      "qr_identifier": "qr_table_9",
+      "qr_url": "http://localhost:5174/#/table/9",
+      "isActive": true
+    },
+    {
+      "id": "T-10",
+      "number": 10,
+      "zone": "Bar Counter",
+      "capacity": 2,
+      "status": "Occupied",
+      "currentCustomer": "Tanya Malhotra",
+      "orderId": "ORD-5512",
+      "billAmount": 480,
+      "seatedMinutes": 14,
+      "qr_identifier": "qr_table_10",
+      "qr_url": "http://localhost:5174/#/table/10",
+      "isActive": true
+    },
+    {
+      "id": "T-11",
+      "number": 11,
+      "zone": "Bar Counter",
+      "capacity": 2,
+      "status": "Available",
+      "currentCustomer": null,
+      "orderId": null,
+      "billAmount": 0,
+      "seatedMinutes": 0,
+      "qr_identifier": "qr_table_11",
+      "qr_url": "http://localhost:5174/#/table/11",
+      "isActive": true
+    },
+    {
+      "id": "T-12",
+      "number": 12,
+      "zone": "Bar Counter",
+      "capacity": 2,
+      "status": "Available",
+      "currentCustomer": null,
+      "orderId": null,
+      "billAmount": 0,
+      "seatedMinutes": 0,
+      "qr_identifier": "qr_table_12",
+      "qr_url": "http://localhost:5174/#/table/12",
+      "isActive": true
+    },
+    {
+      "id": "T-21",
+      "number": 21,
+      "zone": "Main Dining",
+      "capacity": 6,
+      "status": "Inactive",
+      "currentCustomer": "Terrace VIP",
+      "orderId": "ORD-5725",
+      "billAmount": 352,
+      "seatedMinutes": 0,
+      "qr_identifier": "qr_table_21",
+      "qr_url": "http://localhost:5174/#/table/21",
+      "isActive": true
+    },
+    {
+      "id": "T-21",
+      "number": 21,
+      "zone": "Main Dining",
+      "capacity": 6,
+      "status": "Available",
+      "currentCustomer": null,
+      "orderId": null,
+      "billAmount": 0,
+      "seatedMinutes": 0,
+      "qr_identifier": "qr_table_21",
+      "qr_url": "http://localhost:5174/#/table/21",
+      "isActive": true
+    }
+  ],
+  "customers": [
+    {
+      "id": "CUST-101",
+      "name": "Priya Sharma",
+      "phone": "9876543210",
+      "email": "priya@gmail.com",
+      "orders": 28,
+      "spend": 14200,
+      "lastVisit": "Today",
+      "status": "Regular",
+      "notes": "Always prefers lactose-free milk or oat milk."
+    },
+    {
+      "id": "CUST-102",
+      "name": "Arjun Mehta",
+      "phone": "9812345678",
+      "email": "arjun.m@outlook.com",
+      "orders": 15,
+      "spend": 7800,
+      "lastVisit": "Today",
+      "status": "Regular",
+      "notes": "Loves iced cold brews and Margherita pizza."
+    }
+  ],
+  "bookings": [
+    {
+      "id": "RES-2483",
+      "name": "Priya Sharma",
+      "customerName": "Priya Sharma",
+      "phone": "+91 98765 33333",
+      "email": "",
+      "date": "Tonight",
+      "time": "8:30 PM",
+      "guests": 2,
+      "table": "Table 5",
+      "tableId": "T-05",
+      "tableNumber": 5,
+      "area": "Main Dining",
+      "status": "Cancelled",
+      "channel": "Web",
+      "specialRequests": "",
+      "createdAt": "2026-09-28T18:44:38.882Z",
+      "cancellationReason": "Guest emergency",
+      "cancelledAt": "2026-09-28T18:44:38.898Z"
+    },
+    {
+      "id": "RES-3212",
+      "name": "Rahul",
+      "customerName": "Rahul",
+      "phone": "+91 98765 11111",
+      "email": "rahul@example.com",
+      "date": "Tomorrow",
+      "time": "8:00 PM",
+      "guests": 4,
+      "table": "Table 7",
+      "tableId": "T-07",
+      "tableNumber": 7,
+      "area": "Main Dining",
+      "status": "Cancelled",
+      "channel": "Web",
+      "specialRequests": "",
+      "createdAt": "2026-09-28T18:44:38.634Z",
+      "updatedAt": "2026-09-28T18:44:38.650Z",
+      "cancellationReason": "Admin cancelled at guest request",
+      "cancelledAt": "2026-09-28T18:44:38.663Z"
+    },
+    {
+      "id": "BKG-EB7A45",
+      "name": "Vikram Malhotra",
+      "customerName": "Vikram Malhotra",
+      "phone": "+91 99887 76655",
+      "email": "",
+      "date": "2026-09-29",
+      "time": "20:00",
+      "guests": 4,
+      "table": "Table 8",
+      "tableId": "T-08",
+      "tableNumber": 8,
+      "area": "Main Dining",
+      "status": "Confirmed",
+      "channel": "AI Voice Calling",
+      "specialRequests": "Outdoor seating preferred",
+      "createdAt": "2026-09-28T18:21:14.472Z"
+    },
+    {
+      "id": "RES-3127",
+      "name": "Priya Sharma",
+      "customerName": "Priya Sharma",
+      "phone": "+91 98765 33333",
+      "email": "",
+      "date": "Tonight",
+      "time": "8:30 PM",
+      "guests": 2,
+      "table": "Table 5",
+      "tableId": "T-05",
+      "tableNumber": 5,
+      "area": "Main Dining",
+      "status": "Cancelled",
+      "channel": "Web",
+      "specialRequests": "",
+      "createdAt": "2026-09-28T18:21:14.221Z",
+      "cancellationReason": "Guest emergency",
+      "cancelledAt": "2026-09-28T18:21:14.239Z"
+    },
+    {
+      "id": "RES-3096",
+      "name": "Rahul",
+      "customerName": "Rahul",
+      "phone": "+91 98765 11111",
+      "email": "rahul@example.com",
+      "date": "Tomorrow",
+      "time": "8:00 PM",
+      "guests": 4,
+      "table": "Table 7",
+      "tableId": "T-07",
+      "tableNumber": 7,
+      "area": "Main Dining",
+      "status": "Cancelled",
+      "channel": "Web",
+      "specialRequests": "",
+      "createdAt": "2026-09-28T18:21:13.948Z",
+      "updatedAt": "2026-09-28T18:21:13.966Z",
+      "cancellationReason": "Admin cancelled at guest request",
+      "cancelledAt": "2026-09-28T18:21:13.980Z"
+    },
+    {
+      "id": "RES-2434",
+      "name": "No WhatsApp Guest",
+      "customerName": "No WhatsApp Guest",
+      "phone": "+91 91111 22222",
+      "email": "",
+      "date": "Tomorrow",
+      "time": "6:00 PM",
+      "guests": 2,
+      "table": "Table 4",
+      "tableId": "T-04",
+      "tableNumber": 4,
+      "area": "Main Dining",
+      "status": "Confirmed",
+      "channel": "Web",
+      "specialRequests": "",
+      "createdAt": "2026-09-28T18:14:50.586Z"
+    },
+    {
+      "id": "RES-2539",
+      "name": "Priya Sharma",
+      "customerName": "Priya Sharma",
+      "phone": "+91 98765 33333",
+      "email": "",
+      "date": "Tonight",
+      "time": "8:30 PM",
+      "guests": 2,
+      "table": "Table 5",
+      "tableId": "T-05",
+      "tableNumber": 5,
+      "area": "Main Dining",
+      "status": "Cancelled",
+      "channel": "Web",
+      "specialRequests": "",
+      "createdAt": "2026-09-28T18:14:50.304Z",
+      "cancellationReason": "Guest emergency",
+      "cancelledAt": "2026-09-28T18:14:50.322Z"
+    },
+    {
+      "id": "RES-3151",
+      "name": "Rahul",
+      "customerName": "Rahul",
+      "phone": "+91 98765 11111",
+      "email": "rahul@example.com",
+      "date": "Tomorrow",
+      "time": "8:00 PM",
+      "guests": 4,
+      "table": "Table 7",
+      "tableId": "T-07",
+      "tableNumber": 7,
+      "area": "Main Dining",
+      "status": "Cancelled",
+      "channel": "Web",
+      "specialRequests": "",
+      "createdAt": "2026-09-28T18:14:50.042Z",
+      "updatedAt": "2026-09-28T18:14:50.056Z",
+      "cancellationReason": "Admin cancelled at guest request",
+      "cancelledAt": "2026-09-28T18:14:50.070Z"
+    },
+    {
+      "id": "RES-2639",
+      "name": "Rahul",
+      "customerName": "Rahul",
+      "phone": "+91 98765 11111",
+      "email": "rahul@example.com",
+      "date": "Tomorrow",
+      "time": "8:00 PM",
+      "guests": 4,
+      "table": "Table 4",
+      "tableId": "T-04",
+      "tableNumber": 4,
+      "area": "Main Dining",
+      "status": "Cancelled",
+      "channel": "Web",
+      "specialRequests": "",
+      "createdAt": "2026-09-28T18:12:28.585Z",
+      "updatedAt": "2026-09-28T18:12:28.608Z",
+      "cancellationReason": "Admin cancelled at guest request",
+      "cancelledAt": "2026-09-28T18:12:28.620Z"
+    },
+    {
+      "id": "RES-2496",
+      "name": "Rahul",
+      "customerName": "Rahul",
+      "phone": "+91 98765 11111",
+      "email": "rahul@example.com",
+      "date": "Tomorrow",
+      "time": "8:00 PM",
+      "guests": 4,
+      "table": "Table 4",
+      "tableId": "T-04",
+      "tableNumber": 4,
+      "area": "Main Dining",
+      "status": "Cancelled",
+      "channel": "Web",
+      "specialRequests": "",
+      "createdAt": "2026-09-28T18:03:20.937Z",
+      "updatedAt": "2026-09-28T18:03:20.959Z",
+      "cancellationReason": "Admin cancelled at guest request",
+      "cancelledAt": "2026-09-28T18:03:20.973Z"
+    },
+    {
+      "id": "RES-2410",
+      "name": "Priya Sharma",
+      "customerName": "Priya Sharma",
+      "phone": "9876543210",
+      "email": "priya@gmail.com",
+      "date": "2026-09-28",
+      "time": "12:30 PM",
+      "guests": 4,
+      "table": "Table 1",
+      "tableId": "T-01",
+      "tableNumber": 1,
+      "status": "Seated",
+      "channel": "WhatsApp",
+      "specialRequests": "Corner table with natural light"
+    },
+    {
+      "id": "RES-2409",
+      "name": "Arjun Mehta",
+      "customerName": "Arjun Mehta",
+      "phone": "9812345678",
+      "email": "arjun.m@outlook.com",
+      "date": "2026-09-28",
+      "time": "01:00 PM",
+      "guests": 2,
+      "table": "Table 2",
+      "tableId": "T-02",
+      "tableNumber": 2,
+      "status": "Seated",
+      "channel": "WhatsApp",
+      "specialRequests": "Anniversary celebration"
+    },
+    {
+      "id": "RES-2408",
+      "name": "Sonal Gupta",
+      "customerName": "Sonal Gupta",
+      "phone": "9098765432",
+      "email": "sonal.g@yahoo.com",
+      "date": "2026-09-28",
+      "time": "07:30 PM",
+      "guests": 6,
+      "table": "Table 9",
+      "tableId": "T-09",
+      "tableNumber": 9,
+      "status": "Confirmed",
+      "channel": "Phone",
+      "specialRequests": "High chair needed for child"
+    },
+    {
+      "id": "RES-2407",
+      "name": "Rahul Verma",
+      "customerName": "Rahul Verma",
+      "phone": "9765432109",
+      "email": "rahul.v@gmail.com",
+      "date": "2026-09-28",
+      "time": "08:00 PM",
+      "guests": 2,
+      "table": "Table 3",
+      "tableId": "T-03",
+      "tableNumber": 3,
+      "status": "Confirmed",
+      "channel": "WhatsApp",
+      "specialRequests": "Quiet spot for discussion"
+    }
+  ],
+  "orders": [
+    {
+      "id": "ORD-6207",
+      "orderNumber": 6207,
+      "customer": "Double Clicker",
+      "customerName": "Double Clicker",
+      "phone": "",
+      "type": "Dine-in",
+      "table": "Table 7",
+      "tableId": "T-07",
+      "tableNumber": 7,
+      "sessionId": "sess_table_7",
+      "items": [
+        {
+          "id": "MNU-01",
+          "name": "Cappuccino",
+          "qty": 1,
+          "price": 180,
+          "total": 180,
+          "notes": ""
+        }
+      ],
+      "subtotal": 180,
+      "tax": 9,
+      "serviceCharge": 9,
+      "discount": 0,
+      "total": 198,
+      "status": "Confirmed",
+      "paymentStatus": "Paid",
+      "paymentMethod": "UPI",
+      "time": "12:14 am",
+      "date": "2026-09-29",
+      "notes": "",
+      "createdAt": "2026-09-28T18:44:39.218Z"
+    },
+    {
+      "id": "ORD-5846",
+      "orderNumber": 5846,
+      "customer": "Tamper Tester",
+      "customerName": "Tamper Tester",
+      "phone": "",
+      "type": "Dine-in",
+      "table": "Table 7",
+      "tableId": "T-07",
+      "tableNumber": 7,
+      "sessionId": "sess_table_7",
+      "items": [
+        {
+          "id": "MNU-01",
+          "name": "Cappuccino",
+          "qty": 2,
+          "price": 180,
+          "total": 360,
+          "notes": ""
+        }
+      ],
+      "subtotal": 360,
+      "tax": 18,
+      "serviceCharge": 18,
+      "discount": 0,
+      "total": 396,
+      "status": "Confirmed",
+      "paymentStatus": "Paid",
+      "paymentMethod": "UPI",
+      "time": "12:14 am",
+      "date": "2026-09-29",
+      "notes": "",
+      "createdAt": "2026-09-28T18:44:39.206Z"
+    },
+    {
+      "id": "ORD-5725",
+      "orderNumber": 5725,
+      "customer": "Terrace VIP",
+      "customerName": "Terrace VIP",
+      "phone": "",
+      "type": "Dine-in",
+      "table": "Table 21",
+      "tableId": "T-21",
+      "tableNumber": 21,
+      "sessionId": "sess_table_21",
+      "items": [
+        {
+          "id": "MNU-02",
+          "name": "Cold Coffee",
+          "qty": 1,
+          "price": 160,
+          "total": 160,
+          "notes": ""
+        }
+      ],
+      "subtotal": 160,
+      "tax": 8,
+      "serviceCharge": 8,
+      "discount": 0,
+      "total": 176,
+      "status": "Confirmed",
+      "paymentStatus": "Paid",
+      "paymentMethod": "UPI",
+      "time": "12:14 am",
+      "date": "2026-09-29",
+      "notes": "",
+      "createdAt": "2026-09-28T18:44:39.178Z"
+    },
+    {
+      "id": "ORD-5846",
+      "orderNumber": 5846,
+      "customer": "Customer C",
+      "customerName": "Customer C",
+      "phone": "",
+      "type": "Dine-in",
+      "table": "Table 7",
+      "tableId": "T-07",
+      "tableNumber": 7,
+      "sessionId": "sess_table_7",
+      "items": [
+        {
+          "id": "MNU-02",
+          "name": "Cold Coffee",
+          "qty": 1,
+          "price": 160,
+          "total": 160,
+          "notes": ""
+        }
+      ],
+      "subtotal": 160,
+      "tax": 8,
+      "serviceCharge": 8,
+      "discount": 0,
+      "total": 176,
+      "status": "Confirmed",
+      "paymentStatus": "Paid",
+      "paymentMethod": "UPI",
+      "time": "12:14 am",
+      "date": "2026-09-29",
+      "notes": "",
+      "createdAt": "2026-09-28T18:44:38.817Z"
+    },
+    {
+      "id": "ORD-6219",
+      "orderNumber": 6219,
+      "customer": "Customer B",
+      "customerName": "Customer B",
+      "phone": "",
+      "type": "Dine-in",
+      "table": "Table 7",
+      "tableId": "T-07",
+      "tableNumber": 7,
+      "sessionId": "sess_table_7",
+      "items": [
+        {
+          "id": "MNU-07B",
+          "name": "Classic Veg Burger",
+          "qty": 1,
+          "price": 180,
+          "total": 180,
+          "notes": ""
+        }
+      ],
+      "subtotal": 180,
+      "tax": 9,
+      "serviceCharge": 9,
+      "discount": 0,
+      "total": 198,
+      "status": "Confirmed",
+      "paymentStatus": "Paid",
+      "paymentMethod": "UPI",
+      "time": "12:14 am",
+      "date": "2026-09-29",
+      "notes": "",
+      "createdAt": "2026-09-28T18:44:38.805Z"
+    },
+    {
+      "id": "ORD-5572",
+      "orderNumber": 5572,
+      "customer": "Customer A",
+      "customerName": "Customer A",
+      "phone": "",
+      "type": "Dine-in",
+      "table": "Table 7",
+      "tableId": "T-07",
+      "tableNumber": 7,
+      "sessionId": "sess_table_7",
+      "items": [
+        {
+          "id": "MNU-07B",
+          "name": "Classic Veg Burger",
+          "qty": 1,
+          "price": 180,
+          "total": 180,
+          "notes": ""
+        }
+      ],
+      "subtotal": 180,
+      "tax": 9,
+      "serviceCharge": 9,
+      "discount": 0,
+      "total": 198,
+      "status": "Confirmed",
+      "paymentStatus": "Paid",
+      "paymentMethod": "UPI",
+      "time": "12:14 am",
+      "date": "2026-09-29",
+      "notes": "",
+      "createdAt": "2026-09-28T18:44:38.787Z"
+    },
+    {
+      "id": "ORD-6215",
+      "orderNumber": 6215,
+      "customer": "Aarav Patel",
+      "customerName": "Aarav Patel",
+      "phone": "",
+      "type": "Dine-in",
+      "table": "Table 7",
+      "tableId": "T-07",
+      "tableNumber": 7,
+      "sessionId": "sess_table_7",
+      "items": [
+        {
+          "id": "MNU-07B",
+          "name": "Classic Veg Burger",
+          "qty": 1,
+          "price": 180,
+          "total": 180,
+          "notes": ""
+        },
+        {
+          "id": "MNU-02",
+          "name": "Cold Coffee",
+          "qty": 2,
+          "price": 160,
+          "total": 320,
+          "notes": ""
+        }
+      ],
+      "subtotal": 500,
+      "tax": 25,
+      "serviceCharge": 25,
+      "discount": 0,
+      "total": 550,
+      "status": "Completed",
+      "paymentStatus": "Paid",
+      "paymentMethod": "UPI",
+      "time": "12:14 am",
+      "date": "2026-09-29",
+      "notes": "",
+      "createdAt": "2026-09-28T18:44:38.712Z",
+      "updatedAt": "2026-09-28T18:44:38.772Z"
+    },
+    {
+      "id": "ORD-5880",
+      "orderNumber": 5880,
+      "customer": "Historical Test Guest",
+      "customerName": "Historical Test Guest",
+      "phone": "",
+      "type": "Dine-in",
+      "table": "Table 7",
+      "tableId": "T-07",
+      "tableNumber": 7,
+      "sessionId": "sess_table_7",
+      "items": [
+        {
+          "id": "MNU-8275",
+          "name": "Paneer Tikka",
+          "qty": 1,
+          "price": 320,
+          "total": 320,
+          "notes": ""
+        }
+      ],
+      "subtotal": 320,
+      "tax": 16,
+      "serviceCharge": 16,
+      "discount": 0,
+      "total": 352,
+      "status": "Confirmed",
+      "paymentStatus": "Paid",
+      "paymentMethod": "UPI",
+      "time": "12:14 am",
+      "date": "2026-09-29",
+      "notes": "",
+      "createdAt": "2026-09-28T18:44:38.446Z"
+    },
+    {
+      "id": "ORD-6069",
+      "orderNumber": 6069,
+      "customer": "Double Clicker",
+      "customerName": "Double Clicker",
+      "phone": "",
+      "type": "Dine-in",
+      "table": "Table 7",
+      "tableId": "T-07",
+      "tableNumber": 7,
+      "sessionId": "sess_table_7",
+      "items": [
+        {
+          "id": "MNU-01",
+          "name": "Cappuccino",
+          "qty": 1,
+          "price": 180,
+          "total": 180,
+          "notes": ""
+        }
+      ],
+      "subtotal": 180,
+      "tax": 9,
+      "serviceCharge": 9,
+      "discount": 0,
+      "total": 198,
+      "status": "Confirmed",
+      "paymentStatus": "Paid",
+      "paymentMethod": "UPI",
+      "time": "11:51 pm",
+      "date": "2026-09-28",
+      "notes": "",
+      "createdAt": "2026-09-28T18:21:14.612Z"
+    },
+    {
+      "id": "ORD-6234",
+      "orderNumber": 6234,
+      "customer": "Tamper Tester",
+      "customerName": "Tamper Tester",
+      "phone": "",
+      "type": "Dine-in",
+      "table": "Table 7",
+      "tableId": "T-07",
+      "tableNumber": 7,
+      "sessionId": "sess_table_7",
+      "items": [
+        {
+          "id": "MNU-01",
+          "name": "Cappuccino",
+          "qty": 2,
+          "price": 180,
+          "total": 360,
+          "notes": ""
+        }
+      ],
+      "subtotal": 360,
+      "tax": 18,
+      "serviceCharge": 18,
+      "discount": 0,
+      "total": 396,
+      "status": "Confirmed",
+      "paymentStatus": "Paid",
+      "paymentMethod": "UPI",
+      "time": "11:51 pm",
+      "date": "2026-09-28",
+      "notes": "",
+      "createdAt": "2026-09-28T18:21:14.594Z"
+    },
+    {
+      "id": "ORD-6071",
+      "orderNumber": 6071,
+      "customer": "Customer C",
+      "customerName": "Customer C",
+      "phone": "",
+      "type": "Dine-in",
+      "table": "Table 7",
+      "tableId": "T-07",
+      "tableNumber": 7,
+      "sessionId": "sess_table_7",
+      "items": [
+        {
+          "id": "MNU-02",
+          "name": "Cold Coffee",
+          "qty": 1,
+          "price": 160,
+          "total": 160,
+          "notes": ""
+        }
+      ],
+      "subtotal": 160,
+      "tax": 8,
+      "serviceCharge": 8,
+      "discount": 0,
+      "total": 176,
+      "status": "Confirmed",
+      "paymentStatus": "Paid",
+      "paymentMethod": "UPI",
+      "time": "11:51 pm",
+      "date": "2026-09-28",
+      "notes": "",
+      "createdAt": "2026-09-28T18:21:14.157Z"
+    },
+    {
+      "id": "ORD-5816",
+      "orderNumber": 5816,
+      "customer": "Customer B",
+      "customerName": "Customer B",
+      "phone": "",
+      "type": "Dine-in",
+      "table": "Table 7",
+      "tableId": "T-07",
+      "tableNumber": 7,
+      "sessionId": "sess_table_7",
+      "items": [
+        {
+          "id": "MNU-07B",
+          "name": "Classic Veg Burger",
+          "qty": 1,
+          "price": 180,
+          "total": 180,
+          "notes": ""
+        }
+      ],
+      "subtotal": 180,
+      "tax": 9,
+      "serviceCharge": 9,
+      "discount": 0,
+      "total": 198,
+      "status": "Confirmed",
+      "paymentStatus": "Paid",
+      "paymentMethod": "UPI",
+      "time": "11:51 pm",
+      "date": "2026-09-28",
+      "notes": "",
+      "createdAt": "2026-09-28T18:21:14.144Z"
+    },
+    {
+      "id": "ORD-5586",
+      "orderNumber": 5586,
+      "customer": "Customer A",
+      "customerName": "Customer A",
+      "phone": "",
+      "type": "Dine-in",
+      "table": "Table 7",
+      "tableId": "T-07",
+      "tableNumber": 7,
+      "sessionId": "sess_table_7",
+      "items": [
+        {
+          "id": "MNU-07B",
+          "name": "Classic Veg Burger",
+          "qty": 1,
+          "price": 180,
+          "total": 180,
+          "notes": ""
+        }
+      ],
+      "subtotal": 180,
+      "tax": 9,
+      "serviceCharge": 9,
+      "discount": 0,
+      "total": 198,
+      "status": "Confirmed",
+      "paymentStatus": "Paid",
+      "paymentMethod": "UPI",
+      "time": "11:51 pm",
+      "date": "2026-09-28",
+      "notes": "",
+      "createdAt": "2026-09-28T18:21:14.124Z"
+    },
+    {
+      "id": "ORD-5991",
+      "orderNumber": 5991,
+      "customer": "Aarav Patel",
+      "customerName": "Aarav Patel",
+      "phone": "",
+      "type": "Dine-in",
+      "table": "Table 7",
+      "tableId": "T-07",
+      "tableNumber": 7,
+      "sessionId": "sess_table_7",
+      "items": [
+        {
+          "id": "MNU-07B",
+          "name": "Classic Veg Burger",
+          "qty": 1,
+          "price": 180,
+          "total": 180,
+          "notes": ""
+        },
+        {
+          "id": "MNU-02",
+          "name": "Cold Coffee",
+          "qty": 2,
+          "price": 160,
+          "total": 320,
+          "notes": ""
+        }
+      ],
+      "subtotal": 500,
+      "tax": 25,
+      "serviceCharge": 25,
+      "discount": 0,
+      "total": 550,
+      "status": "Completed",
+      "paymentStatus": "Paid",
+      "paymentMethod": "UPI",
+      "time": "11:51 pm",
+      "date": "2026-09-28",
+      "notes": "",
+      "createdAt": "2026-09-28T18:21:14.036Z",
+      "updatedAt": "2026-09-28T18:21:14.106Z"
+    },
+    {
+      "id": "ORD-5857",
+      "orderNumber": 5857,
+      "customer": "Historical Test Guest",
+      "customerName": "Historical Test Guest",
+      "phone": "",
+      "type": "Dine-in",
+      "table": "Table 7",
+      "tableId": "T-07",
+      "tableNumber": 7,
+      "sessionId": "sess_table_7",
+      "items": [
+        {
+          "id": "MNU-3598",
+          "name": "Paneer Tikka",
+          "qty": 1,
+          "price": 320,
+          "total": 320,
+          "notes": ""
+        }
+      ],
+      "subtotal": 320,
+      "tax": 16,
+      "serviceCharge": 16,
+      "discount": 0,
+      "total": 352,
+      "status": "Confirmed",
+      "paymentStatus": "Paid",
+      "paymentMethod": "UPI",
+      "time": "11:51 pm",
+      "date": "2026-09-28",
+      "notes": "",
+      "createdAt": "2026-09-28T18:21:13.747Z"
+    },
+    {
+      "id": "ORD-5785",
+      "orderNumber": 5785,
+      "customer": "Dine-in Guest",
+      "phone": "",
+      "type": "Dine-in",
+      "table": "Table 7",
+      "tableId": "T-07",
+      "tableNumber": 7,
+      "sessionId": "sess_table_7",
+      "items": [
+        {
+          "id": "MNU-01",
+          "name": "Cappuccino",
+          "qty": 1,
+          "price": 180,
+          "total": 180,
+          "notes": ""
+        }
+      ],
+      "subtotal": 180,
+      "tax": 9,
+      "serviceCharge": 9,
+      "discount": 0,
+      "total": 198,
+      "status": "Confirmed",
+      "paymentStatus": "Paid",
+      "paymentMethod": "UPI",
+      "time": "11:44 pm",
+      "date": "2026-09-28",
+      "notes": "",
+      "createdAt": "2026-09-28T18:14:50.544Z"
+    },
+    {
+      "id": "ORD-5724",
+      "orderNumber": 5724,
+      "customer": "Dine-in Guest",
+      "phone": "",
+      "type": "Dine-in",
+      "table": "Table 7",
+      "tableId": "T-07",
+      "tableNumber": 7,
+      "sessionId": "sess_table_7",
+      "items": [
+        {
+          "id": "MNU-01",
+          "name": "Cappuccino",
+          "qty": 1,
+          "price": 180,
+          "total": 180,
+          "notes": ""
+        }
+      ],
+      "subtotal": 180,
+      "tax": 9,
+      "serviceCharge": 9,
+      "discount": 0,
+      "total": 198,
+      "status": "Confirmed",
+      "paymentStatus": "Paid",
+      "paymentMethod": "UPI",
+      "time": "11:44 pm",
+      "date": "2026-09-28",
+      "notes": "",
+      "createdAt": "2026-09-28T18:14:50.534Z"
+    },
+    {
+      "id": "ORD-6287",
+      "orderNumber": 6287,
+      "customer": "Dine-in Guest",
+      "phone": "",
+      "type": "Dine-in",
+      "table": "Table 7",
+      "tableId": "T-07",
+      "tableNumber": 7,
+      "sessionId": "sess_table_7",
+      "items": [
+        {
+          "id": "MNU-01",
+          "name": "Cappuccino",
+          "qty": 2,
+          "price": 180,
+          "total": 360,
+          "notes": ""
+        }
+      ],
+      "subtotal": 360,
+      "tax": 18,
+      "serviceCharge": 18,
+      "discount": 0,
+      "total": 396,
+      "status": "Confirmed",
+      "paymentStatus": "Paid",
+      "paymentMethod": "UPI",
+      "time": "11:44 pm",
+      "date": "2026-09-28",
+      "notes": "",
+      "createdAt": "2026-09-28T18:14:50.521Z"
+    },
+    {
+      "id": "ORD-6112",
+      "orderNumber": 6112,
+      "customer": "Dine-in Guest",
+      "phone": "",
+      "type": "Dine-in",
+      "table": "Table 21",
+      "tableId": "T-21",
+      "tableNumber": 21,
+      "sessionId": "sess_table_21",
+      "items": [
+        {
+          "id": "MNU-02",
+          "name": "Cold Coffee",
+          "qty": 1,
+          "price": 160,
+          "total": 160,
+          "notes": ""
+        }
+      ],
+      "subtotal": 160,
+      "tax": 8,
+      "serviceCharge": 8,
+      "discount": 0,
+      "total": 176,
+      "status": "Confirmed",
+      "paymentStatus": "Paid",
+      "paymentMethod": "UPI",
+      "time": "11:44 pm",
+      "date": "2026-09-28",
+      "notes": "",
+      "createdAt": "2026-09-28T18:14:50.491Z"
+    },
+    {
+      "id": "ORD-6156",
+      "orderNumber": 6156,
+      "customer": "Dine-in Guest",
+      "phone": "",
+      "type": "Dine-in",
+      "table": "Table 7",
+      "tableId": "T-07",
+      "tableNumber": 7,
+      "sessionId": "sess_table_7",
+      "items": [
+        {
+          "id": "MNU-02",
+          "name": "Cold Coffee",
+          "qty": 1,
+          "price": 160,
+          "total": 160,
+          "notes": ""
+        }
+      ],
+      "subtotal": 160,
+      "tax": 8,
+      "serviceCharge": 8,
+      "discount": 0,
+      "total": 176,
+      "status": "Confirmed",
+      "paymentStatus": "Paid",
+      "paymentMethod": "UPI",
+      "time": "11:44 pm",
+      "date": "2026-09-28",
+      "notes": "",
+      "createdAt": "2026-09-28T18:14:50.245Z"
+    },
+    {
+      "id": "ORD-5552",
+      "orderNumber": 5552,
+      "customer": "Dine-in Guest",
+      "phone": "",
+      "type": "Dine-in",
+      "table": "Table 7",
+      "tableId": "T-07",
+      "tableNumber": 7,
+      "sessionId": "sess_table_7",
+      "items": [
+        {
+          "id": "MNU-07B",
+          "name": "Classic Veg Burger",
+          "qty": 1,
+          "price": 180,
+          "total": 180,
+          "notes": ""
+        }
+      ],
+      "subtotal": 180,
+      "tax": 9,
+      "serviceCharge": 9,
+      "discount": 0,
+      "total": 198,
+      "status": "Confirmed",
+      "paymentStatus": "Paid",
+      "paymentMethod": "UPI",
+      "time": "11:44 pm",
+      "date": "2026-09-28",
+      "notes": "",
+      "createdAt": "2026-09-28T18:14:50.234Z"
+    },
+    {
+      "id": "ORD-5839",
+      "orderNumber": 5839,
+      "customer": "Dine-in Guest",
+      "phone": "",
+      "type": "Dine-in",
+      "table": "Table 7",
+      "tableId": "T-07",
+      "tableNumber": 7,
+      "sessionId": "sess_table_7",
+      "items": [
+        {
+          "id": "MNU-07B",
+          "name": "Classic Veg Burger",
+          "qty": 1,
+          "price": 180,
+          "total": 180,
+          "notes": ""
+        }
+      ],
+      "subtotal": 180,
+      "tax": 9,
+      "serviceCharge": 9,
+      "discount": 0,
+      "total": 198,
+      "status": "Confirmed",
+      "paymentStatus": "Paid",
+      "paymentMethod": "UPI",
+      "time": "11:44 pm",
+      "date": "2026-09-28",
+      "notes": "",
+      "createdAt": "2026-09-28T18:14:50.217Z"
+    },
+    {
+      "id": "ORD-5976",
+      "orderNumber": 5976,
+      "customer": "Dine-in Guest",
+      "phone": "",
+      "type": "Dine-in",
+      "table": "Table 7",
+      "tableId": "T-07",
+      "tableNumber": 7,
+      "sessionId": "sess_table_7",
+      "items": [
+        {
+          "id": "MNU-07B",
+          "name": "Classic Veg Burger",
+          "qty": 1,
+          "price": 180,
+          "total": 180,
+          "notes": ""
+        },
+        {
+          "id": "MNU-02",
+          "name": "Cold Coffee",
+          "qty": 2,
+          "price": 160,
+          "total": 320,
+          "notes": ""
+        }
+      ],
+      "subtotal": 500,
+      "tax": 25,
+      "serviceCharge": 25,
+      "discount": 0,
+      "total": 550,
+      "status": "Completed",
+      "paymentStatus": "Paid",
+      "paymentMethod": "UPI",
+      "time": "11:44 pm",
+      "date": "2026-09-28",
+      "notes": "",
+      "createdAt": "2026-09-28T18:14:50.132Z",
+      "updatedAt": "2026-09-28T18:14:50.198Z"
+    },
+    {
+      "id": "ORD-5590",
+      "orderNumber": 5590,
+      "customer": "Dine-in Guest",
+      "phone": "",
+      "type": "Dine-in",
+      "table": "Table 7",
+      "tableId": "T-07",
+      "tableNumber": 7,
+      "sessionId": "sess_table_7",
+      "items": [
+        {
+          "id": "MNU-9692",
+          "name": "Paneer Tikka",
+          "qty": 1,
+          "price": 320,
+          "total": 320,
+          "notes": ""
+        }
+      ],
+      "subtotal": 320,
+      "tax": 16,
+      "serviceCharge": 16,
+      "discount": 0,
+      "total": 352,
+      "status": "Confirmed",
+      "paymentStatus": "Paid",
+      "paymentMethod": "UPI",
+      "time": "11:44 pm",
+      "date": "2026-09-28",
+      "notes": "",
+      "createdAt": "2026-09-28T18:14:49.856Z"
+    },
+    {
+      "id": "ORD-5832",
+      "orderNumber": 5832,
+      "customer": "Dine-in Guest",
+      "phone": "",
+      "type": "Dine-in",
+      "table": "Table 7",
+      "tableId": "T-07",
+      "tableNumber": 7,
+      "sessionId": "sess_table_7",
+      "items": [
+        {
+          "id": "MNU-02",
+          "name": "Cold Coffee",
+          "qty": 1,
+          "price": 160,
+          "total": 160,
+          "notes": ""
+        }
+      ],
+      "subtotal": 160,
+      "tax": 8,
+      "serviceCharge": 8,
+      "discount": 0,
+      "total": 176,
+      "status": "Confirmed",
+      "paymentStatus": "Paid",
+      "paymentMethod": "UPI",
+      "time": "11:42 pm",
+      "date": "2026-09-28",
+      "notes": "",
+      "createdAt": "2026-09-28T18:12:28.788Z"
+    },
+    {
+      "id": "ORD-6136",
+      "orderNumber": 6136,
+      "customer": "Dine-in Guest",
+      "phone": "",
+      "type": "Dine-in",
+      "table": "Table 7",
+      "tableId": "T-07",
+      "tableNumber": 7,
+      "sessionId": "sess_table_7",
+      "items": [
+        {
+          "id": "MNU-07B",
+          "name": "Classic Veg Burger",
+          "qty": 1,
+          "price": 180,
+          "total": 180,
+          "notes": ""
+        }
+      ],
+      "subtotal": 180,
+      "tax": 9,
+      "serviceCharge": 9,
+      "discount": 0,
+      "total": 198,
+      "status": "Confirmed",
+      "paymentStatus": "Paid",
+      "paymentMethod": "UPI",
+      "time": "11:42 pm",
+      "date": "2026-09-28",
+      "notes": "",
+      "createdAt": "2026-09-28T18:12:28.776Z"
+    },
+    {
+      "id": "ORD-5698",
+      "orderNumber": 5698,
+      "customer": "Dine-in Guest",
+      "phone": "",
+      "type": "Dine-in",
+      "table": "Table 7",
+      "tableId": "T-07",
+      "tableNumber": 7,
+      "sessionId": "sess_table_7",
+      "items": [
+        {
+          "id": "MNU-07B",
+          "name": "Classic Veg Burger",
+          "qty": 1,
+          "price": 180,
+          "total": 180,
+          "notes": ""
+        }
+      ],
+      "subtotal": 180,
+      "tax": 9,
+      "serviceCharge": 9,
+      "discount": 0,
+      "total": 198,
+      "status": "Confirmed",
+      "paymentStatus": "Paid",
+      "paymentMethod": "UPI",
+      "time": "11:42 pm",
+      "date": "2026-09-28",
+      "notes": "",
+      "createdAt": "2026-09-28T18:12:28.753Z"
+    },
+    {
+      "id": "ORD-5805",
+      "orderNumber": 5805,
+      "customer": "Dine-in Guest",
+      "phone": "",
+      "type": "Dine-in",
+      "table": "Table 7",
+      "tableId": "T-07",
+      "tableNumber": 7,
+      "sessionId": "sess_table_7",
+      "items": [
+        {
+          "id": "MNU-07B",
+          "name": "Classic Veg Burger",
+          "qty": 1,
+          "price": 180,
+          "total": 180,
+          "notes": ""
+        },
+        {
+          "id": "MNU-02",
+          "name": "Cold Coffee",
+          "qty": 2,
+          "price": 160,
+          "total": 320,
+          "notes": ""
+        }
+      ],
+      "subtotal": 500,
+      "tax": 25,
+      "serviceCharge": 25,
+      "discount": 0,
+      "total": 550,
+      "status": "Completed",
+      "paymentStatus": "Paid",
+      "paymentMethod": "UPI",
+      "time": "11:42 pm",
+      "date": "2026-09-28",
+      "notes": "",
+      "createdAt": "2026-09-28T18:12:28.673Z",
+      "updatedAt": "2026-09-28T18:12:28.737Z"
+    },
+    {
+      "id": "ORD-5574",
+      "orderNumber": 5574,
+      "customer": "Dine-in Guest",
+      "phone": "",
+      "type": "Dine-in",
+      "table": "Table 7",
+      "tableId": "T-07",
+      "tableNumber": 7,
+      "sessionId": "sess_table_7",
+      "items": [
+        {
+          "id": "MNU-8242",
+          "name": "Paneer Tikka",
+          "qty": 1,
+          "price": 320,
+          "total": 320,
+          "notes": ""
+        }
+      ],
+      "subtotal": 320,
+      "tax": 16,
+      "serviceCharge": 16,
+      "discount": 0,
+      "total": 352,
+      "status": "Confirmed",
+      "paymentStatus": "Paid",
+      "paymentMethod": "UPI",
+      "time": "11:42 pm",
+      "date": "2026-09-28",
+      "notes": "",
+      "createdAt": "2026-09-28T18:12:28.405Z"
+    },
+    {
+      "id": "ORD-5888",
+      "orderNumber": 5888,
+      "customer": "Dine-in Guest",
+      "phone": "",
+      "type": "Dine-in",
+      "table": "Table 7",
+      "tableId": "T-07",
+      "tableNumber": 7,
+      "sessionId": "sess_table_7",
+      "items": [
+        {
+          "id": "MNU-0636",
+          "name": "Paneer Tikka",
+          "qty": 1,
+          "price": 320,
+          "total": 320,
+          "notes": ""
+        }
+      ],
+      "subtotal": 320,
+      "tax": 16,
+      "serviceCharge": 16,
+      "discount": 0,
+      "total": 352,
+      "status": "Confirmed",
+      "paymentStatus": "Paid",
+      "paymentMethod": "UPI",
+      "time": "11:33 pm",
+      "date": "2026-09-28",
+      "notes": "",
+      "createdAt": "2026-09-28T18:03:20.755Z"
+    },
+    {
+      "id": "ORD-5521",
+      "orderNumber": 5521,
+      "customer": "Priya Sharma",
+      "phone": "9876543210",
+      "type": "Dine-in",
+      "table": "Table 1",
+      "tableId": "T-01",
+      "tableNumber": 1,
+      "sessionId": "sess_t1_01",
+      "items": [
+        {
+          "id": "MNU-01",
+          "name": "Cappuccino",
+          "qty": 2,
+          "price": 180,
+          "total": 360
+        },
+        {
+          "id": "MNU-06",
+          "name": "Paneer Tikka Sandwich",
+          "qty": 1,
+          "price": 220,
+          "total": 220
+        }
+      ],
+      "subtotal": 580,
+      "tax": 29,
+      "serviceCharge": 29,
+      "discount": 0,
+      "total": 638,
+      "status": "Completed",
+      "paymentStatus": "Paid",
+      "paymentMethod": "UPI",
+      "time": "12:45 PM",
+      "date": "2026-09-28",
+      "notes": "Extra hot cappuccino"
+    },
+    {
+      "id": "ORD-5520",
+      "orderNumber": 5520,
+      "customer": "Arjun Mehta",
+      "phone": "9812345678",
+      "type": "Dine-in",
+      "table": "Table 2",
+      "tableId": "T-02",
+      "tableNumber": 2,
+      "sessionId": "sess_t2_01",
+      "items": [
+        {
+          "id": "MNU-02",
+          "name": "Cold Coffee",
+          "qty": 1,
+          "price": 160,
+          "total": 160
+        },
+        {
+          "id": "MNU-07",
+          "name": "Artisan Margherita Pizza",
+          "qty": 1,
+          "price": 350,
+          "total": 350
+        }
+      ],
+      "subtotal": 510,
+      "tax": 25.5,
+      "serviceCharge": 25.5,
+      "discount": 0,
+      "total": 561,
+      "status": "Ready",
+      "paymentStatus": "Paid",
+      "paymentMethod": "Card",
+      "time": "01:10 PM",
+      "date": "2026-09-28",
+      "notes": "Crispy crust pizza"
+    },
+    {
+      "id": "ORD-5514",
+      "orderNumber": 5514,
+      "customer": "Pooja Agarwal",
+      "phone": "9098765432",
+      "type": "Dine-in",
+      "table": "Table 7",
+      "tableId": "T-07",
+      "tableNumber": 7,
+      "sessionId": "sess_t7_01",
+      "items": [
+        {
+          "id": "MNU-02",
+          "name": "Cold Coffee",
+          "qty": 2,
+          "price": 160,
+          "total": 320
+        },
+        {
+          "id": "MNU-07",
+          "name": "Artisan Margherita Pizza",
+          "qty": 1,
+          "price": 350,
+          "total": 350
+        },
+        {
+          "id": "MNU-11",
+          "name": "New York Cheesecake",
+          "qty": 1,
+          "price": 260,
+          "total": 260
+        }
+      ],
+      "subtotal": 930,
+      "tax": 46.5,
+      "serviceCharge": 46.5,
+      "discount": 50,
+      "total": 973,
+      "status": "Completed",
+      "paymentStatus": "Paid",
+      "paymentMethod": "Card",
+      "time": "01:40 PM",
+      "date": "2026-09-28",
+      "notes": "Extra oregano on side"
+    }
+  ],
+  "payments": [
+    {
+      "id": "PAY-1790621079218",
+      "orderId": "ORD-6207",
+      "amount": 198,
+      "method": "UPI",
+      "status": "SUCCESS",
+      "timestamp": "2026-09-28T18:44:39.218Z"
+    },
+    {
+      "id": "PAY-1790621079206",
+      "orderId": "ORD-5846",
+      "amount": 396,
+      "method": "UPI",
+      "status": "SUCCESS",
+      "timestamp": "2026-09-28T18:44:39.206Z"
+    },
+    {
+      "id": "PAY-1790621079179",
+      "orderId": "ORD-5725",
+      "amount": 176,
+      "method": "UPI",
+      "status": "SUCCESS",
+      "timestamp": "2026-09-28T18:44:39.179Z"
+    },
+    {
+      "id": "PAY-1790621078817",
+      "orderId": "ORD-5846",
+      "amount": 176,
+      "method": "UPI",
+      "status": "SUCCESS",
+      "timestamp": "2026-09-28T18:44:38.817Z"
+    },
+    {
+      "id": "PAY-1790621078805",
+      "orderId": "ORD-6219",
+      "amount": 198,
+      "method": "UPI",
+      "status": "SUCCESS",
+      "timestamp": "2026-09-28T18:44:38.805Z"
+    },
+    {
+      "id": "PAY-1790621078787",
+      "orderId": "ORD-5572",
+      "amount": 198,
+      "method": "UPI",
+      "status": "SUCCESS",
+      "timestamp": "2026-09-28T18:44:38.787Z"
+    },
+    {
+      "id": "PAY-1790621078729",
+      "orderId": "ORD-5920",
+      "amount": 198,
+      "method": "UPI",
+      "status": "FAILED",
+      "timestamp": "2026-09-28T18:44:38.729Z"
+    },
+    {
+      "id": "PAY-1790621078712",
+      "orderId": "ORD-6215",
+      "amount": 550,
+      "method": "UPI",
+      "status": "SUCCESS",
+      "timestamp": "2026-09-28T18:44:38.712Z"
+    },
+    {
+      "id": "PAY-1790621078447",
+      "orderId": "ORD-5880",
+      "amount": 352,
+      "method": "UPI",
+      "status": "SUCCESS",
+      "timestamp": "2026-09-28T18:44:38.447Z"
+    },
+    {
+      "id": "PAY-1790619674612",
+      "orderId": "ORD-6069",
+      "amount": 198,
+      "method": "UPI",
+      "status": "SUCCESS",
+      "timestamp": "2026-09-28T18:21:14.612Z"
+    },
+    {
+      "id": "PAY-1790619674594",
+      "orderId": "ORD-6234",
+      "amount": 396,
+      "method": "UPI",
+      "status": "SUCCESS",
+      "timestamp": "2026-09-28T18:21:14.594Z"
+    },
+    {
+      "id": "PAY-1790619674157",
+      "orderId": "ORD-6071",
+      "amount": 176,
+      "method": "UPI",
+      "status": "SUCCESS",
+      "timestamp": "2026-09-28T18:21:14.157Z"
+    },
+    {
+      "id": "PAY-1790619674144",
+      "orderId": "ORD-5816",
+      "amount": 198,
+      "method": "UPI",
+      "status": "SUCCESS",
+      "timestamp": "2026-09-28T18:21:14.144Z"
+    },
+    {
+      "id": "PAY-1790619674124",
+      "orderId": "ORD-5586",
+      "amount": 198,
+      "method": "UPI",
+      "status": "SUCCESS",
+      "timestamp": "2026-09-28T18:21:14.124Z"
+    },
+    {
+      "id": "PAY-1790619674055",
+      "orderId": "ORD-5537",
+      "amount": 198,
+      "method": "UPI",
+      "status": "FAILED",
+      "timestamp": "2026-09-28T18:21:14.055Z"
+    },
+    {
+      "id": "PAY-1790619674036",
+      "orderId": "ORD-5991",
+      "amount": 550,
+      "method": "UPI",
+      "status": "SUCCESS",
+      "timestamp": "2026-09-28T18:21:14.036Z"
+    },
+    {
+      "id": "PAY-1790619673747",
+      "orderId": "ORD-5857",
+      "amount": 352,
+      "method": "UPI",
+      "status": "SUCCESS",
+      "timestamp": "2026-09-28T18:21:13.747Z"
+    },
+    {
+      "id": "PAY-1790619290544",
+      "orderId": "ORD-5785",
+      "amount": 198,
+      "method": "UPI",
+      "status": "SUCCESS",
+      "timestamp": "2026-09-28T18:14:50.544Z"
+    },
+    {
+      "id": "PAY-1790619290534",
+      "orderId": "ORD-5724",
+      "amount": 198,
+      "method": "UPI",
+      "status": "SUCCESS",
+      "timestamp": "2026-09-28T18:14:50.534Z"
+    },
+    {
+      "id": "PAY-1790619290521",
+      "orderId": "ORD-6287",
+      "amount": 396,
+      "method": "UPI",
+      "status": "SUCCESS",
+      "timestamp": "2026-09-28T18:14:50.521Z"
+    },
+    {
+      "id": "PAY-1790619290491",
+      "orderId": "ORD-6112",
+      "amount": 176,
+      "method": "UPI",
+      "status": "SUCCESS",
+      "timestamp": "2026-09-28T18:14:50.491Z"
+    },
+    {
+      "id": "PAY-1790619290245",
+      "orderId": "ORD-6156",
+      "amount": 176,
+      "method": "UPI",
+      "status": "SUCCESS",
+      "timestamp": "2026-09-28T18:14:50.245Z"
+    },
+    {
+      "id": "PAY-1790619290234",
+      "orderId": "ORD-5552",
+      "amount": 198,
+      "method": "UPI",
+      "status": "SUCCESS",
+      "timestamp": "2026-09-28T18:14:50.234Z"
+    },
+    {
+      "id": "PAY-1790619290217",
+      "orderId": "ORD-5839",
+      "amount": 198,
+      "method": "UPI",
+      "status": "SUCCESS",
+      "timestamp": "2026-09-28T18:14:50.217Z"
+    },
+    {
+      "id": "PAY-1790619290150",
+      "orderId": "ORD-6009",
+      "amount": 198,
+      "method": "UPI",
+      "status": "FAILED",
+      "timestamp": "2026-09-28T18:14:50.150Z"
+    },
+    {
+      "id": "PAY-1790619290132",
+      "orderId": "ORD-5976",
+      "amount": 550,
+      "method": "UPI",
+      "status": "SUCCESS",
+      "timestamp": "2026-09-28T18:14:50.132Z"
+    },
+    {
+      "id": "PAY-1790619289856",
+      "orderId": "ORD-5590",
+      "amount": 352,
+      "method": "UPI",
+      "status": "SUCCESS",
+      "timestamp": "2026-09-28T18:14:49.856Z"
+    },
+    {
+      "id": "PAY-1790619148789",
+      "orderId": "ORD-5832",
+      "amount": 176,
+      "method": "UPI",
+      "status": "SUCCESS",
+      "timestamp": "2026-09-28T18:12:28.789Z"
+    },
+    {
+      "id": "PAY-1790619148776",
+      "orderId": "ORD-6136",
+      "amount": 198,
+      "method": "UPI",
+      "status": "SUCCESS",
+      "timestamp": "2026-09-28T18:12:28.776Z"
+    },
+    {
+      "id": "PAY-1790619148753",
+      "orderId": "ORD-5698",
+      "amount": 198,
+      "method": "UPI",
+      "status": "SUCCESS",
+      "timestamp": "2026-09-28T18:12:28.753Z"
+    },
+    {
+      "id": "PAY-1790619148693",
+      "orderId": "ORD-5834",
+      "amount": 198,
+      "method": "UPI",
+      "status": "FAILED",
+      "timestamp": "2026-09-28T18:12:28.693Z"
+    },
+    {
+      "id": "PAY-1790619148673",
+      "orderId": "ORD-5805",
+      "amount": 550,
+      "method": "UPI",
+      "status": "SUCCESS",
+      "timestamp": "2026-09-28T18:12:28.673Z"
+    },
+    {
+      "id": "PAY-1790619148405",
+      "orderId": "ORD-5574",
+      "amount": 352,
+      "method": "UPI",
+      "status": "SUCCESS",
+      "timestamp": "2026-09-28T18:12:28.405Z"
+    },
+    {
+      "id": "PAY-1790618600755",
+      "orderId": "ORD-5888",
+      "amount": 352,
+      "method": "UPI",
+      "status": "SUCCESS",
+      "timestamp": "2026-09-28T18:03:20.755Z"
+    },
+    {
+      "id": "PAY-5521",
+      "orderId": "ORD-5521",
+      "amount": 638,
+      "method": "UPI",
+      "status": "SUCCESS",
+      "timestamp": "2026-09-28T17:47:14.725Z"
+    },
+    {
+      "id": "PAY-5520",
+      "orderId": "ORD-5520",
+      "amount": 561,
+      "method": "Card",
+      "status": "SUCCESS",
+      "timestamp": "2026-09-28T17:47:14.726Z"
+    }
+  ],
+  "tableSessions": {
+    "table_7": {
+      "sessionId": "sess_t7_01",
+      "tableId": "table_7",
+      "tableNumber": 7,
+      "status": "Active",
+      "customers": [
+        {
+          "customerId": "cust_A",
+          "name": "Customer A",
+          "phone": "9876500001",
+          "orderIds": [
+            "ORD-5514"
+          ]
+        },
+        {
+          "customerId": "cust_2",
+          "name": "Dine-in Guest",
+          "phone": "",
+          "orderIds": [
+            "ORD-5888",
+            "ORD-5574",
+            "ORD-5805",
+            "ORD-5698",
+            "ORD-6136",
+            "ORD-5832",
+            "ORD-5590",
+            "ORD-5976",
+            "ORD-5839",
+            "ORD-5552",
+            "ORD-6156",
+            "ORD-6287",
+            "ORD-5724",
+            "ORD-5785"
+          ]
+        },
+        {
+          "customerId": "cust_3",
+          "name": "Historical Test Guest",
+          "phone": "",
+          "orderIds": [
+            "ORD-5857",
+            "ORD-5880"
+          ]
+        },
+        {
+          "customerId": "cust_4",
+          "name": "Aarav Patel",
+          "phone": "",
+          "orderIds": [
+            "ORD-5991",
+            "ORD-6215"
+          ]
+        },
+        {
+          "customerId": "cust_5",
+          "name": "Customer A",
+          "phone": "",
+          "orderIds": [
+            "ORD-5586",
+            "ORD-5572"
+          ]
+        },
+        {
+          "customerId": "cust_6",
+          "name": "Customer B",
+          "phone": "",
+          "orderIds": [
+            "ORD-5816",
+            "ORD-6219"
+          ]
+        },
+        {
+          "customerId": "cust_7",
+          "name": "Customer C",
+          "phone": "",
+          "orderIds": [
+            "ORD-6071",
+            "ORD-5846"
+          ]
+        },
+        {
+          "customerId": "cust_8",
+          "name": "Tamper Tester",
+          "phone": "",
+          "orderIds": [
+            "ORD-6234",
+            "ORD-5846"
+          ]
+        },
+        {
+          "customerId": "cust_9",
+          "name": "Double Clicker",
+          "phone": "",
+          "orderIds": [
+            "ORD-6069",
+            "ORD-6207"
+          ]
+        }
+      ],
+      "orderIds": [
+        "ORD-5514",
+        "ORD-5888",
+        "ORD-5574",
+        "ORD-5805",
+        "ORD-5698",
+        "ORD-6136",
+        "ORD-5832",
+        "ORD-5590",
+        "ORD-5976",
+        "ORD-5839",
+        "ORD-5552",
+        "ORD-6156",
+        "ORD-6287",
+        "ORD-5724",
+        "ORD-5785",
+        "ORD-5857",
+        "ORD-5991",
+        "ORD-5586",
+        "ORD-5816",
+        "ORD-6071",
+        "ORD-6234",
+        "ORD-6069",
+        "ORD-5880",
+        "ORD-6215",
+        "ORD-5572",
+        "ORD-6219",
+        "ORD-5846",
+        "ORD-5846",
+        "ORD-6207"
+      ],
+      "totalAmount": 9201,
+      "activeSince": "2026-09-28T17:47:14.726Z"
+    },
+    "table_21": {
+      "sessionId": "sess_t21_1790619290491",
+      "tableId": "T-21",
+      "tableNumber": 21,
+      "status": "Active",
+      "customers": [
+        {
+          "customerId": "cust_1",
+          "name": "Dine-in Guest",
+          "phone": "",
+          "orderIds": [
+            "ORD-6112"
+          ]
+        },
+        {
+          "customerId": "cust_2",
+          "name": "Terrace VIP",
+          "phone": "",
+          "orderIds": [
+            "ORD-5725"
+          ]
+        }
+      ],
+      "orderIds": [
+        "ORD-6112",
+        "ORD-5725"
+      ],
+      "totalAmount": 352,
+      "activeSince": "2026-09-28T18:14:50.491Z"
+    }
+  },
+  "tableRequests": [
+    {
+      "id": "REQ-8837",
+      "tableId": "T-07",
+      "tableNumber": 7,
+      "requestType": "waiter",
+      "notes": "Customer at Table 7 called waiter",
+      "status": "Completed",
+      "requestedAt": "2026-09-28T18:44:38.837Z",
+      "acknowledgedAt": "2026-09-28T18:44:38.849Z",
+      "completedAt": "2026-09-28T18:44:38.857Z"
+    },
+    {
+      "id": "REQ-4174",
+      "tableId": "T-07",
+      "tableNumber": 7,
+      "requestType": "waiter",
+      "notes": "Customer at Table 7 called waiter",
+      "status": "Completed",
+      "requestedAt": "2026-09-28T18:21:14.174Z",
+      "acknowledgedAt": "2026-09-28T18:21:14.186Z",
+      "completedAt": "2026-09-28T18:21:14.193Z"
+    },
+    {
+      "id": "REQ-0262",
+      "tableId": "T-07",
+      "tableNumber": 7,
+      "requestType": "waiter",
+      "notes": "Customer at Table 7 called waiter",
+      "status": "Completed",
+      "requestedAt": "2026-09-28T18:14:50.262Z",
+      "acknowledgedAt": "2026-09-28T18:14:50.273Z",
+      "completedAt": "2026-09-28T18:14:50.279Z"
+    },
+    {
+      "id": "REQ-101",
+      "tableId": "table_7",
+      "tableNumber": 7,
+      "requestType": "waiter",
+      "notes": "Customer requested waiter assistance",
+      "status": "Pending",
+      "requestedAt": "2026-09-28T17:47:14.726Z",
+      "acknowledgedAt": null,
+      "completedAt": null
+    }
+  ],
+  "billRequests": [
+    {
+      "id": "BILL-8864",
+      "tableId": "T-07",
+      "tableNumber": 7,
+      "customerName": "Aarav Patel",
+      "status": "Printed",
+      "requestedAt": "2026-09-28T18:44:38.864Z"
+    },
+    {
+      "id": "BILL-4201",
+      "tableId": "T-07",
+      "tableNumber": 7,
+      "customerName": "Aarav Patel",
+      "status": "Printed",
+      "requestedAt": "2026-09-28T18:21:14.201Z"
+    },
+    {
+      "id": "BILL-0286",
+      "tableId": "T-07",
+      "tableNumber": 7,
+      "customerName": "Aarav Patel",
+      "status": "Printed",
+      "requestedAt": "2026-09-28T18:14:50.286Z"
+    },
+    {
+      "id": "BILL-101",
+      "tableId": "table_7",
+      "tableNumber": 7,
+      "customerName": "Pooja Agarwal",
+      "status": "Pending",
+      "requestedAt": "2026-09-28T17:47:14.726Z"
+    }
+  ],
+  "offers": [
+    {
+      "id": "OFF-9140",
+      "code": "WEEKEND20",
+      "title": "20% Weekend Delight",
+      "discountType": "percentage",
+      "discountValue": null,
+      "minOrder": 0,
+      "maxDiscount": null,
+      "startDate": "2026-09-29",
+      "endDate": "2026-10-29",
+      "validUntil": "2026-10-29",
+      "usedCount": 0,
+      "usageLimit": 500,
+      "status": "Expired",
+      "isActive": false
+    },
+    {
+      "id": "OFF-4523",
+      "code": "WEEKEND20",
+      "title": "20% Weekend Delight",
+      "discountType": "percentage",
+      "discountValue": null,
+      "minOrder": 0,
+      "maxDiscount": null,
+      "startDate": "2026-09-28",
+      "endDate": "2026-10-28",
+      "validUntil": "2026-10-28",
+      "usedCount": 0,
+      "usageLimit": 500,
+      "status": "Expired",
+      "isActive": false
+    },
+    {
+      "id": "OFF-0443",
+      "code": "WEEKEND20",
+      "title": "20% Weekend Delight",
+      "discountType": "percentage",
+      "discountValue": null,
+      "minOrder": 0,
+      "maxDiscount": null,
+      "startDate": "2026-09-28",
+      "endDate": "2026-10-28",
+      "validUntil": "2026-10-28",
+      "usedCount": 0,
+      "usageLimit": 500,
+      "status": "Expired",
+      "isActive": false
+    },
+    {
+      "id": "OFF-01",
+      "code": "BREWFIRST",
+      "title": "Welcome First Order",
+      "discountType": "percentage",
+      "discountValue": 20,
+      "minOrder": 300,
+      "maxDiscount": 100,
+      "startDate": "2026-08-29",
+      "endDate": "2026-12-27",
+      "validUntil": "2026-12-27",
+      "usedCount": 142,
+      "usageLimit": 500,
+      "status": "Active",
+      "isActive": true
+    },
+    {
+      "id": "OFF-02",
+      "code": "WEEKENDCOFFEE",
+      "title": "Weekend Morning Special",
+      "discountType": "flat",
+      "discountValue": 75,
+      "minOrder": 400,
+      "maxDiscount": 75,
+      "startDate": "2026-09-13",
+      "endDate": "2026-11-12",
+      "validUntil": "2026-11-12",
+      "usedCount": 88,
+      "usageLimit": 200,
+      "status": "Active",
+      "isActive": true
+    }
+  ],
+  "reviews": [
+    {
+      "id": "REV-01",
+      "customer": "Anjali Kapoor",
+      "author": "Anjali Kapoor",
+      "rating": 5,
+      "date": "Yesterday",
+      "source": "Google",
+      "text": "Outstanding artisanal coffee! The Spanish Latte and Belgian chocolate cake are to die for.",
+      "review": "Outstanding artisanal coffee! The Spanish Latte and Belgian chocolate cake are to die for.",
+      "status": "Handled",
+      "reply": "Thank you so much Anjali! It is always a pleasure having you at Brew & Co.",
+      "repliedAt": "Yesterday, 4:15 PM"
+    },
+    {
+      "id": "REV-02",
+      "customer": "Priya Sharma",
+      "author": "Priya Sharma",
+      "rating": 5,
+      "date": "2 days ago",
+      "source": "WhatsApp",
+      "text": "Booking through WhatsApp AI took literally 20 seconds. Food was served hot!",
+      "review": "Booking through WhatsApp AI took literally 20 seconds. Food was served hot!",
+      "status": "Handled",
+      "reply": "Thanks Priya! Glad you enjoyed the seamless reservation experience.",
+      "repliedAt": "2 days ago, 1:30 PM"
+    }
+  ],
+  "notifications": [
+    {
+      "id": "NTF-9218",
+      "type": "order",
+      "title": "New Dine-In Order Received",
+      "message": "Table 7 placed order ORD-6207 for ₹198.",
+      "time": "Just now",
+      "read": false,
+      "page": "orders"
+    },
+    {
+      "id": "NTF-9206",
+      "type": "order",
+      "title": "New Dine-In Order Received",
+      "message": "Table 7 placed order ORD-5846 for ₹396.",
+      "time": "Just now",
+      "read": false,
+      "page": "orders"
+    },
+    {
+      "id": "NTF-9179",
+      "type": "order",
+      "title": "New Dine-In Order Received",
+      "message": "Table 21 placed order ORD-5725 for ₹176.",
+      "time": "Just now",
+      "read": false,
+      "page": "orders"
+    },
+    {
+      "id": "NTF-8898",
+      "type": "booking",
+      "title": "Reservation Cancelled",
+      "message": "Booking RES-2483 for Priya Sharma was cancelled.",
+      "time": "Just now",
+      "read": false,
+      "page": "bookings"
+    },
+    {
+      "id": "NTF-8882",
+      "type": "booking",
+      "title": "New Table Reservation",
+      "message": "Priya Sharma booked Table 5 for 2 guests on Tonight at 8:30 PM.",
+      "time": "Just now",
+      "read": false,
+      "page": "bookings"
+    },
+    {
+      "id": "NTF-8864",
+      "type": "order",
+      "title": "Bill Requested",
+      "message": "Table 7 has requested the bill.",
+      "time": "Just now",
+      "read": false,
+      "page": "tables"
+    },
+    {
+      "id": "NTF-8837",
+      "type": "waiter",
+      "title": "Waiter Summoned",
+      "message": "Table 7 has called for service.",
+      "time": "Just now",
+      "read": false,
+      "page": "tables"
+    },
+    {
+      "id": "NTF-8817",
+      "type": "order",
+      "title": "New Dine-In Order Received",
+      "message": "Table 7 placed order ORD-5846 for ₹176.",
+      "time": "Just now",
+      "read": false,
+      "page": "orders"
+    },
+    {
+      "id": "NTF-8805",
+      "type": "order",
+      "title": "New Dine-In Order Received",
+      "message": "Table 7 placed order ORD-6219 for ₹198.",
+      "time": "Just now",
+      "read": false,
+      "page": "orders"
+    },
+    {
+      "id": "NTF-8787",
+      "type": "order",
+      "title": "New Dine-In Order Received",
+      "message": "Table 7 placed order ORD-5572 for ₹198.",
+      "time": "Just now",
+      "read": false,
+      "page": "orders"
+    },
+    {
+      "id": "NTF-8712",
+      "type": "order",
+      "title": "New Dine-In Order Received",
+      "message": "Table 7 placed order ORD-6215 for ₹550.",
+      "time": "Just now",
+      "read": false,
+      "page": "orders"
+    },
+    {
+      "id": "NTF-8663",
+      "type": "booking",
+      "title": "Reservation Cancelled",
+      "message": "Booking RES-3212 for Rahul was cancelled.",
+      "time": "Just now",
+      "read": false,
+      "page": "bookings"
+    },
+    {
+      "id": "NTF-8634",
+      "type": "booking",
+      "title": "New Table Reservation",
+      "message": "Rahul booked Table 7 for 4 guests on Tomorrow at 7:30 PM.",
+      "time": "Just now",
+      "read": false,
+      "page": "bookings"
+    },
+    {
+      "id": "NTF-8447",
+      "type": "order",
+      "title": "New Dine-In Order Received",
+      "message": "Table 7 placed order ORD-5880 for ₹352.",
+      "time": "Just now",
+      "read": false,
+      "page": "orders"
+    },
+    {
+      "id": "NTF-4612",
+      "type": "order",
+      "title": "New Dine-In Order Received",
+      "message": "Table 7 placed order ORD-6069 for ₹198.",
+      "time": "Just now",
+      "read": false,
+      "page": "orders"
+    },
+    {
+      "id": "NTF-4594",
+      "type": "order",
+      "title": "New Dine-In Order Received",
+      "message": "Table 7 placed order ORD-6234 for ₹396.",
+      "time": "Just now",
+      "read": false,
+      "page": "orders"
+    },
+    {
+      "id": "NTF-4472",
+      "type": "booking",
+      "title": "New Table Reservation",
+      "message": "Vikram Malhotra booked Table 8 for 4 guests on 2026-09-29 at 20:00.",
+      "time": "Just now",
+      "read": false,
+      "page": "bookings"
+    },
+    {
+      "id": "NTF-4239",
+      "type": "booking",
+      "title": "Reservation Cancelled",
+      "message": "Booking RES-3127 for Priya Sharma was cancelled.",
+      "time": "Just now",
+      "read": false,
+      "page": "bookings"
+    },
+    {
+      "id": "NTF-4221",
+      "type": "booking",
+      "title": "New Table Reservation",
+      "message": "Priya Sharma booked Table 5 for 2 guests on Tonight at 8:30 PM.",
+      "time": "Just now",
+      "read": false,
+      "page": "bookings"
+    },
+    {
+      "id": "NTF-4201",
+      "type": "order",
+      "title": "Bill Requested",
+      "message": "Table 7 has requested the bill.",
+      "time": "Just now",
+      "read": false,
+      "page": "tables"
+    },
+    {
+      "id": "NTF-4174",
+      "type": "waiter",
+      "title": "Waiter Summoned",
+      "message": "Table 7 has called for service.",
+      "time": "Just now",
+      "read": false,
+      "page": "tables"
+    },
+    {
+      "id": "NTF-4157",
+      "type": "order",
+      "title": "New Dine-In Order Received",
+      "message": "Table 7 placed order ORD-6071 for ₹176.",
+      "time": "Just now",
+      "read": false,
+      "page": "orders"
+    },
+    {
+      "id": "NTF-4144",
+      "type": "order",
+      "title": "New Dine-In Order Received",
+      "message": "Table 7 placed order ORD-5816 for ₹198.",
+      "time": "Just now",
+      "read": false,
+      "page": "orders"
+    },
+    {
+      "id": "NTF-4124",
+      "type": "order",
+      "title": "New Dine-In Order Received",
+      "message": "Table 7 placed order ORD-5586 for ₹198.",
+      "time": "Just now",
+      "read": false,
+      "page": "orders"
+    },
+    {
+      "id": "NTF-4036",
+      "type": "order",
+      "title": "New Dine-In Order Received",
+      "message": "Table 7 placed order ORD-5991 for ₹550.",
+      "time": "Just now",
+      "read": false,
+      "page": "orders"
+    },
+    {
+      "id": "NTF-3980",
+      "type": "booking",
+      "title": "Reservation Cancelled",
+      "message": "Booking RES-3096 for Rahul was cancelled.",
+      "time": "Just now",
+      "read": false,
+      "page": "bookings"
+    },
+    {
+      "id": "NTF-3948",
+      "type": "booking",
+      "title": "New Table Reservation",
+      "message": "Rahul booked Table 7 for 4 guests on Tomorrow at 7:30 PM.",
+      "time": "Just now",
+      "read": false,
+      "page": "bookings"
+    },
+    {
+      "id": "NTF-3747",
+      "type": "order",
+      "title": "New Dine-In Order Received",
+      "message": "Table 7 placed order ORD-5857 for ₹352.",
+      "time": "Just now",
+      "read": false,
+      "page": "orders"
+    },
+    {
+      "id": "NTF-0586",
+      "type": "booking",
+      "title": "New Table Reservation",
+      "message": "No WhatsApp Guest booked Table 4 for 2 guests on Tomorrow at 6:00 PM.",
+      "time": "Just now",
+      "read": false,
+      "page": "bookings"
+    },
+    {
+      "id": "NTF-0544",
+      "type": "order",
+      "title": "New Dine-In Order Received",
+      "message": "Table 7 placed order ORD-5785 for ₹198.",
+      "time": "Just now",
+      "read": false,
+      "page": "orders"
+    },
+    {
+      "id": "NTF-0534",
+      "type": "order",
+      "title": "New Dine-In Order Received",
+      "message": "Table 7 placed order ORD-5724 for ₹198.",
+      "time": "Just now",
+      "read": false,
+      "page": "orders"
+    },
+    {
+      "id": "NTF-0521",
+      "type": "order",
+      "title": "New Dine-In Order Received",
+      "message": "Table 7 placed order ORD-6287 for ₹396.",
+      "time": "Just now",
+      "read": false,
+      "page": "orders"
+    },
+    {
+      "id": "NTF-0491",
+      "type": "order",
+      "title": "New Dine-In Order Received",
+      "message": "Table 21 placed order ORD-6112 for ₹176.",
+      "time": "Just now",
+      "read": false,
+      "page": "orders"
+    },
+    {
+      "id": "NTF-0322",
+      "type": "booking",
+      "title": "Reservation Cancelled",
+      "message": "Booking RES-2539 for Priya Sharma was cancelled.",
+      "time": "Just now",
+      "read": false,
+      "page": "bookings"
+    },
+    {
+      "id": "NTF-0304",
+      "type": "booking",
+      "title": "New Table Reservation",
+      "message": "Priya Sharma booked Table 5 for 2 guests on Tonight at 8:30 PM.",
+      "time": "Just now",
+      "read": false,
+      "page": "bookings"
+    },
+    {
+      "id": "NTF-0286",
+      "type": "order",
+      "title": "Bill Requested",
+      "message": "Table 7 has requested the bill.",
+      "time": "Just now",
+      "read": false,
+      "page": "tables"
+    },
+    {
+      "id": "NTF-0262",
+      "type": "waiter",
+      "title": "Waiter Summoned",
+      "message": "Table 7 has called for service.",
+      "time": "Just now",
+      "read": false,
+      "page": "tables"
+    },
+    {
+      "id": "NTF-0245",
+      "type": "order",
+      "title": "New Dine-In Order Received",
+      "message": "Table 7 placed order ORD-6156 for ₹176.",
+      "time": "Just now",
+      "read": false,
+      "page": "orders"
+    },
+    {
+      "id": "NTF-0234",
+      "type": "order",
+      "title": "New Dine-In Order Received",
+      "message": "Table 7 placed order ORD-5552 for ₹198.",
+      "time": "Just now",
+      "read": false,
+      "page": "orders"
+    },
+    {
+      "id": "NTF-0218",
+      "type": "order",
+      "title": "New Dine-In Order Received",
+      "message": "Table 7 placed order ORD-5839 for ₹198.",
+      "time": "Just now",
+      "read": false,
+      "page": "orders"
+    },
+    {
+      "id": "NTF-0132",
+      "type": "order",
+      "title": "New Dine-In Order Received",
+      "message": "Table 7 placed order ORD-5976 for ₹550.",
+      "time": "Just now",
+      "read": false,
+      "page": "orders"
+    },
+    {
+      "id": "NTF-0070",
+      "type": "booking",
+      "title": "Reservation Cancelled",
+      "message": "Booking RES-3151 for Rahul was cancelled.",
+      "time": "Just now",
+      "read": false,
+      "page": "bookings"
+    },
+    {
+      "id": "NTF-0042",
+      "type": "booking",
+      "title": "New Table Reservation",
+      "message": "Rahul booked Table 7 for 4 guests on Tomorrow at 7:30 PM.",
+      "time": "Just now",
+      "read": false,
+      "page": "bookings"
+    },
+    {
+      "id": "NTF-9857",
+      "type": "order",
+      "title": "New Dine-In Order Received",
+      "message": "Table 7 placed order ORD-5590 for ₹352.",
+      "time": "Just now",
+      "read": false,
+      "page": "orders"
+    },
+    {
+      "id": "NTF-8789",
+      "type": "order",
+      "title": "New Dine-In Order Received",
+      "message": "Table 7 placed order ORD-5832 for ₹176.",
+      "time": "Just now",
+      "read": false,
+      "page": "orders"
+    },
+    {
+      "id": "NTF-8776",
+      "type": "order",
+      "title": "New Dine-In Order Received",
+      "message": "Table 7 placed order ORD-6136 for ₹198.",
+      "time": "Just now",
+      "read": false,
+      "page": "orders"
+    },
+    {
+      "id": "NTF-8754",
+      "type": "order",
+      "title": "New Dine-In Order Received",
+      "message": "Table 7 placed order ORD-5698 for ₹198.",
+      "time": "Just now",
+      "read": false,
+      "page": "orders"
+    },
+    {
+      "id": "NTF-8674",
+      "type": "order",
+      "title": "New Dine-In Order Received",
+      "message": "Table 7 placed order ORD-5805 for ₹550.",
+      "time": "Just now",
+      "read": false,
+      "page": "orders"
+    },
+    {
+      "id": "NTF-8620",
+      "type": "booking",
+      "title": "Reservation Cancelled",
+      "message": "Booking RES-2639 for Rahul was cancelled.",
+      "time": "Just now",
+      "read": false,
+      "page": "bookings"
+    },
+    {
+      "id": "NTF-8585",
+      "type": "booking",
+      "title": "New Table Reservation",
+      "message": "Rahul booked Table 4 for 4 guests on Tomorrow at 7:30 PM.",
+      "time": "Just now",
+      "read": false,
+      "page": "bookings"
+    },
+    {
+      "id": "NTF-8406",
+      "type": "order",
+      "title": "New Dine-In Order Received",
+      "message": "Table 7 placed order ORD-5574 for ₹352.",
+      "time": "Just now",
+      "read": false,
+      "page": "orders"
+    },
+    {
+      "id": "NTF-0974",
+      "type": "booking",
+      "title": "Reservation Cancelled",
+      "message": "Booking RES-2496 for Rahul was cancelled.",
+      "time": "Just now",
+      "read": false,
+      "page": "bookings"
+    },
+    {
+      "id": "NTF-0937",
+      "type": "booking",
+      "title": "New Table Reservation",
+      "message": "Rahul booked Table 4 for 4 guests on Tomorrow at 7:30 PM.",
+      "time": "Just now",
+      "read": false,
+      "page": "bookings"
+    },
+    {
+      "id": "NTF-0755",
+      "type": "order",
+      "title": "New Dine-In Order Received",
+      "message": "Table 7 placed order ORD-5888 for ₹352.",
+      "time": "Just now",
+      "read": false,
+      "page": "orders"
+    },
+    {
+      "id": "NTF-01",
+      "type": "order",
+      "title": "New Dine-In Order Placed",
+      "message": "Table 7 placed order ORD-5514 for ₹930.",
+      "time": "12 mins ago",
+      "read": false,
+      "page": "orders"
+    },
+    {
+      "id": "NTF-02",
+      "type": "booking",
+      "title": "New Reservation",
+      "message": "Rahul Verma booked Table 3 for 2 guests at 8:00 PM.",
+      "time": "25 mins ago",
+      "read": false,
+      "page": "bookings"
+    }
+  ],
+  "staff": [
+    {
+      "id": "stf-1",
+      "name": "Aditya Singhal",
+      "email": "owner@brewandco.com",
+      "phone": "+91 98765 11001",
+      "role": "Owner",
+      "status": "Active",
+      "shift": "All Day"
+    },
+    {
+      "id": "stf-2",
+      "name": "Rajesh Kumar",
+      "email": "manager@brewandco.com",
+      "phone": "+91 98123 22002",
+      "role": "Manager",
+      "status": "Active",
+      "shift": "Morning (08:00 - 16:30)"
+    }
+  ],
+  "qrCodes": [
+    {
+      "id": "QR-01",
+      "table": "Table 1",
+      "zone": "Main Dining",
+      "status": "Active",
+      "scansToday": 18,
+      "ordersToday": 12,
+      "revenueToday": 4620,
+      "url": "http://localhost:5174/#/table/1"
+    },
+    {
+      "id": "QR-07",
+      "table": "Table 7",
+      "zone": "Patio & Garden",
+      "status": "Active",
+      "scansToday": 31,
+      "ordersToday": 22,
+      "revenueToday": 9450,
+      "url": "http://localhost:5174/#/table/7"
+    }
+  ],
+  "whatsapp": {
+    "connection": {
+      "status": "Connected",
+      "number": "+91 98765 00000",
+      "webhook": "http://localhost:8002/webhooks/cafe",
+      "quality": "High (Green)",
+      "dailyLimit": "10,000 conversations"
+    },
+    "stats": {
+      "sentToday": 166,
+      "delivered": 146,
+      "read": 132,
+      "inboundResolved": 63
+    },
+    "chatLogs": [
+      {
+        "id": "chat_1790619674475",
+        "phone": "+91 99887 76655",
+        "name": "Vikram Malhotra",
+        "time": "Just now",
+        "intent": "BOOKING",
+        "msgs": [
+          {
+            "dir": "out",
+            "text": "Your booking at Brew & Co is confirmed for 2026-09-29 at 20:00 (4 guests). Booking ID: BKG-EB7A45. ☕",
+            "time": "Just now"
+          }
+        ]
+      },
+      {
+        "id": "chat_1790619290589",
+        "phone": "+91 91111 22222",
+        "name": "No WhatsApp Guest",
+        "time": "Just now",
+        "intent": "BOOKING",
+        "msgs": [
+          {
+            "dir": "out",
+            "text": "Your booking at Brew & Co is confirmed for Tomorrow at 6:00 PM (2 guests). Booking ID: RES-2434. ☕",
+            "time": "Just now"
+          }
+        ]
+      },
+      {
+        "id": "chat_1790619290307",
+        "phone": "+91 98765 33333",
+        "name": "Priya Sharma",
+        "time": "Just now",
+        "intent": "BOOKING",
+        "msgs": [
+          {
+            "dir": "out",
+            "text": "Your booking at Brew & Co is confirmed for Tonight at 8:30 PM (2 guests). Booking ID: RES-2539. ☕",
+            "time": "Just now"
+          },
+          {
+            "dir": "out",
+            "text": "Your booking RES-2539 at Brew & Co has been cancelled. We look forward to hosting you another time.",
+            "time": "Just now"
+          },
+          {
+            "dir": "out",
+            "text": "Your booking at Brew & Co is confirmed for Tonight at 8:30 PM (2 guests). Booking ID: RES-3127. ☕",
+            "time": "Just now"
+          },
+          {
+            "dir": "out",
+            "text": "Your booking RES-3127 at Brew & Co has been cancelled. We look forward to hosting you another time.",
+            "time": "Just now"
+          },
+          {
+            "dir": "out",
+            "text": "Your booking at Brew & Co is confirmed for Tonight at 8:30 PM (2 guests). Booking ID: RES-2483. ☕",
+            "time": "Just now"
+          },
+          {
+            "dir": "out",
+            "text": "Your booking RES-2483 at Brew & Co has been cancelled. We look forward to hosting you another time.",
+            "time": "Just now"
+          }
+        ]
+      },
+      {
+        "id": "chat_1790618600941",
+        "phone": "+91 98765 11111",
+        "name": "Rahul",
+        "time": "Just now",
+        "intent": "BOOKING",
+        "msgs": [
+          {
+            "dir": "out",
+            "text": "Your booking at Brew & Co is confirmed for Tomorrow at 7:30 PM (4 guests). Booking ID: RES-2496. ☕",
+            "time": "Just now"
+          },
+          {
+            "dir": "out",
+            "text": "Your booking RES-2496 at Brew & Co has been cancelled. We look forward to hosting you another time.",
+            "time": "Just now"
+          },
+          {
+            "dir": "out",
+            "text": "Your booking at Brew & Co is confirmed for Tomorrow at 7:30 PM (4 guests). Booking ID: RES-2639. ☕",
+            "time": "Just now"
+          },
+          {
+            "dir": "out",
+            "text": "Your booking RES-2639 at Brew & Co has been cancelled. We look forward to hosting you another time.",
+            "time": "Just now"
+          },
+          {
+            "dir": "out",
+            "text": "Your booking at Brew & Co is confirmed for Tomorrow at 7:30 PM (4 guests). Booking ID: RES-3151. ☕",
+            "time": "Just now"
+          },
+          {
+            "dir": "out",
+            "text": "Your booking RES-3151 at Brew & Co has been cancelled. We look forward to hosting you another time.",
+            "time": "Just now"
+          },
+          {
+            "dir": "out",
+            "text": "Your booking at Brew & Co is confirmed for Tomorrow at 7:30 PM (4 guests). Booking ID: RES-3096. ☕",
+            "time": "Just now"
+          },
+          {
+            "dir": "out",
+            "text": "Your booking RES-3096 at Brew & Co has been cancelled. We look forward to hosting you another time.",
+            "time": "Just now"
+          },
+          {
+            "dir": "out",
+            "text": "Your booking at Brew & Co is confirmed for Tomorrow at 7:30 PM (4 guests). Booking ID: RES-3212. ☕",
+            "time": "Just now"
+          },
+          {
+            "dir": "out",
+            "text": "Your booking RES-3212 at Brew & Co has been cancelled. We look forward to hosting you another time.",
+            "time": "Just now"
+          }
+        ]
+      },
+      {
+        "id": "msg-1",
+        "phone": "+91 98765 43210",
+        "name": "Priya Sharma",
+        "time": "2:38 PM",
+        "intent": "BOOKING",
+        "msgs": [
+          {
+            "dir": "in",
+            "text": "Hi, I want to book a table for 4 people today evening"
+          },
+          {
+            "dir": "out",
+            "text": "Table for 4 confirmed at 7:00 PM. Booking ID: RES-2407. ☕"
+          }
+        ]
+      }
+    ]
+  },
+  "aiCalls": {
+    "agent": {
+      "name": "Aadhya — Voice Concierge",
+      "status": "Active",
+      "phone": "+91 80 4000 1234",
+      "provider": "Sarvam AI + Telephony Bridge",
+      "voice": "Aadhya (Warm Indian English / Hindi Female)",
+      "greeting": "Namaste! Welcome to Brew & Co. How may I help you today?",
+      "operatingHours": "08:00 AM - 11:30 PM",
+      "languageMode": "Bilingual (Hinglish + English)"
+    },
+    "stats": {
+      "totalCallsToday": 42,
+      "bookingConversions": 68,
+      "avgCallDuration": "1m 34s"
+    },
+    "calls": [
+      {
+        "id": "CALL-108",
+        "caller": "Rohit Khanna",
+        "phone": "+91 98234 56789",
+        "time": "2:15 PM Today",
+        "duration": "1m 45s",
+        "intent": "Table Booking",
+        "result": "Booking Confirmed (4 guests, 8:00 PM)",
+        "status": "Successful",
+        "transcript": "Caller: Hi, I want to book a table for 4 tonight around 8 PM.\nAI: Certainly! Table for 4 reserved."
+      }
+    ]
+  }
+}

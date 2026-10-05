@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Table & QR Code Management | Cafe Aroma</title>
+  <meta name="description" content="Permanent QR-Code Generation, Table Sticker Printing, and Dine-In Session Architecture">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="/static/css/admin.css">
+</head>
+<body class="admin-body">
+  <div class="admin-wrapper">
+    
+    <!-- Top Header -->
+    <header class="admin-header">
+      <div class="admin-header-left">
+        <div class="admin-logo">🏷️</div>
+        <div>
+          <h1 class="admin-title">Table & QR Code Management</h1>
+          <span class="admin-subtitle">Permanent QR Sticker Architecture • Cafe Aroma</span>
+        </div>
+      </div>
+      <div class="admin-header-right">
+        <a href="/kitchen" class="btn-nav">Kitchen Display ↗</a>
+        <a href="/table/table_1" target="_blank" class="btn-nav primary">Open Customer Menu (Table 1) ↗</a>
+      </div>
+    </header>
+
+    <!-- Architecture Callout Banner -->
+    <div class="architecture-banner">
+      <div class="arch-icon">💡</div>
+      <div class="arch-text">
+        <strong>Permanent QR Architecture:</strong> Each table has a fixed, permanent URL (e.g. <code>/table/table_7</code>). The QR sticker never changes even if menu items, categories, descriptions, or prices are modified. The backend serves the real-time menu dynamically upon scan.
+      </div>
+    </div>
+
+    <!-- Navigation Tabs -->
+    <div class="admin-nav-bar">
+      <div class="tab-buttons">
+        <button id="btnTabTables" class="admin-tab active" data-tab="tables">Tables & Permanent QRs (<span id="totalTablesCount">20</span>)</button>
+        <button id="btnTabSessions" class="admin-tab" data-tab="sessions">Active Dine-In Table Sessions & Aggregation</button>
+      </div>
+      <div class="table-search-box">
+        <input type="text" id="tableSearchInput" placeholder="Filter tables by number or status...">
+      </div>
+    </div>
+
+    <!-- TAB 1: TABLES GRID & QR STICKERS -->
+    <section id="tabContentTables" class="admin-section active">
+      <div id="tablesGrid" class="tables-grid">
+        <!-- Injected via JS -->
+      </div>
+    </section>
+
+    <!-- TAB 2: ACTIVE SESSIONS & ORDER AGGREGATION -->
+    <section id="tabContentSessions" class="admin-section" style="display: none;">
+      <div class="aggregation-explainer-card">
+        <h3>👥 Multi-Customer Table Session Aggregation</h3>
+        <p>Multiple customers seated at the same physical table scan the same permanent QR code. Each customer orders and pays independently for their selected dishes. The system aggregates all confirmed orders into the unified Table Dine-In Session total while preserving each individual customer's identity and receipt.</p>
+      </div>
+      <div id="sessionsContainer" class="sessions-container">
+        <!-- Injected via JS -->
+      </div>
+    </section>
+
+  </div>
+
+  <!-- QR Sticker Preview & Print Modal -->
+  <div id="qrModal" class="admin-modal-backdrop" style="display: none;">
+    <div class="admin-modal-content">
+      <div class="admin-modal-header">
+        <h3 id="modalTableTitle">Table Sticker Preview</h3>
+        <button id="closeQrModalBtn" class="admin-modal-close">✕</button>
+      </div>
+      
+      <div class="admin-modal-body">
+        <!-- PHYSICAL STICKER PRINT CANVAS -->
+        <div id="printableStickerCard" class="printable-sticker">
+          <div class="sticker-border-wrap">
+            <div class="sticker-cafe-header">
+              <span class="sticker-logo">☕</span>
+              <span class="sticker-cafe-name">CAFE AROMA</span>
+            </div>
+            
+            <div class="sticker-table-number" id="stickerTableNumber">TABLE 7</div>
+            
+            <div class="sticker-qr-box">
+              <img id="stickerQrImage" src="" alt="Permanent Table QR Code">
+            </div>
+
+            <div class="sticker-instruction">
+              <span class="scan-icon">📱</span>
+              <strong>Scan to view menu & order</strong>
+              <small>No app or registration required</small>
+            </div>
+
+            <div class="sticker-footer-url" id="stickerFooterUrl">
+              cafe-aroma.com/table/table_7
+            </div>
+          </div>
+        </div>
+
+        <!-- Action Controls -->
+        <div class="sticker-actions">
+          <button id="btnPrintSticker" class="btn-action btn-print">
+            <span>🖨️ Print Sticker</span>
+          </button>
+          <a id="btnDownloadQr" class="btn-action btn-download" download="cafe_aroma_table_qr.png">
+            <span>⬇️ Download PNG</span>
+          </a>
+          <button id="btnRegenerateQr" class="btn-action btn-danger-outline">
+            <span>🔄 Regenerate QR</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast -->
+  <div id="adminToast" class="admin-toast"></div>
+
+  <!-- Admin JS -->
+  <script src="/static/js/admin.js"></script>
+</body>
+</html>

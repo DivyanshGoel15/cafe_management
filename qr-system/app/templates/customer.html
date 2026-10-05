@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Cafe Aroma | Dine-In Mobile Ordering</title>
+  <meta name="description" content="Scan, order, and pay right from your cafe table at Cafe Aroma. Fresh artisanal bites, espresso brews, and seamless dine-in experience.">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- CSS Stylesheet -->
+  <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+  <!-- App Container -->
+  <div id="app" class="mobile-container">
+    
+    <!-- Top Sticky Header -->
+    <header class="top-nav">
+      <div class="nav-left">
+        <div class="cafe-logo-badge">☕</div>
+        <div class="cafe-info">
+          <h1 class="cafe-title">Cafe Aroma</h1>
+          <span class="cafe-tagline">Artisanal Brews & Fresh Bites</span>
+        </div>
+      </div>
+      <div class="nav-right">
+        <div class="table-pill" id="tablePill">
+          <span class="pulse-dot"></span>
+          <span id="tableNumberLabel">Table ...</span>
+        </div>
+        <button id="cartBtn" class="cart-trigger-btn" aria-label="View Cart">
+          <span class="cart-icon">🛒</span>
+          <span id="cartCountBadge" class="cart-badge">0</span>
+        </button>
+      </div>
+    </header>
+
+    <!-- Table Session & Customer Bar -->
+    <section class="session-bar" id="sessionBar">
+      <div class="session-info">
+        <span class="session-tag" id="sessionTag">Session: Initializing...</span>
+        <span class="customer-tag" id="customerTag">👤 Guest</span>
+      </div>
+      <div class="quick-service-actions">
+        <button id="btnCallWaiter" class="service-chip" title="Call Waiter">🔔 Waiter</button>
+        <button id="btnRequestWater" class="service-chip" title="Request Water">💧 Water</button>
+        <button id="btnRequestBill" class="service-chip" title="Request Bill">🧾 Bill</button>
+      </div>
+    </section>
+
+    <!-- Search & Filter Bar -->
+    <div class="search-filter-section">
+      <div class="search-box">
+        <span class="search-icon">🔍</span>
+        <input type="text" id="searchInput" placeholder="Search delicious dishes, coffees..." autocomplete="off">
+        <button id="clearSearchBtn" class="clear-btn" style="display:none;">✕</button>
+      </div>
+      <div class="dietary-filter">
+        <label class="toggle-switch">
+          <input type="checkbox" id="vegOnlyToggle">
+          <span class="slider round"></span>
+        </label>
+        <span class="filter-label">Veg Only</span>
+      </div>
+    </div>
+
+    <!-- Category Pills Navigation -->
+    <nav class="category-nav" id="categoryNav">
+      <!-- Injected via JS -->
+    </nav>
+
+    <!-- Main Menu List Area -->
+    <main class="menu-content" id="menuContent">
+      <div class="loading-state" id="menuLoading">
+        <div class="spinner"></div>
+        <p>Brewing your menu...</p>
+      </div>
+    </main>
+
+    <!-- Floating Cart Bar (Appears when cart has items) -->
+    <aside id="floatingCartBar" class="floating-cart-bar" style="display: none;">
+      <div class="floating-cart-details">
+        <span class="floating-items-count" id="floatingCartCount">0 items</span>
+        <span class="floating-cart-total" id="floatingCartTotal">₹0.00</span>
+      </div>
+      <button id="viewCartFloatingBtn" class="floating-cart-btn">
+        <span>View Order</span>
+        <span class="arrow-right">→</span>
+      </button>
+    </aside>
+
+    <!-- Order Tracking Floating Bar (If active order exists) -->
+    <div id="activeOrderNotice" class="active-order-notice" style="display: none;">
+      <div class="active-order-text">
+        <span class="status-indicator-ping"></span>
+        <span id="activeOrderText">Active Order #...</span>
+      </div>
+      <button id="btnTrackOrder" class="btn-track-order">Track Status →</button>
+    </div>
+
+  </div> <!-- /#app -->
+
+  <!-- ==================== MODALS & DRAWERS ==================== -->
+
+  <!-- Item Customization Bottom Sheet Modal -->
+  <div id="customizeModal" class="modal-backdrop" style="display: none;">
+    <div class="modal-sheet">
+      <div class="modal-header">
+        <div class="modal-title-wrap">
+          <h3 id="customItemName">Dish Customization</h3>
+          <span id="customItemBasePrice" class="custom-base-price">₹0</span>
+        </div>
+        <button id="closeCustomizeBtn" class="modal-close-btn">✕</button>
+      </div>
+      <div class="modal-body">
+        <p id="customItemDesc" class="custom-desc"></p>
+        
+        <div class="addon-section" id="addonSection">
+          <h4>Customize with Add-ons</h4>
+          <div id="addonList" class="addon-options">
+            <!-- Injected via JS -->
+          </div>
+        </div>
+
+        <div class="custom-notes-section">
+          <h4>Special Cooking Instructions</h4>
+          <input type="text" id="itemCustomNotes" placeholder="e.g. Less spicy, dressing on side..." maxlength="120">
+        </div>
+      </div>
+      <div class="modal-footer">
+        <div class="qty-stepper">
+          <button id="customQtyMinus" class="qty-btn" type="button">−</button>
+          <span id="customQtyVal" class="qty-val">1</span>
+          <button id="customQtyPlus" class="qty-btn" type="button">+</button>
+        </div>
+        <button id="addCustomizedToCartBtn" class="btn-primary flex-1">
+          <span>Add to Cart</span>
+          <span id="customFinalTotal">₹0.00</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Cart Bottom Sheet / Drawer -->
+  <div id="cartModal" class="modal-backdrop" style="display: none;">
+    <div class="modal-sheet cart-sheet">
+      <div class="modal-header">
+        <div class="modal-title-wrap">
+          <h3>Your Dine-In Cart</h3>
+          <span class="cart-table-info" id="cartTableInfo">Table ...</span>
+        </div>
+        <button id="closeCartBtn" class="modal-close-btn">✕</button>
+      </div>
+      
+      <div class="modal-body cart-modal-body">
+        <div id="cartItemsList" class="cart-items-container">
+          <!-- Injected via JS -->
+        </div>
+
+        <!-- Optional Customer Info -->
+        <div class="customer-info-section">
+          <div class="collapsible-header" id="guestDetailsToggle">
+            <span>👤 Guest Details (Optional)</span>
+            <span class="toggle-icon">+</span>
+          </div>
+          <div class="guest-fields" id="guestFields" style="display: none;">
+            <input type="text" id="guestNameInput" placeholder="Your name (e.g. Alex)">
+            <input type="tel" id="guestPhoneInput" placeholder="Phone number (optional)">
+          </div>
+        </div>
+
+        <!-- Order Notes -->
+        <div class="cart-order-notes">
+          <input type="text" id="cartKitchenNotes" placeholder="General instructions for kitchen...">
+        </div>
+
+        <!-- Bill Breakdown -->
+        <div class="bill-summary-card">
+          <div class="summary-row">
+            <span>Item Subtotal</span>
+            <span id="summarySubtotal">₹0.00</span>
+          </div>
+          <div class="summary-row">
+            <span>Taxes & GST (5%)</span>
+            <span id="summaryTaxes">₹0.00</span>
+          </div>
+          <div class="summary-row" id="serviceChargeRow" style="display: none;">
+            <span>Service Charge</span>
+            <span id="summaryService">₹0.00</span>
+          </div>
+          <div class="summary-row total-row">
+            <span>To Pay</span>
+            <span id="summaryFinalTotal">₹0.00</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <button id="btnProceedToPay" class="btn-primary btn-full">
+          <span>Proceed to Payment</span>
+          <span id="btnPayAmount">₹0.00</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Simulated Payment Modal -->
+  <div id="paymentModal" class="modal-backdrop" style="display: none;">
+    <div class="modal-sheet payment-sheet">
+      <div class="modal-header">
+        <div class="modal-title-wrap">
+          <h3>Simulated Payment Gateway</h3>
+          <span class="security-badge">🔒 Sandboxed Mock Gateway</span>
+        </div>
+        <button id="closePaymentBtn" class="modal-close-btn">✕</button>
+      </div>
+      <div class="modal-body payment-body">
+        <div class="payment-amount-box">
+          <span class="pay-label">Amount Payable for Table</span>
+          <span id="simPayAmount" class="pay-amount">₹0.00</span>
+          <span class="server-verified-tag">✓ Server-Side Price Verified</span>
+        </div>
+
+        <p class="sim-note">
+          This system is operating in simulated mode for development and local testing. Choose how you would like to simulate the payment outcome:
+        </p>
+
+        <div class="simulation-actions">
+          <button id="btnSimulateSuccess" class="sim-btn sim-btn-success">
+            <span class="sim-btn-icon">✓</span>
+            <div class="sim-btn-text">
+              <strong>Simulate Successful Payment</strong>
+              <small>Dispatches confirmed order to kitchen display</small>
+            </div>
+          </button>
+
+          <button id="btnSimulateFailure" class="sim-btn sim-btn-fail">
+            <span class="sim-btn-icon">✕</span>
+            <div class="sim-btn-text">
+              <strong>Simulate Failed Payment</strong>
+              <small>Order is rejected and NOT sent to kitchen</small>
+            </div>
+          </button>
+
+          <button id="btnSimulatePending" class="sim-btn sim-btn-pending">
+            <span class="sim-btn-icon">⏳</span>
+            <div class="sim-btn-text">
+              <strong>Simulate Pending Payment</strong>
+              <small>Simulates processing state</small>
+            </div>
+          </button>
+        </div>
+
+        <div id="paymentStatusAlert" class="payment-status-alert" style="display: none;"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Live Order Tracking Modal -->
+  <div id="trackingModal" class="modal-backdrop" style="display: none;">
+    <div class="modal-sheet tracking-sheet">
+      <div class="modal-header">
+        <div class="modal-title-wrap">
+          <h3 id="trackOrderTitle">Order Status</h3>
+          <span id="trackOrderNumber" class="order-badge-pill">#ORD-...</span>
+        </div>
+        <button id="closeTrackingBtn" class="modal-close-btn">✕</button>
+      </div>
+      <div class="modal-body tracking-body">
+        
+        <!-- Live Status Stepper -->
+        <div class="status-tracker-card">
+          <div class="status-header">
+            <h4 id="currentStatusText">Order Received</h4>
+            <span class="live-pill"><span class="ping-circle"></span> Live Updates</span>
+          </div>
+
+          <div class="stepper-track">
+            <div class="step-node" id="stepReceived">
+              <div class="node-circle">1</div>
+              <span class="node-label">Received</span>
+            </div>
+            <div class="step-line" id="line1"></div>
+            <div class="step-node" id="stepConfirmed">
+              <div class="node-circle">2</div>
+              <span class="node-label">Confirmed</span>
+            </div>
+            <div class="step-line" id="line2"></div>
+            <div class="step-node" id="stepPreparing">
+              <div class="node-circle">3</div>
+              <span class="node-label">Preparing</span>
+            </div>
+            <div class="step-line" id="line3"></div>
+            <div class="step-node" id="stepReady">
+              <div class="node-circle">4</div>
+              <span class="node-label">Ready</span>
+            </div>
+            <div class="step-line" id="line4"></div>
+            <div class="step-node" id="stepServed">
+              <div class="node-circle">5</div>
+              <span class="node-label">Served</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Ordered Items Summary -->
+        <div class="order-details-card">
+          <h4>Items Ordered</h4>
+          <div id="trackItemsList" class="track-items-list">
+            <!-- Injected via JS -->
+          </div>
+          <div class="order-total-summary">
+            <span>Total Paid (incl. taxes)</span>
+            <strong id="trackOrderTotal">₹0.00</strong>
+          </div>
+        </div>
+
+      </div>
+      <div class="modal-footer">
+        <button id="btnOrderMore" class="btn-secondary btn-full">
+          <span>+ Order More Items for Table</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Waiter / Assistance Call Modal -->
+  <div id="assistanceModal" class="modal-backdrop" style="display: none;">
+    <div class="modal-sheet assistance-sheet">
+      <div class="modal-header">
+        <h3>Request Assistance</h3>
+        <button id="closeAssistanceBtn" class="modal-close-btn">✕</button>
+      </div>
+      <div class="modal-body">
+        <p class="service-modal-desc">Need assistance at your table? Tap an option below and our cafe team will be right with you.</p>
+        <div class="assistance-grid">
+          <button class="assist-option-btn" data-type="Call Waiter">
+            <span class="assist-icon">🔔</span>
+            <strong>Call Waiter</strong>
+            <small>Request server attendance</small>
+          </button>
+          <button class="assist-option-btn" data-type="Request Water">
+            <span class="assist-icon">💧</span>
+            <strong>Water Refill</strong>
+            <small>Bring chilled water</small>
+          </button>
+          <button class="assist-option-btn" data-type="Request Assistance">
+            <span class="assist-icon">🙋</span>
+            <strong>General Help</strong>
+            <small>Cutlery, napkins, or query</small>
+          </button>
+          <button class="assist-option-btn" data-type="Request Bill">
+            <span class="assist-icon">🧾</span>
+            <strong>Request Bill</strong>
+            <small>Ask staff for final bill</small>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification Container -->
+  <div id="toastContainer" class="toast-container"></div>
+
+  <!-- Customer Javascript -->
+  <script src="/static/js/customer.js"></script>
+</body>
+</html>
