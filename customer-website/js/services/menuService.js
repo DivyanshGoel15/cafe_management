@@ -6,7 +6,7 @@
 import { MENU_CATEGORIES, MENU_ITEMS } from '../data/cafeData.js';
 import { delay } from './cafeService.js';
 
-const API_BASE = 'http://localhost:4000/api';
+const API_BASE = (typeof window !== 'undefined' && window.location.origin) ? `${window.location.origin}/api` : 'http://localhost:4000/api';
 let cachedItems = null;
 let lastFetchTime = 0;
 
@@ -164,5 +164,31 @@ export const menuService = {
     const clean = String(itemId).toLowerCase();
     const found = items.find(i => String(i.id).toLowerCase() === clean || (i.name && i.name.toLowerCase() === clean));
     return found ? { ...found } : null;
+  },
+
+  /**
+   * Get featured / bestseller items for homepage
+   */
+  async getFeaturedItems(limit = 4) {
+    const items = await fetchCentralMenuItems();
+    const featured = items.filter(i => (i.tags || []).includes('Bestseller') || !!i.isPopular);
+    if (featured.length >= limit) {
+      return featured.slice(0, limit);
+    }
+    const sorted = [...items].sort((a, b) => (b.rating || 0) - (a.rating || 0));
+    return sorted.slice(0, limit);
+  },
+
+  /**
+   * Get chef signature dishes for homepage spotlight
+   */
+  async getSignatureDishes(limit = 3) {
+    const items = await fetchCentralMenuItems();
+    const signature = items.filter(i => (i.tags || []).includes('Signature') || (i.tags || []).includes('Chef Special') || !!i.isSignature);
+    if (signature.length >= limit) {
+      return signature.slice(0, limit);
+    }
+    const sorted = [...items].sort((a, b) => b.price - a.price);
+    return sorted.slice(0, limit);
   }
 };
