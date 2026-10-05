@@ -216,8 +216,9 @@ class BookingService:
                 "channel": "AI Voice Calling",
                 "status": "Confirmed"
             }
+            hub_url = os.getenv("HUB_URL", "http://localhost:4000").rstrip("/")
             req_hub = urllib.request.Request(
-                "http://localhost:4000/api/bookings",
+                f"{hub_url}/api/bookings",
                 data=json.dumps(hub_payload).encode("utf-8"),
                 headers={"Content-Type": "application/json", "User-Agent": "AI-Calling"}
             )
@@ -225,6 +226,31 @@ class BookingService:
                 pass
         except Exception:
             pass
+
+        # Forward booking to WhatsApp Automation via bound service URL
+        wa_url = os.getenv("WHATSAPP_AUTOMATION_URL")
+        if wa_url:
+            try:
+                import urllib.request, json
+                wa_payload = {
+                    "bookingId": saved.id,
+                    "customerPhone": saved.customer_phone,
+                    "customerName": saved.customer_name,
+                    "bookingDate": saved.booking_date,
+                    "bookingTime": saved.booking_time,
+                    "guestsCount": saved.guests_count,
+                    "tableNumber": tnum,
+                    "specialRequests": saved.special_requests or ""
+                }
+                req_wa = urllib.request.Request(
+                    f"{wa_url.rstrip('/')}/webhooks/cafe/booking-created",
+                    data=json.dumps(wa_payload).encode("utf-8"),
+                    headers={"Content-Type": "application/json", "User-Agent": "AI-Calling"}
+                )
+                with urllib.request.urlopen(req_wa, timeout=1.2):
+                    pass
+            except Exception:
+                pass
 
         return {
             "success": True,
@@ -292,8 +318,9 @@ class BookingService:
                 "tableId": booking.table_id,
                 "specialRequests": booking.special_requests
             }
+            hub_url = os.getenv("HUB_URL", "http://localhost:4000").rstrip("/")
             req_hub = urllib.request.Request(
-                f"http://localhost:4000/api/bookings/{booking.id}",
+                f"{hub_url}/api/bookings/{booking.id}",
                 data=json.dumps(hub_payload).encode("utf-8"),
                 headers={"Content-Type": "application/json", "User-Agent": "AI-Calling"},
                 method="PUT"
@@ -302,6 +329,30 @@ class BookingService:
                 pass
         except Exception:
             pass
+
+        # Forward update to WhatsApp Automation via bound service URL
+        wa_url = os.getenv("WHATSAPP_AUTOMATION_URL")
+        if wa_url:
+            try:
+                import urllib.request, json
+                wa_payload = {
+                    "bookingId": booking.id,
+                    "customerPhone": booking.customer_phone,
+                    "customerName": booking.customer_name,
+                    "bookingDate": booking.booking_date,
+                    "bookingTime": booking.booking_time,
+                    "guestsCount": booking.guests_count,
+                    "specialRequests": booking.special_requests or ""
+                }
+                req_wa = urllib.request.Request(
+                    f"{wa_url.rstrip('/')}/webhooks/cafe/booking-updated",
+                    data=json.dumps(wa_payload).encode("utf-8"),
+                    headers={"Content-Type": "application/json", "User-Agent": "AI-Calling"}
+                )
+                with urllib.request.urlopen(req_wa, timeout=1.2):
+                    pass
+            except Exception:
+                pass
 
         return {
             "success": True,
@@ -333,8 +384,9 @@ class BookingService:
         # Sync cancel with Central Hub API
         try:
             import urllib.request, json
+            hub_url = os.getenv("HUB_URL", "http://localhost:4000").rstrip("/")
             req_hub = urllib.request.Request(
-                f"http://localhost:4000/api/bookings/{booking_id}/cancel",
+                f"{hub_url}/api/bookings/{booking_id}/cancel",
                 data=json.dumps({"reason": booking.cancellation_reason}).encode("utf-8"),
                 headers={"Content-Type": "application/json", "User-Agent": "AI-Calling"}
             )
@@ -342,6 +394,25 @@ class BookingService:
                 pass
         except Exception:
             pass
+
+        # Forward cancel to WhatsApp Automation via bound service URL
+        wa_url = os.getenv("WHATSAPP_AUTOMATION_URL")
+        if wa_url:
+            try:
+                import urllib.request, json
+                wa_payload = {
+                    "bookingId": booking_id,
+                    "reason": booking.cancellation_reason
+                }
+                req_wa = urllib.request.Request(
+                    f"{wa_url.rstrip('/')}/webhooks/cafe/booking-cancelled",
+                    data=json.dumps(wa_payload).encode("utf-8"),
+                    headers={"Content-Type": "application/json", "User-Agent": "AI-Calling"}
+                )
+                with urllib.request.urlopen(req_wa, timeout=1.2):
+                    pass
+            except Exception:
+                pass
 
         return {
             "success": True,

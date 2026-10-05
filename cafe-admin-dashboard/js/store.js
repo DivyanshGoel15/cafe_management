@@ -868,8 +868,9 @@ class Store {
   }
 
   async syncApi(endpoint, options = {}) {
+    const apiBase = (typeof window !== 'undefined' && window.location.origin) ? `${window.location.origin}/api` : 'http://localhost:4000/api';
     try {
-      const res = await fetch(`http://localhost:4000/api${endpoint}`, {
+      const res = await fetch(`${apiBase}${endpoint}`, {
         method: options.method || 'GET',
         headers: { 'Content-Type': 'application/json' },
         body: options.body ? JSON.stringify(options.body) : undefined
@@ -881,8 +882,9 @@ class Store {
   }
 
   async initCentralSync() {
+    const apiBase = (typeof window !== 'undefined' && window.location.origin) ? `${window.location.origin}/api` : 'http://localhost:4000/api';
     try {
-      const res = await fetch('http://localhost:4000/api/state', { cache: 'no-store' });
+      const res = await fetch(`${apiBase}/state`, { cache: 'no-store' });
       if (res.ok) {
         const remote = await res.json();
         if (remote) {
@@ -909,7 +911,7 @@ class Store {
     if (!this._pollTimer && typeof window !== 'undefined') {
       this._pollTimer = setInterval(async () => {
         try {
-          const res = await fetch('http://localhost:4000/api/state', { cache: 'no-store' });
+          const res = await fetch(`${apiBase}/state`, { cache: 'no-store' });
           if (res.ok) {
             const remote = await res.json();
             if (remote) {

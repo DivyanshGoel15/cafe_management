@@ -16,8 +16,8 @@ const MODULE_ROUTE_MAP = {
   // but the hub can control whether they're accessible from the command center
 };
 
-// Hub API URL (adjust if hub runs on different port)
-const HUB_API_URL = 'http://localhost:4000/api/config';
+// Hub API URL (dynamic in production, localhost in development)
+const HUB_API_URL = (typeof window !== 'undefined' && window.location.origin) ? `${window.location.origin}/api/config` : 'http://localhost:4000/api/config';
 
 // Cache for module config (avoid hammering the API)
 let _cachedConfig = null;

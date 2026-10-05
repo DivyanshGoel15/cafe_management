@@ -36,9 +36,9 @@ class Settings(BaseModel):
     # Database
     database_url: str = Field(default_factory=lambda: os.getenv("DATABASE_URL", "sqlite:///./ai_calling.db"))
 
-    # Cafe Configuration & API Integration
+    # Cafe Configuration & API Integration (Supports Vercel Service Binding QR_SYSTEM_URL)
     cafe_id: str = Field(default_factory=lambda: os.getenv("CAFE_ID", "cafe-bella-vista"))
-    cafe_api_base_url: str = Field(default_factory=lambda: os.getenv("CAFE_API_BASE_URL", "http://localhost:5000/api"))
+    cafe_api_base_url: str = Field(default_factory=lambda: os.getenv("CAFE_API_BASE_URL") or os.getenv("QR_SYSTEM_URL") or "http://localhost:5000/api")
     use_mock_cafe_api: bool = Field(default_factory=lambda: os.getenv("USE_MOCK_CAFE_API", "true").lower() in ("true", "1", "yes"))
 
     # Twilio Telephony Settings

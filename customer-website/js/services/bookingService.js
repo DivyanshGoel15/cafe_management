@@ -7,7 +7,7 @@
 import { TABLES, CAFE_INFO } from '../data/cafeData.js';
 import { delay } from './cafeService.js';
 
-const API_BASE = 'http://localhost:4000/api';
+const API_BASE = (typeof window !== 'undefined' && window.location.origin) ? `${window.location.origin}/api` : 'http://localhost:4000/api';
 const STORAGE_KEY = 'cafe_aroma_bookings';
 
 const memoryStore = new Map();

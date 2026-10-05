@@ -152,9 +152,10 @@ class OrderService:
                 "paymentStatus": "Paid",
                 "paymentMethod": "UPI"
             }
+            hub_url = os.getenv("HUB_URL", "http://localhost:4000").rstrip("/")
             data = json.dumps(payload).encode("utf-8")
             req = urllib.request.Request(
-                "http://localhost:4000/api/orders",
+                f"{hub_url}/api/orders",
                 data=data,
                 headers={"Content-Type": "application/json", "User-Agent": "QR-System"}
             )
@@ -163,12 +164,36 @@ class OrderService:
         except Exception:
             pass
 
+        # Forward order notification to WhatsApp Automation via bound service URL
+        wa_url = os.getenv("WHATSAPP_AUTOMATION_URL")
+        if wa_url:
+            try:
+                import urllib.request, json
+                wa_payload = {
+                    "orderId": order.id,
+                    "customerPhone": customer_phone or "",
+                    "customerName": customer_name or "Table Guest",
+                    "tableNumber": order.table_id.replace("table_", ""),
+                    "status": "CONFIRMED",
+                    "total": order.total_amount
+                }
+                req = urllib.request.Request(
+                    f"{wa_url.rstrip('/')}/webhooks/cafe/order-created",
+                    data=json.dumps(wa_payload).encode("utf-8"),
+                    headers={"Content-Type": "application/json", "User-Agent": "QR-System"}
+                )
+                with urllib.request.urlopen(req, timeout=1.5):
+                    pass
+            except Exception:
+                pass
+
     def get_order(self, order_id: str) -> Optional[Order]:
         order = self.order_repo.get_order_by_id(order_id)
         if order:
             try:
                 import urllib.request, json
-                req = urllib.request.Request(f"http://localhost:4000/api/orders/{order_id}", headers={"User-Agent": "QR-System"})
+                hub_url = os.getenv("HUB_URL", "http://localhost:4000").rstrip("/")
+                req = urllib.request.Request(f"{hub_url}/api/orders/{order_id}", headers={"User-Agent": "QR-System"})
                 with urllib.request.urlopen(req, timeout=1.0) as resp:
                     if resp.status == 200:
                         remote_order = json.loads(resp.read().decode('utf-8'))
@@ -199,9 +224,10 @@ class OrderService:
     def _sync_status_to_hub(self, order_id: str, status: OrderStatus):
         try:
             import urllib.request, json
+            hub_url = os.getenv("HUB_URL", "http://localhost:4000").rstrip("/")
             data = json.dumps({"status": status.value.capitalize()}).encode("utf-8")
             req = urllib.request.Request(
-                f"http://localhost:4000/api/orders/{order_id}/status",
+                f"{hub_url}/api/orders/{order_id}/status",
                 data=data,
                 headers={"Content-Type": "application/json", "User-Agent": "QR-System"},
                 method="PUT"
@@ -210,4 +236,23 @@ class OrderService:
                 pass
         except Exception:
             pass
+
+        # Forward status update to WhatsApp Automation via bound service URL
+        wa_url = os.getenv("WHATSAPP_AUTOMATION_URL")
+        if wa_url:
+            try:
+                import urllib.request, json
+                wa_payload = {
+                    "orderId": order_id,
+                    "status": status.value.upper()
+                }
+                req = urllib.request.Request(
+                    f"{wa_url.rstrip('/')}/webhooks/cafe/order-updated",
+                    data=json.dumps(wa_payload).encode("utf-8"),
+                    headers={"Content-Type": "application/json", "User-Agent": "QR-System"}
+                )
+                with urllib.request.urlopen(req, timeout=1.5):
+                    pass
+            except Exception:
+                pass
 

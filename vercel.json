@@ -1,0 +1,104 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "services": {
+    "customer-website": {
+      "root": "customer-website",
+      "framework": "vite"
+    },
+    "cafe-admin-dashboard": {
+      "root": "cafe-admin-dashboard",
+      "framework": "vite"
+    },
+    "qr-system": {
+      "root": "qr-system",
+      "framework": "fastapi",
+      "entrypoint": "app/main.py",
+      "bindings": [
+        {
+          "type": "service",
+          "service": "whatsapp-automation",
+          "format": "url",
+          "env": "WHATSAPP_AUTOMATION_URL"
+        }
+      ]
+    },
+    "whatsapp-automation": {
+      "root": "whatsapp-automation",
+      "framework": "fastapi",
+      "entrypoint": "backend/main.py",
+      "bindings": [
+        {
+          "type": "service",
+          "service": "qr-system",
+          "format": "url",
+          "env": "QR_SYSTEM_URL"
+        }
+      ]
+    },
+    "ai-calling": {
+      "root": "ai-calling",
+      "framework": "fastapi",
+      "entrypoint": "backend/main.py",
+      "bindings": [
+        {
+          "type": "service",
+          "service": "whatsapp-automation",
+          "format": "url",
+          "env": "WHATSAPP_AUTOMATION_URL"
+        },
+        {
+          "type": "service",
+          "service": "qr-system",
+          "format": "url",
+          "env": "QR_SYSTEM_URL"
+        }
+      ]
+    }
+  },
+  "rewrites": [
+    {
+      "source": "/table/(.*)",
+      "destination": { "service": "qr-system" }
+    },
+    {
+      "source": "/kitchen(.*)",
+      "destination": { "service": "qr-system" }
+    },
+    {
+      "source": "/qr(.*)",
+      "destination": { "service": "qr-system" }
+    },
+    {
+      "source": "/api/qr/(.*)",
+      "destination": { "service": "qr-system" }
+    },
+    {
+      "source": "/webhooks/incoming",
+      "destination": { "service": "whatsapp-automation" }
+    },
+    {
+      "source": "/webhooks/whatsapp/(.*)",
+      "destination": { "service": "whatsapp-automation" }
+    },
+    {
+      "source": "/webhooks/telephony(.*)",
+      "destination": { "service": "ai-calling" }
+    },
+    {
+      "source": "/simulator(.*)",
+      "destination": { "service": "ai-calling" }
+    },
+    {
+      "source": "/admin/(.*)",
+      "destination": { "service": "cafe-admin-dashboard" }
+    },
+    {
+      "source": "/admin",
+      "destination": { "service": "cafe-admin-dashboard" }
+    },
+    {
+      "source": "/(.*)",
+      "destination": { "service": "customer-website" }
+    }
+  ]
+}

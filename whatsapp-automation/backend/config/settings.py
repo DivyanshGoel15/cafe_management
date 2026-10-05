@@ -29,8 +29,8 @@ class Settings:
     WHATSAPP_ACCESS_TOKEN: str = os.getenv("WHATSAPP_ACCESS_TOKEN", "")
     WHATSAPP_WEBHOOK_VERIFY_TOKEN: str = os.getenv("WHATSAPP_WEBHOOK_VERIFY_TOKEN", "verify_token_default")
 
-    # Cafe API Settings
-    CAFE_API_BASE_URL: str = os.getenv("CAFE_API_BASE_URL", "http://localhost:3000/api")
+    # Cafe API Settings (Supports Vercel Service Binding QR_SYSTEM_URL)
+    CAFE_API_BASE_URL: str = os.getenv("CAFE_API_BASE_URL") or os.getenv("QR_SYSTEM_URL") or "http://localhost:3000/api"
     CAFE_API_KEY: str = os.getenv("CAFE_API_KEY", "")
 
     # Safeguards & Limits
