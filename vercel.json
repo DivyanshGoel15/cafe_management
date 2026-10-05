@@ -1,18 +1,35 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "services": {
-    "customer-website": {
-      "root": "customer-website",
-      "framework": "vite"
+    "ai-calling": {
+      "root": "ai-calling",
+      "framework": "fastapi",
+      "bindings": [
+        {
+          "type": "service",
+          "service": "whatsapp-automation",
+          "format": "url",
+          "env": "WHATSAPP_AUTOMATION_URL"
+        },
+        {
+          "type": "service",
+          "service": "qr-system",
+          "format": "url",
+          "env": "QR_SYSTEM_URL"
+        }
+      ]
     },
     "cafe-admin-dashboard": {
       "root": "cafe-admin-dashboard",
       "framework": "vite"
     },
+    "customer-website": {
+      "root": "customer-website",
+      "framework": "vite"
+    },
     "qr-system": {
       "root": "qr-system",
       "framework": "fastapi",
-      "entrypoint": "app/main.py",
       "bindings": [
         {
           "type": "service",
@@ -25,27 +42,7 @@
     "whatsapp-automation": {
       "root": "whatsapp-automation",
       "framework": "fastapi",
-      "entrypoint": "backend/main.py",
       "bindings": [
-        {
-          "type": "service",
-          "service": "qr-system",
-          "format": "url",
-          "env": "QR_SYSTEM_URL"
-        }
-      ]
-    },
-    "ai-calling": {
-      "root": "ai-calling",
-      "framework": "fastapi",
-      "entrypoint": "backend/main.py",
-      "bindings": [
-        {
-          "type": "service",
-          "service": "whatsapp-automation",
-          "format": "url",
-          "env": "WHATSAPP_AUTOMATION_URL"
-        },
         {
           "type": "service",
           "service": "qr-system",
